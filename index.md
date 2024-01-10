@@ -1,6 +1,7 @@
 ---
+layout: home
 ---
 
 Hello World!
 
-[nutrition](portfolio/nutrition/about.md)
+link to nutrition [nutrition](portfolio/nutrition/about.md)
