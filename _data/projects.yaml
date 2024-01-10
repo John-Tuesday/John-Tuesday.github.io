@@ -1,7 +1,0 @@
-- name: Nutrition
-  description: Nutrition library for Kotlin multiplatform
-  repo_url: https://github.com/John-Tuesday/nutrition
-
-- name: Diet Tracker
-  description: Android app to help fetch and track nutritional data from foods (primarily via barcode)
-  repo_url: https://github.com/John-Tuesday/messy-diet

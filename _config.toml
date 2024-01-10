@@ -1,8 +1,0 @@
-title = "John Tuesday Picot"
-email = "example@example.com"
-description = "Personal website detailing me, John Tuesday"
-domain = "john-tuesday.github.io"
-url = "https://john-tuesday.github.io"
-github_username = John-Tuesday
-
-plugins = ["jekyll-feed"]
