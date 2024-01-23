@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Career, Qualifications, and Background
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://john-tuesday.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-repository: "John-Tuesday.github.io"
+repository: John-Tuesday.github.io
 
 collections:
   certs:
