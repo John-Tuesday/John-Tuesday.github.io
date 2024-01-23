@@ -51,6 +51,8 @@
       </header>
           </a>
 
+      {% include nav-bar.html %}
+
       {% if site.show_downloads %}
         <section id="downloads">
           <span class="inner">
@@ -64,9 +66,7 @@
         </div>
       {% endif %}
 
-
       <span class="banner-fix"></span>
-
 
       <section id="main_content">
         {{ content }}

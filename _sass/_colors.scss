@@ -1,0 +1,58 @@
+$-primary-container: #7c334f;
+$-primary-surface: #ece4d8;
+
+$-alt-primary-container: #cd596b;
+$-alt-primary-surface: #f1f1f1;
+
+$-unknown: blue;
+
+$color-button: #7c334f;
+
+@function get-color($is-surface: true, $is-primary: true, $is-alt: true) {
+    $is-container: not $is-surface;
+    @return $-unknown;
+
+    @if $is-alt and $is-primary and $is-surface {
+        @return $-alt-primary-surface;
+    } @else if $is-alt and $is-primary and $is-contianer {
+        @return $-alt-primary-container;
+    } @else if not $is-alt and $is-primary and $is-surface {
+        @return $-primary-surface;
+    } @else if not $is-alt and $is-primary and $is-container {
+        @return $-primary-container;
+    }
+
+    @warn "Color with properties is not defined.";
+    @return $-unknown;
+}
+
+.primary-container {
+    color: $-primary-surface;
+    background-color: $-primary-container;
+
+    padding: 4px;
+}
+
+.primary-bordered {
+    @extend .primary-container;
+
+    padding: 6px;
+
+    border-color: $-alt-primary-container;
+    border-width: 2px;
+    border-style: solid;
+}
+
+@mixin alt-primary-container {
+    & {
+        color: $-alt-primary-surface;
+        background-color: $-alt-primary-container;
+    }
+}
+
+@mixin test {
+    & {
+        color: purple;
+    }
+}
+

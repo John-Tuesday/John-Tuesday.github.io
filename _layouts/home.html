@@ -1,8 +1,12 @@
 ---
 layout: default
 ---
+<head>
+    <link rel="stylesheet" href="{{ '/assets/css/foo.css' | relative_url }}">
+</head>
 
 <div class="home">
+
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
@@ -58,4 +62,5 @@ layout: default
 
   {%- endif -%}
 
+  {% include footer.html %}
 </div>

@@ -1,0 +1,32 @@
+---
+---
+
+@import "foo";
+
+nav {
+    position: relative;
+    z-index: 2;
+}
+
+nav button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 20px;
+    cursor: pointer;
+
+    //text-align: center;
+    //text-decoration: none;
+    //outline: none;
+
+    color: #fff;
+    background-color: $test-var;
+
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+
+    a:hover {
+        text-decoration: none;
+    }
+}
+
