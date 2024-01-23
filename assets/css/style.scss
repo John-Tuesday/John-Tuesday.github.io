@@ -1,5 +1,30 @@
 ---
 ---
 
-@import "{{ site.theme }}";
-@import "img-link";
+@use "{{ site.theme }}";
+@use "img-link";
+@use "m3-color" as c;
+
+.border-base {
+    max-width: 100%;
+    box-sizing: border-box;
+    position: sticky;
+    z-index: 2;
+    background-color: c.$tertiary;
+    padding: {
+        right: 2px;
+        left: 2px;
+    }
+}
+.border-line {
+    border: {
+        left-style: solid;
+        right-style: solid;
+        width: 2px;
+        color: c.$tertiary-container;
+    }
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+

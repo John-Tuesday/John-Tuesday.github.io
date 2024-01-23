@@ -1,7 +1,19 @@
 <head>
     <link rel="stylesheet" href="{{ '/assets/css/nav-bar.css' | relative_url }}">
 </head>
-
 <nav>
-    <button type="button"><a href="/hackerrank">HackerRank</a></button>
+    <ul class="major-nav-bar">
+        {% for p in site.data.nav -%}
+        <li class="major-li"><a 
+                href="{{ p.link }}" 
+                class="{% if page.url contains p.link %}current{% else %}other{% endif %}"
+                ><h2>
+                    {{- p.name -}}
+            </h2></a></li>
+        {%- endfor %}
+    </ul>
 </nav>
+<!--
+        <li class="major-li"><a href="/hackerrank">HackerRank</a></li><li class="major-li"><a href="/hackerrank/works">Works</a></li>
+
+-->

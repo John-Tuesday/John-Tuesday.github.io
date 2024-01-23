@@ -21,13 +21,23 @@
 
   <style>
 .home-link {
-    position: relative;
 }
 .home-link:hover {
     text-decoration: none;
 }
 .home-link:hover header {
     filter: hue-rotate(270deg);
+}
+.nav-wrapper {
+    position: sticky;
+    top: 100%;
+    display: block;
+    background-color: white;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
   </style>
 {% seo %}
@@ -38,7 +48,6 @@
   <body>
     <div class="shell">
 
-          <a href="/" class="home-link">
       <header>
         <span class="ribbon-outer">
           <span class="ribbon-inner">
@@ -49,9 +58,7 @@
           <span class="right-tail"></span>
         </span>
       </header>
-          </a>
 
-      {% include nav-bar.html %}
 
       {% if site.show_downloads %}
         <section id="downloads">
@@ -65,6 +72,14 @@
           </span>
         </div>
       {% endif %}
+
+
+      <div class="border-base">
+          <div class="border-line">
+              <div class="nav-wrapper">{% include nav-bar.html %}</div>
+          </div>
+      </div>
+
 
       <span class="banner-fix"></span>
 

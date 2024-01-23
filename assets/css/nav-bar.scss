@@ -1,30 +1,118 @@
 ---
 ---
+@use "colors";
+@use "m3-color" as c;
+@use "font";
+@use "sass:color";
 
-nav {
-    position: relative;
-    z-index: 2;
+$-text-color: c.$on-tertiary;
+$-button-color: c.$tertiary;
+
+$-hover-text-color: c.$on-primary;
+$-hover-button-color: c.$primary;
+
+//$-active-text-color: c.$on-tertiary;
+//$-active-button-color: c.$tertiary;
+$-active-text-color: $-hover-text-color;
+$-active-button-color: $-hover-button-color;
+
+$-bg-color: $-button-color;
+
+$-border-color: c.$tertiary-container;
+$-active-border-color: color.adjust($-border-color, $hue: 270deg, $lightness: -30%);
+$-hover-border-color: colors.hover($-border-color);
+
+@mixin color-children {
+    & * {
+        color: inherit;
+        background-color: inherit;
+        box-sizing: inherit;
+    }
 }
 
-nav button {
-    display: inline-block;
-    padding: 15px 25px;
-    font-size: 20px;
-    cursor: pointer;
 
-    //text-align: center;
-    //text-decoration: none;
-    //outline: none;
+nav {
+    position: sticky;
+    z-index: 2;
+    display: block;
+    padding: 0;
+    margin: 0;
+    background-color: $-bg-color;
 
-    color: #fff;
-    //background-color: $test-var;
+    * {
+        box-sizing: border-box;
+    }
 
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
+    ul.major-nav-bar {
+        padding: 0;
+        margin: 0;
 
-    a:hover {
-        text-decoration: none;
+        li.major-li {
+            display: inline;
+            background: none;
+            padding: 0;
+            margin: 0;
+
+            h2 {
+                margin: 0;
+                padding: 0;
+
+                font: {
+                    family: font.$hx-family;
+                    size: medium;
+                    style: normal;
+                    weight: bold;
+                    variant: small-caps;
+                }
+                text-indent: 0;
+                //letter-spacing: 0.05em;
+                //line-height: 1em;
+            }
+
+
+            a {
+                display: inline-block;
+                text-align: center;
+                padding: 15px 25px;
+                box-sizing: border-box;
+                margin: 0;
+                border: {
+                    right: 1px solid $-border-color;
+                    bottom: {
+                        width: 1px;
+                        style: solid;
+                        color: transparent;
+                    }
+                }
+                color: $-text-color;
+                background-color: $-button-color;
+
+                @include color-children;
+            }
+            a:hover {
+                text-decoration: none;
+                border-color: $-hover-border-color;
+                color: $-hover-text-color;
+                background-color: $-hover-button-color;
+                @include color-children;
+            }
+            a:active {
+                color: $-active-text-color;
+                background-color: $-active-button-color;
+                border: {
+                    color: $-active-border-color;
+                    bottom: {
+                        style: solid;
+                    }
+                }
+                @include color-children;
+            }
+            a.current {
+                color: $-active-text-color;
+                background-color: $-active-button-color;
+                @include color-children;
+            }
+        }
     }
 }
 
