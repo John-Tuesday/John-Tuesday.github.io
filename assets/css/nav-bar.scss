@@ -1,8 +1,6 @@
 ---
 ---
 
-@import "foo";
-
 nav {
     position: relative;
     z-index: 2;
@@ -19,7 +17,7 @@ nav button {
     //outline: none;
 
     color: #fff;
-    background-color: $test-var;
+    //background-color: $test-var;
 
     border: none;
     border-radius: 15px;
