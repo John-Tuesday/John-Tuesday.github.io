@@ -1,6 +1,5 @@
 ---
 ---
-@use "colors";
 @use "m3-color" as c;
 @use "font";
 @use "sass:color";
@@ -11,16 +10,14 @@ $-button-color: c.$tertiary;
 $-hover-text-color: c.$on-primary;
 $-hover-button-color: c.$primary;
 
-//$-active-text-color: c.$on-tertiary;
-//$-active-button-color: c.$tertiary;
 $-active-text-color: $-hover-text-color;
 $-active-button-color: $-hover-button-color;
 
 $-bg-color: $-button-color;
 
 $-border-color: c.$tertiary-container;
-$-active-border-color: color.adjust($-border-color, $hue: 270deg, $lightness: -30%);
-$-hover-border-color: colors.hover($-border-color);
+$-active-border-color: $-border-color;
+$-hover-border-color: $-border-color;
 
 @mixin color-children {
     & * {
@@ -33,7 +30,6 @@ $-hover-border-color: colors.hover($-border-color);
 
 nav {
     position: sticky;
-    z-index: 2;
     display: block;
     padding: 0;
     margin: 0;
@@ -68,7 +64,6 @@ nav {
                 //letter-spacing: 0.05em;
                 //line-height: 1em;
             }
-
 
             a {
                 display: inline-block;

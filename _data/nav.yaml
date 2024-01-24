@@ -1,0 +1,8 @@
+- name: Home
+  link: "/home"
+
+- name: Posts
+  link: "/home"
+
+- name: HackerRank
+  link: "/hackerrank/works"

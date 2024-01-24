@@ -1,0 +1,23 @@
+---
+---
+@use "topbar";
+
+// Footer
+
+footer {
+    max-width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    background: none;
+
+    .content {
+        position: relative;
+        box-sizing: border-box;
+        max-width: 100%;
+
+        border-top: {
+            style: solid;
+            width: 2px;
+        }
+    }
+}

@@ -17,36 +17,22 @@
         $('#main_content').headsmart()
       })
     </script>
-
-
-  <style>
-.home-link {
-}
-.home-link:hover {
-    text-decoration: none;
-}
-.home-link:hover header {
-    filter: hue-rotate(270deg);
-}
-.nav-wrapper {
-    position: sticky;
-    top: 100%;
-    display: block;
-    background-color: white;
-    max-width: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-  </style>
 {% seo %}
+
+<!--CUSTOM CONTENT-->
+
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="icon" type="image/x-icon" href="/assets/svg/favicon.svg">
+
+<!--/CUSTOM CONTENT-->
 
 {% include head-custom.html %}
   </head>
 
   <body>
+<!--
     <div class="shell">
+
 
       <header>
         <span class="ribbon-outer">
@@ -58,8 +44,15 @@
           <span class="right-tail"></span>
         </span>
       </header>
+-->
+
+      <span class="topbar">
+          {% include header.html %}
+          {% include nav-bar.html %}
+      </span>
 
 
+<!--
       {% if site.show_downloads %}
         <section id="downloads">
           <span class="inner">
@@ -73,20 +66,17 @@
         </div>
       {% endif %}
 
-
-      <div class="border-base">
-          <div class="border-line">
-              <div class="nav-wrapper">{% include nav-bar.html %}</div>
-          </div>
-      </div>
-
-
       <span class="banner-fix"></span>
+
+-->
 
       <section id="main_content">
         {{ content }}
       </section>
 
+      {% include footer.html %}
+
+<!--
       <footer>
         <span class="ribbon-outer">
           <span class="ribbon-inner">
@@ -103,7 +93,7 @@
         <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
         <span class="octocat"></span>
       </footer>
-
     </div>
+-->
   </body>
 </html>

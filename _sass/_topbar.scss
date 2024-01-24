@@ -1,0 +1,71 @@
+@use "m3-color" as c;
+
+$topbar-z: 10;
+
+.topbar {
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: $topbar-z;
+}
+
+header {
+    position: initial;
+    max-width: 100%;
+    box-sizing: border-box;
+    top: 0;
+}
+
+.nav-wrapper {
+    position: sticky;
+    top: 100%;
+    display: block;
+    background-color: white;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin bordered-box($name, $bg, $stripe, $width: 2px) {
+    .#{$name}-border-base {
+        padding: {
+            left: $width;
+            right: $width;
+            top: $width;
+            bottom: $width;
+        }
+        margin: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+        background-color: $bg;
+        @content;
+    }
+    .#{$name}-border-line {
+        border: {
+            left-style: solid;
+            right-style: solid;
+            top-style: solid;
+            bottom-style: solid;
+            width: $width;
+            color: $stripe;
+        }
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@include bordered-box($name: "primary", $bg: c.$primary, $stripe: c.$secondary) {
+    box-shadow: 0 4px 0 0 c.$shadow;
+};
+@include bordered-box($name: "tertiary", $bg: c.$tertiary, $stripe: c.$tertiary-container) {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 100%;
+    bottom: 100%;
+};
+
