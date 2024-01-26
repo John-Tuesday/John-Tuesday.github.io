@@ -4,5 +4,11 @@
 - name: Posts
   link: "/home"
 
+- name: Projects
+  link: "/"
+
 - name: HackerRank
   link: "/hackerrank/works"
+    
+- name: About
+  link: "/about"
