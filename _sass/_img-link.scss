@@ -1,7 +1,7 @@
 @use "m3-color" as c;
 
-$-button-color: c.$secondary;
-$-text-color: c.$on-secondary;
+$-button-color: c.$tertiary;
+$-text-color: c.$on-tertiary;
 
 $-min-width: 300px;
 $-max-width: 800px;
@@ -13,7 +13,6 @@ $-max-width: 800px;
 
 .click-image {
     display: inline-block;
-    width: 100%;
     max-width: 100%;
     margin: auto;
     height: auto;

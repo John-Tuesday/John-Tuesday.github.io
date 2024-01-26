@@ -1,23 +1,24 @@
 ---
 ---
+@use "sass:math";
 @use "topbar";
+
+#main_content {
+    max-width: min(100%, 800px);
+    margin: auto;
+}
 
 // Footer
 
 footer {
-    max-width: 100%;
-    position: relative;
-    box-sizing: border-box;
-    background: none;
-
     .content {
         position: relative;
         box-sizing: border-box;
         max-width: 100%;
 
         border-top: {
-            style: solid;
-            width: 2px;
+            style: double;
+            width: 1px;
         }
     }
 }

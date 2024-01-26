@@ -1,6 +1,12 @@
+@forward "font-weight" as weight-*;
+
 $-sans-serifs: ("Open sans", "sans-serif");
 $-serifs: ("Georgia", "Palatino", "Palatino Linotype", "Times", "Times New Roman", "serif");
 
 
 $hx-family: $-serifs;
 $default-family: $-sans-serifs;
+
+$default-size: 16px;
+
+$default-line-height: 1.5;
