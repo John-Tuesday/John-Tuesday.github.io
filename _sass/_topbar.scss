@@ -59,7 +59,6 @@ header {
 }
 
 @include bordered-box($name: "primary", $bg: c.$primary, $stripe: c.$secondary) {
-    box-shadow: 0 4px 0 0 c.$shadow;
 };
 @include bordered-box($name: "tertiary", $bg: c.$tertiary, $stripe: c.$tertiary-container) {
     position: sticky;
