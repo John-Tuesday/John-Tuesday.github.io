@@ -1,5 +1,5 @@
 @use "theme/font";
-@use "m3-color" as c;
+@use "theme/m3-color" as c;
 @use "sass:color";
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -80,7 +80,7 @@ header {
         }
         line-height: 1.5;
         text-align: center;
-        color: c.$on-primary-alt;
+        color: c.$on-primary;
         padding-bottom: 14px;
         margin-top: -3px;
     }
@@ -113,7 +113,7 @@ body {
 }
 
 a, a:hover {
-    color: c.$on-surface-alt;
+    color: c.$on-surface-variant;
 }
 
 a {
