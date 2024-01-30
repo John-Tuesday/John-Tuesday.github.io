@@ -5,7 +5,7 @@
   link: "/home"
 
 - name: Projects
-  link: "/"
+  link: "/projects/summary"
 
 - name: HackerRank
   link: "/hackerrank/works"
