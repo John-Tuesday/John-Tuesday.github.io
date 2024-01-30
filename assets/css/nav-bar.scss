@@ -1,7 +1,7 @@
 ---
 ---
 @use "m3-color" as c;
-@use "font";
+@use "theme/font";
 @use "sass:color";
 
 $-text-color: c.$on-tertiary;
