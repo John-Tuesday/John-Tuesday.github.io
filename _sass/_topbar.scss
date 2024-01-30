@@ -28,6 +28,33 @@ header {
     margin: 0;
 }
 
+@mixin box-border($bg, $stripe, $width: 2px) {
+    & {
+        border: {
+            left-style: solid;
+            right-style: solid;
+            top-style: solid;
+            bottom-style: solid;
+            width: calc(2 * $width);
+            color: $bg;
+        }
+        outline: {
+            style: solid;
+            width: $width;
+            color: $stripe;
+            offset: calc(-2 * $width);
+        }
+    }
+}
+
+.primary-box {
+    @include box-border($bg: c.$primary, $stripe: c.$secondary)
+}
+
+.tertiary-box {
+    @include box-border($bg: c.$tertiary, $stripe: c.$tertiary-container);
+}
+
 @mixin bordered-box($name, $bg, $stripe, $width: 2px) {
     .#{$name}-border-base {
         padding: {
