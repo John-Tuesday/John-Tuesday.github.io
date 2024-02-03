@@ -14,6 +14,7 @@
     $scrim-05: color.change($scrim, $alpha: 0.05) !global;
     $scrim-10: color.change($scrim, $alpha: 0.10) !global;
     $shadow-05: color.change($shadow, $alpha: 0.05) !global;
+    $shadow-50: color.change($shadow, $alpha: 0.50) !global;
 }
 
 @mixin light-colors {
@@ -180,6 +181,7 @@ $surface-container-high: #000000;
 $surface-container-highest: #000000;
 
 $shadow-05: #000000;
+$shadow-50: #000000;
 $scrim-05: #000000;
 $scrim-10: #000000;
 
