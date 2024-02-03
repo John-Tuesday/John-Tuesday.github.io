@@ -1,0 +1,17 @@
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans|Spectral|Rubik"> -->
+
+{%- assign gfonts = site.data.fonts.sans-serif | concat: site.data.fonts.serif | where: "platform", "google" | map: "family" | join: "&family=" | replace: " ", "+" -%}
+
+{%- capture gfonts2 -%}
+{%- assign fonts = site.data.fonts.sans-serif | concat: site.data.fonts.serif | where: "platform", "google" -%}
+{%- for font in fonts -%}
+    {%- unless forloop.first -%}&family={%- endunless -%}
+    {{- font.family | replace: " ", "+" -}}
+    {%- if font.spec and font.spec.axes and font.spec.tuples -%}
+        {{- font.spec.axes | join: "," | prepend: ":" | append: "@" -}}
+        {{- font.spec.tuples | join: ";" -}}
+    {%- endif -%}
+{%- endfor -%}
+{%- endcapture %}
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ gfonts2 }}&display=swap">

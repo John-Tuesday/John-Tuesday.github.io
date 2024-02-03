@@ -1,8 +1,10 @@
-$-sans-serifs: ("Open sans", "sans-serif");
-$-serifs: ("Georgia", "Palatino", "Palatino Linotype", "Times", "Times New Roman", "serif");
-
+@use "sass:list";
+$-sans-serifs: ("sans-serif") !default;
+$-serifs: ("serif") !default;
 
 $hx-family: $-serifs;
+// $sub-hx-family: list.set-nth($-serifs, 1, list.nth($-serifs, 4));
+$sub-hx-family: $-sans-serifs;
 $hx-family-sans: $-sans-serifs;
 $default-family: $-sans-serifs;
 

@@ -1,0 +1,64 @@
+serif:
+  - family: Playfair Display
+    platform: google
+    spec: 
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,400..900"
+        - "1,400..900"
+  - family: Bitter
+    platform: google
+    spec: 
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,400..800"
+        - "1,400..800"
+  - family: Cormorant
+    platform: google
+    spec: 
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,400..700"
+        - "1,400..700"
+  - family: Crimson Pro 
+    platform: google
+    spec: 
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,400..800"
+        - "1,400..800"
+  - family: Times
+  - family: Times New Roman
+  - family: serif
+      
+sans-serif:
+  - family: Merriweather Sans
+    platform: google
+    spec:
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,400..800"
+        - "1,400..800"
+  - family: Overpass
+    platform: google
+    spec:
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,400..800"
+        - "1,400..800"
+  - family: Open Sans
+    platform: google
+    spec:
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,400..800"
+        - "1,400..800"
+  - family: Rubik
+    platform: google
+    spec:
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,400..800"
+        - "1,400..800"
+
+  - family: sans-serif
