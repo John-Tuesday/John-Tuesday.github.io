@@ -22,6 +22,8 @@ url: "https://john-tuesday.github.io" # the base hostname & protocol for your si
 repository: John-Tuesday.github.io
 owner:
   name: John Tuesday Picot
+  initials: JTP
+  tagline: Software Enthusiast
 
 collections:
   certs:
