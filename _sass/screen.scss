@@ -61,26 +61,26 @@ table {
 header {
     h1 {
         font: {
-            size: 2.5rem;
+            size: 4.5rem;
             weight: bolder;
             style: normal;
         }
-        line-height: 1;
+        line-height: 4.5rem;
         text-transform: uppercase;
         text-align: center;
         color: c.$on-primary;
         background-color: c.$primary;
-        padding: {
+/*         padding: {
             top: 14px;
             right: 20px;
             left: 20px;
             bottom: 0px;
-        }
+        } */
     }
     
     h2 {
         font: {
-            size: .85rem;
+            size: 2rem;
             weight: bold;
             style: italic;
         }
@@ -234,7 +234,7 @@ td {
     }
 }
 
-label, span, div, p {
+label, div {
     background: inherit;
 }
 
