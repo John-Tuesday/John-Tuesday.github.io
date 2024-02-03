@@ -12,13 +12,15 @@
     <link rel="icon" type="image/x-icon" href="/assets/svg/favicon.svg">
 
     <title>John Tuesday Picot | {{ page.title }}</title>
+
   </head>
 
   <body>
       <span class="topbar">
-          {% include header.html %}
-          {% include nav-bar.html %}
+        {%- include header.html -%}
       </span>
+      
+      {%- include nav-bar.html -%}
 
       <section id="main_content">
         {{ content }}

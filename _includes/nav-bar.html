@@ -1,21 +1,25 @@
-<head>
-    <link rel="stylesheet" href="{{ '/assets/css/nav-bar.css' | relative_url }}">
-</head>
-<div class="tertiary-border-base">
-    <div class="tertiary-border-line">
-        <div class="nav-wrapper">
-            <nav>
-                <ul class="major-nav-bar">
-                    {% for p in site.data.nav -%}
-                    <li class="major-li"><a 
-                            href="{{ p.link }}" 
-                            class="{% if page.url contains p.link %}current{% else %}other{% endif %}"
-                            ><h2>
-                                {{- p.name -}}
-                        </h2></a></li>
-                    {%- endfor %}
-                </ul>
-            </nav>
-        </div>
+<div class="hamburger-menu">
+    <input type="checkbox" name="ham-box" id="ham-box" class="menu-toggle">
+    <label for="ham-box" class="menu-label">
+        <span class="menu-label-uncheck">
+            <span class="material-symbols-rounded">menu</span>
+        </span>
+        <span class="menu-label-check">
+            <span class="material-symbols-rounded">close</span>
+        </span>
+    </label>
+    <div class="menu-content">
+        <nav>
+            <ul class="menu-ul">
+                {% for p in site.data.nav -%}
+                <li class="menu-li"><a 
+                        href="{{ p.link }}" 
+                        class="{% if page.url contains p.link %}current{% else %}other{% endif %}"
+                        ><h2>
+                            {{- p.name -}}
+                    </h2></a></li>
+                {%- endfor %}
+            </ul>
+        </nav>
     </div>
 </div>
