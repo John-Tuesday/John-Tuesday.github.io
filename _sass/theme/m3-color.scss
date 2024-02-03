@@ -1,9 +1,19 @@
+@use "sass:color";
+
+@function apply-scrim($color, $amount: 80%) {
+    @return color.mix($color, $scrim, $amount);
+}
+
 @mixin configure($light: true) {
     @if $light {
         @include light-colors;
     } @else {
         @include dark-colors;
     }
+    
+    $scrim-05: color.change($scrim, $alpha: 0.05) !global;
+    $scrim-10: color.change($scrim, $alpha: 0.10) !global;
+    $shadow-05: color.change($shadow, $alpha: 0.05) !global;
 }
 
 @mixin light-colors {
@@ -115,31 +125,39 @@ $surface-tint: #000000;
 $on-primary: #000000;
 $primary-container: #000000;
 $on-primary-container: #000000;
+
 $secondary: #000000;
 $on-secondary: #000000;
 $secondary-container: #000000;
 $on-secondary-container: #000000;
+
 $tertiary: #000000;
 $on-tertiary: #000000;
 $tertiary-container: #000000;
 $on-tertiary-container: #000000;
+
 $error: #000000;
 $on-error: #000000;
 $error-container: #000000;
 $on-error-container: #000000;
+
 $background: #000000;
 $on-background: #000000;
+
 $surface: #000000;
 $on-surface: #000000;
 $surface-variant: #000000;
 $on-surface-variant: #000000;
+
 $outline: #000000;
 $outline-variant: #000000;
 $shadow: #000000;
 $scrim: #000000;
+
 $inverse-surface: #000000;
 $inverse-on-surface: #000000;
 $inverse-primary: #000000;
+
 $primary-fixed: #000000;
 $on-primary-fixed: #000000;
 $primary-fixed-dim: #000000;
@@ -152,6 +170,7 @@ $tertiary-fixed: #000000;
 $on-tertiary-fixed: #000000;
 $tertiary-fixed-dim: #000000;
 $on-tertiary-fixed-variant: #000000;
+
 $surface-dim: #000000;
 $surface-bright: #000000;
 $surface-container-lowest: #000000;
@@ -159,5 +178,9 @@ $surface-container-low: #000000;
 $surface-container: #000000;
 $surface-container-high: #000000;
 $surface-container-highest: #000000;
+
+$shadow-05: #000000;
+$scrim-05: #000000;
+$scrim-10: #000000;
 
 @include configure(true);
