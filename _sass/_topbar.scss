@@ -1,15 +1,14 @@
 @use "theme/m3-color" as c;
-
-$topbar-z: 10;
+@use "common/util";
 
 .topbar {
     max-width: 100%;
     box-sizing: border-box;
     position: relative;
-    z-index: $topbar-z;
+    z-index: util.$topbar-z;
 }
 
-header {
+header#topbar-header {
     position: initial;
     max-width: 100%;
     box-sizing: border-box;
