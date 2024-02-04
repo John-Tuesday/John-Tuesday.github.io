@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+
+    {% include head/fonts.html %}
+    {% include head/symbols.html %}
+
+    <link rel="stylesheet" href="/assets/css/default.css">
+    <link rel="icon" type="image/x-icon" href="/assets/svg/favicon-light.svg">
+
+    <title>John Tuesday Picot | {{ page.title }}</title>
+
+  </head>
+
+  <body>
+
+    {{ content }}
+
+    {% include footer.html %}
+  </body>
+</html>
