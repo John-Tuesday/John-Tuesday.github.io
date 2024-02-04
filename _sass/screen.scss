@@ -137,8 +137,23 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+h1 {
+    font-size: 1.85em;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.58em;
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: 1.45em;
+}
+
 p {
     margin: .7em 0;
+    max-width: 60em;
 }
 
 strong {
@@ -234,7 +249,7 @@ td {
     }
 }
 
-label, div {
+label {
     background: inherit;
 }
 
