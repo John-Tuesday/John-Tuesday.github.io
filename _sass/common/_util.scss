@@ -10,7 +10,7 @@ $shadow-h-offset: 2px;
 $shadow-v-offset: 2px;
 $shadow-blur: 1px;
 
-@mixin -shadow($type, $h-offset, $v-offset, $blur, $color: c.$shadow-50) {
+@mixin -shadow($type, $h-offset, $v-offset, $blur, $color: c.$shadow-25) {
     @if $type == "text" {
         text-shadow: $h-offset $v-offset $blur $color;
     } @else if $type == "filter" {
