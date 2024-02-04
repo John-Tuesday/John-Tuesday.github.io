@@ -1,3 +1,4 @@
+<!-- 
 <div class="hamburger-menu">
     <input type="checkbox" name="ham-box" id="ham-box" class="menu-toggle">
     <label for="ham-box" class="menu-label">
@@ -22,4 +23,14 @@
             </ul>
         </nav>
     </div>
+</div>
+ -->
+
+<div class="top-menu-bar">
+    <img src="/assets/svg/logo-trimmed-light.svg" alt="logo" class="favlogo">
+    <nav class="nav-menu-bar">
+        {% for p in site.data.nav -%}
+        <div class="nav-item"><a href="{{ p.link }}" class="{% if page.url contains p.link %}current-nav{% else %}other-nav{% endif %}">{{ p.name }}</a></div>
+        {%- endfor %}
+    </nav>
 </div>
