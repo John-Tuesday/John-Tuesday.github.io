@@ -1,4 +1,5 @@
 @use "sass:list";
+@use "sass:map";
 $-sans-serifs: ("sans-serif") !default;
 $-serifs: ("serif") !default;
 
@@ -9,6 +10,54 @@ $hx-family-sans: $-sans-serifs;
 $default-family: $-sans-serifs;
 
 $default-size: 16px;
+$m3-typography: (
+    "label": (
+        "large": (
+            "size": 14px,
+            "weight": 500,
+            "weight-prominent": 700,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+        "medium": (
+            "size": 12px,
+            "weight": 500,
+            "weight-prominent": 700,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        )
+    )
+);
+
+@mixin -set-font($size: null, $weight: null, $line-height: null, $style: null, $family: null) {
+    @if $size {
+        font-size: $size;
+    }
+    @if $weight {
+        font-weight: $weight;
+    }
+    @if $line-height {
+        font-weight: $line-height;
+    }
+    @if $style {
+        font-style: $style;
+    }
+}
+@mixin -configure-font($name, $size, $prominent: false) {
+    @include -set-font(
+        $size: map.get($m3-typography, $name, $size, "size"),
+        $weight: map.get($m3-typography, $name, $size, "weight"),
+        $line-height: map.get($m3-typography, $name, $size, "line-height"),
+        $style: map.get($m3-typography, $name, $size, "style"),
+        $family: map.get($m3-typography, $name, $size, "family"),
+    );
+}
+@mixin font-label-medium {
+    @include -configure-font("label", "medium");
+}
+@mixin font-label-large {
+    @include -configure-font("label", "large");
+}
 
 $default-line-height: 1.5;
 
