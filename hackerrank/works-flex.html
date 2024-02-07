@@ -1,0 +1,48 @@
+---
+layout: base
+title: Progress
+---
+
+<section>
+    <p>A collection of certificates and achievements in HackerRank</p>
+</section>
+
+<section class="certificate-section" id="certificates">
+    <h2>Certificates</h2>
+    <div class="certificates-container">
+    {% assign certificates = site.certs | sort_natural: "date" | reverse %}
+    {% for cert in certificates %}
+        <div class="certificate-item">
+            <h3>{{ cert.name }}</h3>
+            <br>
+            <a href="{{ cert.proof-url }}" target="_balnk">
+                <img class="certificate-image"
+                    alt="Display of Certification"
+                    loading="lazy"
+                    title="View on HackerRank"
+                    src="{{ cert.image-path }}">
+                <div class="certificate-overlay"><div class="overlay-button"><div class="ob">View on HackerRank</div></div></div>
+            </a>
+            <br>
+            <em>{{ cert.date | date: "%Y %b %e" }}</em>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+
+<section>
+    <h2>Leaderboard</h2>
+    <strong>Completed</strong>
+
+    {% assign completed = site.topics | where: "completed", "true" %}
+    {% for topic in completed %}
+    <a href="{{ topic.leaderboard-url }}">{{ topic.name }}</a>
+    {% endfor %}
+
+    <strong>In-progress</strong>
+
+    {% assign incompletes = site.topics | where: "completed", "false" %}
+    {% for topic in incompletes %}
+    <a href="{{ topic.leaderboard-url }}">{{ topic.name }}</a>
+    {% endfor %}
+</section>

@@ -20,6 +20,7 @@
 @use "about";
 @use "topbar";
 @use "img-link";
+@use "hackerrank/works-flex";
 
 #main_content {
     max-width: min(100%, 800px);
