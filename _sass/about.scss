@@ -98,7 +98,7 @@ img.logo {
         width: 0.25em;
         style: solid;
     }
-    @include util.filter-shadow-small();
+    @include util.filter-shadow-prominent();
 }
 
 // Self description
