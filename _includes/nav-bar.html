@@ -30,7 +30,16 @@
     <img src="/assets/svg/logo-trimmed-light.svg" alt="logo" class="favlogo">
     <nav class="nav-menu-bar">
         {% for p in site.data.nav -%}
-        <div class="nav-item"><a href="{{ p.link }}" class="{% if page.url contains p.link %}current-nav{% else %}other-nav{% endif %}">{{ p.name }}</a></div>
+        <div class="nav-item"><a href="{{ p.link }}" class="{% if page.url contains p.link %}current-nav{% else %}other-nav{% endif %}">
+            <span class="nav-item-content">
+                <div class="nav-icon">
+                    <span class="material-symbols-rounded">{{ p.m3-icon }}</span>
+                </div>
+                <div class="nav-label">
+                    {{- p.name -}}
+                </div>
+            </span>
+        </a></div>
         {%- endfor %}
     </nav>
 </div>

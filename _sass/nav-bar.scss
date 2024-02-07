@@ -1,7 +1,9 @@
+@use "sass:map";
 @use "sass:color";
 @use "theme/font";
 @use "theme/m3-color" as c;
 @use "common/util";
+$-max-width: 450px !default;
 
 .top-menu-bar {
     position: sticky;
@@ -10,14 +12,21 @@
     display: flex;
     flex-direction: row;
     max-width: 100%;
-    background-color: c.$primary;
-    @include util.box-shadow-small();
+    width: 100%;
+    background-color: c.$surface-container;
+
+    @media (max-width: $-max-width) {
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .favlogo {
     display: inline-block;
-    max-height: 100%;
-    max-width: 100%;
+    $-s: 48px;
+    max-height: min(100%, $-s);
+    max-width: min(100%, $-s);
     padding: 8px;
     object-fit: contain;
     @include util.filter-shadow-small();
@@ -26,45 +35,112 @@
 .nav-menu-bar {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    
+    @media (max-width: $-max-width) {
+        flex-direction: column;
+    }
 }
 
 .nav-item {
-    border-inline: {
-        color: c.$outline;
-        width: util.$outline-width;
-        start-style: solid;
-    };
-
-    &:last-child {
-        border-inline: {
-            end-style: solid;
-        };
-    }
-
+    flex-grow: 1;
 
     a {
-        display: inline-block;
-        padding: 16px;
-        width: 100%;
-        height: 100%;
-        min-width: util.$min-interact-width;
-        min-height: util.$min-interact-height;
-        
-        color: c.$on-primary;
-    }
-    
-    a:not(.current-nav):hover {
         text-decoration: none;
-        background-color: c.$scrim-10;
     }
 
-    a.current-nav {
-        color: c.$on-tertiary;
-        background-color: c.$tertiary;
+    @media (min-width: $-max-width) {
+        &:not(:last-child) {
+            margin-inline-end: 8px;
+        }
+        &:hover .nav-icon {
+            background-color: c.apply-tint(transparent);
+        }
+        &:hover a.current-nav .nav-icon {
+            background-color: c.apply-tint(c.$secondary-container);
+        }
+    }
+    @media (max-width: $-max-width) {
+        &:hover .nav-item-content {
+            background-color: c.apply-tint(transparent);
+        }
+        &:hover a.current-nav .nav-item-content {
+            background-color: c.apply-tint(c.$secondary-container);
+        }
+    }
+}
+
+a.current-nav {
+    .nav-icon {
+        background-color: c.$secondary-container;
+        color: c.$on-secondary-container;
+
+        .material-symbols-rounded {
+            font-variation-settings: 'FILL' 1;
+        }
     }
     
-    a.current-nav:hover {
-        text-decoration: none;
-        background-color: color.mix(c.$tertiary, c.$scrim-10, 75%);
+    .nav-label {
+        font-weight: map.get(font.$m3-typography, "label", "large", "weight-prominent");
+    }
+    
+    @media (max-width: $-max-width) {
+        .nav-item-content {
+            background-color: c.$secondary-container;
+            color: c.$on-secondary-container;
+        }
+        .nav-icon {
+            background-color: transparent;
+        }
+    }
+}
+    
+.nav-item-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-width: util.$min-interact-width;
+    min-height: util.$min-interact-height;
+    padding: {
+        top: 12px;
+        bottom: 16px;
+    }
+    
+    @media (max-width: $-max-width) {
+        flex-direction: row;
+        justify-content: flex-start;
+        border-radius: 32px;
+        margin-inline-start: 12px;
+        margin-inline-end: 12px;
+    }
+    
+    .nav-icon {
+        border-radius: 16px;
+        text-align: center;
+        @media (min-width: $-max-width) {
+            height: 32px;
+            width: 64px;
+        }
+        @media (max-width: $-max-width) {
+            padding-inline-start: 16px;
+            padding-inline-end: 12px;
+        }
+    }
+    
+    .material-symbols-rounded {
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+        line-height: normal;
+    }
+    
+    .nav-label {
+        @include font.font-label-large;
+        padding-top: 4px;
+        color: c.$on-surface;
     }
 }
