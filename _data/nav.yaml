@@ -1,14 +1,29 @@
 - name: Home
   link: "/home"
+  m3-icon: home
 
 - name: Posts
   link: "/home"
+  m3-icon: browse
 
 - name: Projects
   link: "/projects/summary"
+  # m3-icon: topic
+  # m3-icon: summarize
+  # m3-icon: view_list
+  m3-icon: list
+  # m3-icon: list_alt
 
 - name: HackerRank
   link: "/hackerrank/works"
+  # m3-icon: for_you
+  # m3-icon: monitoring
+  # m3-icon: analytics
+  # m3-icon: bar_chart
+  m3-icon: leaderboard
     
-- name: About
+- name: About Me
   link: "/about"
+  # m3-icon: info_i
+  # m3-icon: user_attributes
+  m3-icon: attribution
