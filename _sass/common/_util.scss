@@ -30,6 +30,16 @@ $shadow-blur: 1px;
     @include -shadow("box", $shadow-h-offset, $shadow-v-offset, $shadow-blur);
 }
 
+@mixin -shadow-prominent($name) {
+    @include -shadow($name, 2px, 1px, 1px, c.apply-tint(transparent, 50%));
+}
+@mixin text-shadow-prominent {
+    @include -shadow-prominent("text");
+}
+@mixin filter-shadow-prominent {
+    @include -shadow-prominent("filter");
+}
+
 // Z-index
 $topbar-z: 10;
 $topbar-menu-content-z: 9;
