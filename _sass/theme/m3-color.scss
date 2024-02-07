@@ -1,5 +1,8 @@
 @use "sass:color";
 
+@function apply-tint($color, $amount: 92%) {
+    @return color.mix($color, $surface-tint, $amount);
+}
 @function apply-scrim($color, $amount: 80%) {
     @return color.mix($color, $scrim, $amount);
 }
@@ -14,6 +17,7 @@
     $scrim-05: color.change($scrim, $alpha: 0.05) !global;
     $scrim-10: color.change($scrim, $alpha: 0.10) !global;
     $shadow-05: color.change($shadow, $alpha: 0.05) !global;
+    $shadow-10: color.change($shadow, $alpha: 0.10) !global;
     $shadow-25: color.change($shadow, $alpha: 0.25) !global;
     $shadow-50: color.change($shadow, $alpha: 0.50) !global;
 }
@@ -182,6 +186,7 @@ $surface-container-high: #000000;
 $surface-container-highest: #000000;
 
 $shadow-05: #000000;
+$shadow-10: #000000;
 $shadow-25: #000000;
 $shadow-50: #000000;
 $scrim-05: #000000;
