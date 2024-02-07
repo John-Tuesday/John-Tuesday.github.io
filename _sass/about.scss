@@ -11,12 +11,6 @@ $-main-bg: c.$surface;
 
 main.main-about {
     background-color: $-main-bg;
-    padding: {
-        // top: $-large-padding;
-        // bottom: $-large-padding;
-        // left: $-large-padding;
-        // right: $-large-padding;
-    }
 }
 
 
@@ -31,7 +25,6 @@ $-greeting-z-index: 10;
     background-color: c.$primary-container;
     color: c.$on-primary-container;
     text-align: left;
-    // text-transform: uppercase;
     padding: {
         left: $-medium-padding;
         right: $-medium-padding;
