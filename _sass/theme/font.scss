@@ -11,6 +11,26 @@ $default-family: $-sans-serifs;
 
 $default-size: 16px;
 $m3-typography: (
+    "headline": (
+        "large": (
+            "size": 32px,
+            "weight": 400,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+        "medium": (
+            "size": 28px,
+            "weight": 400,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+        "small": (
+            "size": 24px,
+            "weight": 400,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+    ),
     "label": (
         "large": (
             "size": 14px,
@@ -29,6 +49,26 @@ $m3-typography: (
     )
 );
 
+@function typography($name, $size, $attr) {
+    $value: map.get($m3-typography, $name, $size, $attr);
+    @if $value {
+        @return $value;
+    }
+    @if $attr == "weight-prominent" {
+        @return typography($name, $size, "weight-prominent");
+    }
+    @if $size == "small" {
+        @return typography($name, "medium", $attr);
+    }
+    @if $size == "medium" {
+        @return typography($name, "large", $attr);
+    }
+    @if $size == "large" {
+        @return map.get($m3-typography, $name, "small", $attr);
+    }
+    @error "invalid size '#{$size}' must be 'small' 'medium' or 'large'";
+}
+
 @mixin -set-font($size: null, $weight: null, $line-height: null, $style: null, $family: null) {
     @if $size {
         font-size: $size;
@@ -45,12 +85,21 @@ $m3-typography: (
 }
 @mixin -configure-font($name, $size, $prominent: false) {
     @include -set-font(
-        $size: map.get($m3-typography, $name, $size, "size"),
-        $weight: map.get($m3-typography, $name, $size, "weight"),
-        $line-height: map.get($m3-typography, $name, $size, "line-height"),
-        $style: map.get($m3-typography, $name, $size, "style"),
-        $family: map.get($m3-typography, $name, $size, "family"),
+        $size: typography($name, $size, "size"),
+        $weight: typography($name, $size, "weight"),
+        $line-height: typography($name, $size, "line-height"),
+        $style: typography($name, $size, "style"),
+        $family: typography($name, $size, "family"),
     );
+}
+@mixin font-headline-large {
+    @include -configure-font("headline", "large");
+}
+@mixin font-headline-medium {
+    @include -configure-font("headline", "medium");
+}
+@mixin font-headline-small {
+    @include -configure-font("headline", "small");
 }
 @mixin font-label-medium {
     @include -configure-font("label", "medium");
