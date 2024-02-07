@@ -1,5 +1,6 @@
 @use "theme/font";
 @use "theme/m3-color" as c;
+@use "common/util";
 @use "sass:color";
 
 @mixin clear-spacing {
@@ -35,7 +36,7 @@ time, mark, audio, video {
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+footer, /*header,*/ hgroup, menu, nav, section {
 	display: block;
 }
 ol, ul {
@@ -57,8 +58,18 @@ table {
     box-sizing: border-box;
 }
 /* Styles */
+header.page-header {
+    display: inline-block;
+    max-width: 100%;
+    width: 100%;
+    padding: {
+        block-start: 4px;
+        block-end: 4px;
+        inline-start: 16px;
+        inline-end: 16px;
+    }
+    background-color: c.$primary-container;
 
-header {
     h1 {
         font: {
             size: 4.5rem;
@@ -67,28 +78,49 @@ header {
         }
         line-height: 4.5rem;
         text-transform: uppercase;
-        text-align: center;
-        color: c.$on-primary;
-        background-color: c.$primary;
-/*         padding: {
-            top: 14px;
-            right: 20px;
-            left: 20px;
-            bottom: 0px;
-        } */
+        color: c.$on-primary-container;
+        @include util.text-shadow-prominent();
     }
     
     h2 {
         font: {
-            size: 2rem;
-            weight: bold;
+            size: 1.125rem;
+            weight: 500;
             style: italic;
+            family: font.$sub-hx-family;
         }
         line-height: 1.5;
         text-align: center;
-        color: c.$on-primary;
+        color: c.$on-primary-container;
         padding-bottom: 14px;
         margin-top: -3px;
+    }
+}
+
+header {
+    border-radius: 8px;
+
+    h1 {
+        @include font.font-headline-large();
+        font-weight: 600;
+        text-align: center;
+
+        $-thick: 0.125em;
+        text-decoration: {
+            line: underline;
+            style: solid;
+            color: c.$primary;
+            thickness: $-thick;
+        };
+        $-pad: 16px;
+        padding-block-end: calc($-pad + $-thick);
+        padding-block-start: $-pad;
+    }
+
+    h2 {
+        @include font.font-headline-small();
+        font-weight: 500;
+        text-align: center;
     }
 }
 
@@ -113,8 +145,8 @@ body {
         line-height: font.$default-line-height;
     }
     
-    color: c.$on-surface;
-    background-color: c.$surface;
+    color: c.$on-background;
+    background-color: c.$background;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -251,9 +283,14 @@ td {
 
 label {
     background: inherit;
+    @include clear-spacing();
 }
 
-label {
-    background: inherit;
-    @include clear-spacing();
+section#main-content {
+    $-pad: 16px;
+    padding: {
+        left: $-pad;
+        right: $-pad;
+        bottom: 32px;
+    }
 }
