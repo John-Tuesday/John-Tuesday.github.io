@@ -129,12 +129,13 @@ footer {
     position: relative;
     box-sizing: border-box;
     text-align: center;
-
-    p {
-        font: {
-            weight: font.$weight-medium;
-            size: .8rem;
-        }
+    font: {
+        weight: font.$weight-medium;
+        size: .8rem;
+    }
+    div.content {
+        padding-block-start: 16px;
+        padding-block-end: 16px;
     }
 }
 
