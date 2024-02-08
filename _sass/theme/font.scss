@@ -31,6 +31,46 @@ $m3-typography: (
             "family": $-sans-serifs,
         ),
     ),
+    "title": (
+        "large": (
+            "size": 22px,
+            "weight": 400,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+        "medium": (
+            "size": 16px,
+            "weight": 500,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+        "small": (
+            "size": 14px,
+            "weight": 500,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+    ),
+    "body": (
+        "large": (
+            "size": 16px,
+            "weight": 400,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+        "medium": (
+            "size": 14px,
+            "weight": 400,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+        "small": (
+            "size": 12px,
+            "weight": 400,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+    ),
     "label": (
         "large": (
             "size": 14px,
@@ -45,8 +85,14 @@ $m3-typography: (
             "weight-prominent": 700,
             "line-height": normal,
             "family": $-sans-serifs,
-        )
-    )
+        ),
+        "small": (
+            "size": 11px,
+            "weight": 500,
+            "line-height": normal,
+            "family": $-sans-serifs,
+        ),
+    ),
 );
 
 @function typography($name, $size, $attr) {
@@ -100,6 +146,15 @@ $m3-typography: (
 }
 @mixin font-headline-small {
     @include -configure-font("headline", "small");
+}
+@mixin font-title-large {
+    @include -configure-font("title", "large");
+}
+@mixin font-title-medium {
+    @include -configure-font("title", "medium");
+}
+@mixin font-title-small {
+    @include -configure-font("title", "small");
 }
 @mixin font-label-medium {
     @include -configure-font("label", "medium");
