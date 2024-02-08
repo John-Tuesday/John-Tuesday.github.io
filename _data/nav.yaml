@@ -11,11 +11,10 @@
   # m3-icon: topic
   # m3-icon: summarize
   # m3-icon: view_list
-  m3-icon: list
-  # m3-icon: list_alt
+  m3-icon: list_alt
 
 - name: HackerRank
-  link: "/hackerrank/works"
+  link: "/hackerrank/works-flex"
   # m3-icon: for_you
   # m3-icon: monitoring
   # m3-icon: analytics
