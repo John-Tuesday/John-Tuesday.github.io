@@ -8,9 +8,11 @@
         bottom: 0;
     }
     @if $is-left {
-        left: -25%;
+        // left: 25%;
+        // left: 0;
     } @else {
-        right: -25%;
+        // right: -25%;
+        // right: 0;
         $angle: -$angle;
     }
 
@@ -20,8 +22,8 @@
 
     position: absolute;
     height: 50%;
-    width: 100%;
-    transform: skew($angle, 0deg);
+    width: calc( (100% * 2 / 3) + 4px);
+    transform: translate(0px, 0) skew($angle, 0deg);
 }
 
 @mixin -ribbon-side($name, $z: null, $is-left) {

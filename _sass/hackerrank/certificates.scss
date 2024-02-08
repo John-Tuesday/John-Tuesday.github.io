@@ -1,0 +1,192 @@
+@use "theme/m3-color" as c;
+@use "theme/font";
+@use "common/ribbon";
+$-max-vwidth: 450px;
+
+div.certificates-content {
+    display: none;
+    // display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 8px;
+
+    border-radius: 16px;
+    padding: 8px;
+    background-color: c.$surface-container-lowest;
+}
+
+a.hr-certificate-box {
+    display: inline-block;
+
+    background-color: c.$tertiary-container;
+    color: c.$on-tertiary-container;
+    min-width: 160px;
+    min-height: 100px;
+    max-width: 100%;
+    max-height: 100%;
+    
+    padding-block-start: 12px;
+    padding-block-end: 12px;
+    padding-inline-start: 12px;
+
+    text-decoration: none;
+}
+
+.hr-certificate-container {
+    display: inline-block;
+
+    span.material-symbols-rounded {
+        position: relative;
+        display: inline-block;
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+    }
+    h2 {
+        display: inline-block;
+        @include font.font-title-medium();
+        padding: 12px 0;
+        padding-inline-start: 12px;
+    }
+}
+
+.hr-certificate-bottom {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    align-content: flex-start;
+}
+.hr-certificate-ribbon-container {
+    position: relative;
+    display: inline-block;
+    color: c.$tertiary-container;
+    max-width: 100%;
+    padding-left: 8px;
+}
+
+.hr-certificate-ribbon {
+    position: relative;
+    display: inline-block;
+    @include font.font-label-large();
+    text-transform: uppercase;
+    left: -50%;
+    background-color: c.$on-tertiary-container;
+    
+    padding: 8px;
+    margin-left: calc(50% + 8px);
+    box-sizing: content-box;
+    z-index: 2;
+}
+@include ribbon.ribbon-left(".hr-certificate-ribbon-edge", $z: 1) {
+    background-color: c.$on-tertiary-container;
+}
+
+.hr-certificate-heading {
+    @include font.font-label-large();
+}
+
+// m3 spec
+$-card-bg:    c.$surface-container;
+$-card-fg: c.$on-surface;
+$-ribbon-bg:    c.$primary;
+$-ribbon-fg: c.$on-primary;
+
+div.certificates-content-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    // align-content: space-between;
+    gap: 8px;
+
+    border-radius: 16px;
+    padding: 8px;
+    background-color: c.$surface-container-low;
+}
+
+a.certificate-card {
+    flex: 1 1 0;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 100%;
+
+    text-decoration: none;
+    background-color: $-card-bg;
+    color: $-card-fg;
+    padding: {
+        top: 12px;
+        bottom: 12px;
+        left: 16px;
+    }
+
+    &:hover {
+        background-color: c.apply-tint($-card-bg);
+    }
+}
+
+.certificate-card-content {
+    display: inline-block;
+    max-width: 100%;
+    width: max-content;
+}
+
+div.certificate-card-icon {
+    display: inline-block;
+    vertical-align: top;
+    padding-inline-end: 16px;
+    
+    span.material-symbols-rounded {
+        position: relative;
+        display: inline-block;
+        font-variation-settings: 'FILL' 1;
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+    }
+}
+
+div.certificate-card-details {
+    display: inline-block;
+
+    h2 {
+        @include font.font-title-large();
+        font-weight: 600;
+    }
+    h3 {
+        @include font.font-body-large();
+    }
+}
+
+div.certificate-card-suffix {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 8px;
+
+    
+    div.certificate-card-ribbon {
+        position: relative;
+        display: inline-block;
+        text-transform: uppercase;
+
+        box-sizing: content-box;
+        padding: 8px;
+        margin-left: calc(50% + 8px);
+        left: -50%;
+        z-index: 2;
+
+        background-color: $-ribbon-bg;
+        color: $-ribbon-fg;
+    }
+}
+
+@include ribbon.ribbon-left(".certificate-card-ribbon-edge", $z: 1) {
+    background-color: $-ribbon-bg;
+}

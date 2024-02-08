@@ -1,0 +1,58 @@
+---
+layout: page
+title: Progress
+subtitle: "A collection of certificates and achievements in HackerRank"
+---
+
+<div class="certificates-content">
+
+  {%- assign certificates = site.certs | sort_natural: "date" | reverse -%}
+  {%- for cert in certificates -%}
+
+  <a class="hr-certificate-box" target="_blank" href="{{ cert.proof-url }}">
+    <div class="hr-certificate-container">
+      <span class="material-symbols-rounded">editor_choice</span><br>
+      <h2>{{ cert.name }}</h2>
+    </div>
+    <div class="hr-certificate-bottom">
+      <span class="hr-certificate-heading">
+        <strong>Verified</strong>
+      </span>
+      <div class="hr-certificate-ribbon-container">
+        <div class="hr-certificate-ribbon-edge-bottom"></div>
+        <div class="hr-certificate-ribbon-edge-top"></div>
+        <div class="hr-certificate-ribbon">skill</div>
+      </div>
+    </div>
+  </a>
+  
+  {%- endfor -%}
+  
+</div>
+
+<div class="certificates-content-cards">
+
+  {%- assign certificates = site.certs | sort_natural: "date" | reverse -%}
+  {%- for cert in certificates -%}
+
+  <a class="certificate-card" target="_blank" href="{{ cert.proof-url }}">
+    <span class="certificate-card-content">
+      <div class="certificate-card-icon">
+        <span class="material-symbols-rounded">editor_choice</span><br>
+      </div>
+      <div class="certificate-card-details">
+        <h2>{{- cert.name -}}</h2>
+        <h3>{{- cert.date | date: "%Y %b %e" -}}</h3>
+        <span>View on HackerRank</span>
+      </div>
+    </span>
+    <div class="certificate-card-suffix">
+      <div class="certificate-card-ribbon-edge-top"></div>
+      <div class="certificate-card-ribbon-edge-bottom"></div>
+      <div class="certificate-card-ribbon">skill</div>
+    </div>
+  </a>
+
+  {%- endfor -%}
+
+</div>
