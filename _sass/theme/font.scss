@@ -156,11 +156,23 @@ $m3-typography: (
 @mixin font-title-small {
     @include -configure-font("title", "small");
 }
+@mixin font-body-large {
+    @include -configure-font("body", "large");
+}
+@mixin font-body-medium {
+    @include -configure-font("body", "medium");
+}
+@mixin font-body-small {
+    @include -configure-font("body", "small");
+}
 @mixin font-label-medium {
     @include -configure-font("label", "medium");
 }
 @mixin font-label-large {
     @include -configure-font("label", "large");
+}
+@mixin font-label-small {
+    @include -configure-font("label", "small");
 }
 
 $default-line-height: 1.5;
