@@ -16,3 +16,8 @@ HackerRank serves 3 purposes
 * Provides more difficult and unique challenges than project-driven learning
 * Extends my knowledge of algorithms, data structures, and mathematics
 * Certifies particular skills
+
+---
+
+{{ site.pages | where: "name", "certificates.html" | map: "content" }}
+{{ site.pages | where: "name", "badges.html" | map: "content" }}
