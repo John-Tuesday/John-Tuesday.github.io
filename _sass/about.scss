@@ -19,8 +19,8 @@ main.main-about {
     align-items: flex-start;
     align-content: center;
     justify-content: center;
-    background-color: c.$primary-container;
-    color: c.$on-primary-container;
+    background-color: c.$primary;
+    color: c.$on-primary;
     text-align: left;
     padding: {
         left: $-medium-padding;
@@ -31,9 +31,10 @@ main.main-about {
     h1 {
         display: inline-block;
         @include font.font-headline-large();
-        text-decoration: underline c.$primary 0.25em;
+        $-line-size: 0.125em;
+        text-decoration: underline c.$inverse-primary $-line-size;
         margin-right: 0.25em;
-        margin-block-end: 0.25em;
+        margin-block-end: $-line-size;
         font-weight: 700;
         @include util.text-shadow-prominent();
     }
@@ -50,8 +51,13 @@ main.main-about {
 // Self description
 
 .self-description {
-    background-color: c.$surface-container;
-    color: c.$on-surface;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: c.$secondary;
+    color: c.$on-secondary;
 }
 
 .description-content {
