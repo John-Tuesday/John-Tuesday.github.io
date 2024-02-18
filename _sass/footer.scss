@@ -50,6 +50,12 @@ svg#page-footer-logo {
     min-height: 1em;
     vertical-align: bottom;
     margin-inline-end: 0.25em;
+
+    #page-footer-logo-svg {
+        --color-primary: #{c.$primary};
+        --color-secondary: #{c.$primary-container};
+        --color-circle-outer-1: #{c.$outline};
+    }
 }
 
 .footer-row {
