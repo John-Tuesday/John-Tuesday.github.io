@@ -19,7 +19,7 @@ footer#page-footer {
     @include font.font-body-small();
 
     h2 {
-        @include font.font-headline-small();
+        @include font.font-title-medium();
         font-variation-settings: 'wght' 600;
     }
     
@@ -40,4 +40,10 @@ footer#page-footer {
 
 #footer-link-groups {
     @include font.font-body-medium();
+
+    ul {
+        margin: unset;
+        margin-block-start: 8px;
+        padding: unset;
+    }
 }
