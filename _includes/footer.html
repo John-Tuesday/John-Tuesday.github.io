@@ -1,18 +1,32 @@
-<footer>
-    <div class="content">
-        <span>
-            More projects by
-            <a href="{{ site.data.accounts.github.profile_link }}">
-                {{ site.owner.name }}
-            </a>
-            on 
-            <a href="{{ site.data.accounts.github.repositories_link }}">
-                GitHub
-            </a>
-        </span>
-        <br>
-        <span>
-            Visit profile on <a href="{{ site.data.accounts.hackerrank.profile_link }}">HackerRank</a>
-        </span>
-    </div>
+<footer id="page-footer" class="page-footer">
+  <section class="footer-link-groups">
+    <article class="footer-profiles">
+      <h2>Profiles</h2>
+      <ul>
+        {%- for acc in site.data.accounts %}
+        <li>
+          <a href="{{ acc | map: 'profile_link' }}" target="_blank">
+            {{ acc | map: "username" }}
+          </a>
+          on
+          <a href="{{ acc | map: 'site-link' }}" target="_blank">
+            {{ acc | map: "site-title" }}
+          </a>
+        </li>
+        {% endfor -%}
+      </ul>
+    </article>
+  </section>
+  <section class="footer-description">
+    <span>
+      More projects by
+      <a href="{{ site.data.accounts.github.profile_link }}" target="_blank">
+        {{ site.owner.name }}
+      </a>
+      on 
+      <a href="{{ site.data.accounts.github.repositories_link }}" target="_blank">
+        GitHub
+      </a>
+    </span>
+  </section>
 </footer>

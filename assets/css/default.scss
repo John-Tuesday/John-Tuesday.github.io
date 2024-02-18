@@ -16,6 +16,7 @@
 @use "screen";
 @use "theme/m3-icon";
 @use "common/dropdown";
+@use "footer";
 @use "nav-bar";
 @use "about";
 @use "topbar";
@@ -30,20 +31,5 @@
     padding: {
         top: 16px;
         bottom: 16px;
-    }
-}
-
-// Footer
-
-footer {
-    .content {
-        position: relative;
-        box-sizing: border-box;
-        max-width: 100%;
-
-        border-top: {
-            style: double;
-            width: 1px;
-        }
     }
 }

@@ -125,17 +125,12 @@ header {
 }
 
 footer {
+    display: flex;
+    justify-content: center;
     max-width: 100%;
-    position: relative;
-    box-sizing: border-box;
-    text-align: center;
     font: {
         weight: font.$weight-medium;
         size: .8rem;
-    }
-    div.content {
-        padding-block-start: 16px;
-        padding-block-end: 16px;
     }
 }
 
@@ -200,6 +195,7 @@ em {
 ol, ul {
     margin: .7em 0;
     padding-left: 1.35em;
+    text-align: start;
 }
 
 ol {
