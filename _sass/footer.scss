@@ -28,6 +28,30 @@ footer#page-footer {
     }
 }
 
+section#page-footer-logo-container {
+    text-align: end;
+    align-self: flex-start;
+
+    h2 {
+        text-decoration: underline c.$primary solid .125em;
+        @include font.font-headline-small();
+        font-weight: 700;
+    }
+    p {
+        margin: unset;
+        font-style: italic;
+        @include font.font-body-large();
+    }
+}
+
+svg#page-footer-logo {
+    height: 1em;
+    min-width: 1em;
+    min-height: 1em;
+    vertical-align: bottom;
+    margin-inline-end: 0.25em;
+}
+
 .footer-row {
     display: flex;
     flex-direction: row;
