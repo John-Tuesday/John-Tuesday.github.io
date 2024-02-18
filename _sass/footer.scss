@@ -11,15 +11,20 @@ footer#page-footer {
     padding-inline-end: 16px;
     border: {
         style: solid;
-        color: c.$outline;
+        color: c.$outline-variant;
         top-width: 1px;
     }
     
+    background-color: c.$surface-container-lowest;
     @include font.font-body-small();
 
     h2 {
         @include font.font-headline-small();
         font-variation-settings: 'wght' 600;
+    }
+    
+    a {
+        color: c.$secondary;
     }
 }
 
