@@ -1,4 +1,5 @@
 @use "theme/m3-color" as c;
+@use "theme/font";
 
 footer#page-footer {
     flex-direction: column;
@@ -13,9 +14,16 @@ footer#page-footer {
         color: c.$outline;
         top-width: 1px;
     }
+    
+    @include font.font-body-small();
+
+    h2 {
+        @include font.font-headline-small();
+        font-variation-settings: 'wght' 600;
+    }
 }
 
-.footer-link-groups {
+.footer-row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -23,4 +31,8 @@ footer#page-footer {
     justify-content: space-between;
     max-width: 100%;
     width: 100%;
+}
+
+#footer-link-groups {
+    @include font.font-body-medium();
 }
