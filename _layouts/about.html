@@ -3,20 +3,12 @@ layout: base
 ---
 <main class="main-about">
     <section class="welcome" id="about-me">
-        <!-- <img src="/assets/svg/logo-trimmed-light.svg" alt="logo" class="logo"> -->
-        <!-- <span class="greeting">👋🤠 Howdy!</span> -->
-        <div class="me-summary">
-            <h1>
-                <span class="name">J. Tuesday Picot</span>
-            </h1>
-            <span class="me-blurb">
-                <span>Developer <em>in-training</em></span>
-                <br>
-                <span>Linux enjoyer</span>
-                <br>
-                <span>Android, Kotlin, Compose</span>
-            </span>
-        </div>
+        <h1>{{ site.data.owner.as-heading }}</h1>
+        <ul class="about-me-tagline">
+            <li>Developer <em>in-training</em></li>
+            <li>Linux enjoyer</li>
+            <li>Android, Kotlin, Compose</li>
+        </ul>
     </section>
 
     <section class="self-description" id="about-me-description">

@@ -6,22 +6,19 @@
 // Common
 $-medium-padding: 16px;
 $-large-padding: 32px;
-
 $-main-bg: c.$surface;
 
 main.main-about {
     background-color: $-main-bg;
 }
 
-
-// Welcome
-
-$-welcome-font-size: 3rem;
-$-blurb-font-size: 1.5rem;
-$-greeting-font-size: 1.5rem;
-$-greeting-z-index: 10;
-
 .welcome {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
     background-color: c.$primary-container;
     color: c.$on-primary-container;
     text-align: left;
@@ -29,76 +26,25 @@ $-greeting-z-index: 10;
         left: $-medium-padding;
         right: $-medium-padding;
     }
+    min-height: 100vh;
     
     h1 {
         display: inline-block;
-        font-family: font.$hx-family-sans;
-        line-height: 2;
-        font-size: $-welcome-font-size;
+        @include font.font-headline-large();
+        text-decoration: underline c.$primary 0.25em;
         margin-right: 0.25em;
-    }
-    
-
-    img.logo {
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-        object-fit: contain;
+        margin-block-end: 0.25em;
+        font-weight: 700;
+        @include util.text-shadow-prominent();
     }
 }
 
-.me-summary {
-    margin: auto;
-    width: fit-content;
-}
-
-img.logo {
-    background-color: c.$primary;
-    @include util.filter-shadow-small();
-    border: {
-        color: c.$primary;
-        width: 8px;
-        style: solid;
-        radius: 60%;
-    }
-}
-
-.greeting {
-    position: relative;
+.about-me-tagline {
     display: inline-block;
-    background-color: c.$tertiary-container;
-    color: c.$on-tertiary-container;
-    border: {
-        style: solid;
-        color: c.$tertiary-container;
-        width: 4px;
-        radius: 8px;
-    }
-    font: {
-        size: $-greeting-font-size;
-        font-family: font.$sub-hx-family;
-    }
-}
-
-
-
-.me-blurb {
-    display: inline-block;
-    vertical-align: top;
-    font: {
-        size: $-blurb-font-size;
-    }
-}
-
-
-
-.name {
-    border-bottom: {
-        color: c.$primary;
-        width: 0.25em;
-        style: solid;
-    }
-    @include util.filter-shadow-prominent();
+    margin: unset;
+    padding: unset;
+    @include font.font-body-medium();
+    font-weight: 500;
 }
 
 // Self description
