@@ -1,7 +1,11 @@
 hackerrank:
+  site-title: HackerRank
   username: JohnTuesday
   profile_link: https://www.hackerrank.com/profile/JohnTuesday
+  site-link: https://www.hackerrank.com
 github:
+  site-title: GitHub
   username: John-Tuesday
   profile_link: "https://github.com/John-Tuesday"
   repositories_link: "https://github.com/John-Tuesday?tab=repositories"
+  site-link: https://www.github.com
