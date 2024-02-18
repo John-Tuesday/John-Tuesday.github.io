@@ -5,6 +5,33 @@
 @use "common/util";
 $-max-width: 450px !default;
 
+/** Back to top **/
+a.back-to-top {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset-inline-end: 16px;
+    inset-block-end: 16px;
+    min-inline-size: 56px;
+    min-block-size: 56px;
+    font-size: 24px;
+    text-decoration: none;
+    background-color: c.$secondary-container;
+    color: c.$on-secondary-container;
+    border-radius: 16px;
+    @include util.box-shadow-small();
+    @media not screen and (max-width: $-max-width) {
+        // display: none;
+        opacity: 75%;
+    }
+    
+    &:hover {
+        background-color: c.apply-tint(c.$secondary-container);
+        opacity: 100%;
+    }
+}
+
 /** Hamburger Menu **/
 input[type="checkbox"][class|="menu-toggle"] {
     display: none;
@@ -17,7 +44,8 @@ input[type="checkbox"][class|="menu-toggle"] {
             }
         }
         label.nav-menu-label-unchecked {
-            display: flex;
+            display: none;
+            // display: flex;
             @media (max-width: $-max-width) {
                 display: none;
             }
@@ -31,7 +59,8 @@ input[type="checkbox"][class|="menu-toggle"] {
     }
     &:not(&:checked) ~ {
         label.nav-menu-label-checked {
-            display: flex;
+            display: none;
+            // display: flex;
             @media (max-width: $-max-width) {
                 display: none;
             }
@@ -63,24 +92,6 @@ label[class|="nav-menu-label"] {
     &:hover {
         cursor: pointer;
     }
-}
-
-label.nav-menu-label-unchecked {
-    @media (max-width: $-max-width) {
-        border-radius: 4px;
-        border-width: 1px;
-        border-style: solid;
-        border-color: c.$outline;
-        background-color: c.$secondary-container;
-        color: c.$on-secondary-container;
-    }
-}
-
-label.nav-menu-label-checked {
-    border-radius: 4px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: c.$outline;
 }
 
 /** Normal **/
