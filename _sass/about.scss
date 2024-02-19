@@ -1,7 +1,28 @@
 @use "sass:color";
+@use "sass:map";
 @use "theme/m3-color" as c;
 @use "theme/font";
+@use "theme/m3-motion" as m;
 @use "common/util";
+
+@keyframes slide-in-start {
+    0% { left: -100%; }
+    100% { left: 0; }
+}
+@keyframes slide-in-end {
+    0% { right: -100%; }
+    100% { right: 0; }
+}
+
+@mixin anim-slide-in($start-to-end: true) {
+    $anim-name: slide-in-start;
+    @if not $start-to-end {
+        $anim-name: slide-in-end;
+    }
+    position: relative;
+    animation: $anim-name map.get(m.$durations, "medium", 1) map.get(m.$easings, "standard", "decel");
+    animation-play-state: paused;
+}
 
 // Common
 $-vmax-width: 450px;
@@ -11,6 +32,13 @@ $-main-bg: c.$surface;
 
 main.main-about {
     background-color: $-main-bg;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    
+    & > section {
+        scroll-snap-align: start;
+    }
 }
 
 .welcome {
@@ -38,6 +66,9 @@ main.main-about {
         margin-block-end: $-line-size;
         font-weight: 700;
         @include util.text-shadow-prominent();
+        
+        position: relative;
+        @include m.anim-fade-in();
     }
 }
 
@@ -47,6 +78,7 @@ main.main-about {
     padding: unset;
     @include font.font-body-medium();
     font-weight: 500;
+    @include m.anim-fade-in();
 }
 
 // Self description
@@ -64,6 +96,16 @@ main.main-about {
     padding: 16px;
     background-color: c.$primary-container;
     color: c.$on-primary-container;
+    
+    &:hover .description-content {
+        animation-play-state: running;
+    }
+    &:hover img.about-me-portrait {
+        animation-play-state: running;
+    }
+    &:not(&:hover) img.about-me-portrait {
+        animation-play-state: paused;
+    }
 
     .about-me-header {
         @include font.font-headline-large();
@@ -89,6 +131,8 @@ main.main-about {
         max-width: 40em;
         min-width: 20em;
         flex: 3 1 max(60%, 20em);
+
+        @include anim-slide-in($start-to-end: false);
         
         p:first-child {
             margin-top: 0;
@@ -104,6 +148,8 @@ main.main-about {
         object-fit: contain;
         object-position: 0 0;
         border-radius: 16px;
+        
+        @include anim-slide-in();
         
         @media (max-width: $-vmax-width) {
             max-width: 100%;
