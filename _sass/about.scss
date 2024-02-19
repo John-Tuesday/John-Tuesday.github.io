@@ -84,11 +84,11 @@ main.main-about {
     gap: 16px;
 
     .description-content {
-        @include font.font-body-medium();
+        @include font.font-body-large();
 
         max-width: 40em;
         min-width: 20em;
-        flex: 3 1 60%;
+        flex: 3 1 max(60%, 20em);
         
         p:first-child {
             margin-top: 0;
