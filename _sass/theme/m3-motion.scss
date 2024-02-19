@@ -1,0 +1,58 @@
+@use "sass:map";
+@use "sass:list";
+$durations: (
+    "short": (
+        0: 50ms,
+        1:100ms,
+        2:150ms,
+        3:200ms
+    ),
+    "medium": (
+        0:250ms,
+        1:300ms,
+        2:350ms,
+        3:400ms
+    ),
+    "long": (
+        0:450ms,
+        1:500ms,
+        2:550ms,
+        3:600ms
+    ),
+    "extra-long": (
+        0: 700ms,
+        1: 800ms,
+        2: 900ms,
+        3:1000ms
+    )
+) !default;
+$easings: (
+    "standard": (
+        "base":  cubic-bezier(0.2, 0, 0, 1),
+        "decel": cubic-bezier(0, 0, 0, 1),
+        "accel": cubic-bezier(0.3, 0, 1, 1)
+    )
+);
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@mixin -anim($anim-name, $duration: null, $easing: null) {
+    @if not $duration {
+        $duration: map.get($durations, "extra-long", 3);
+    }
+    @if not $easing {
+        $easing: map.get($easings, "standard", "accel");
+    }
+    animation: $anim-name $duration $easing;
+}
+
+@mixin anim-fade-in($duration: null, $easing: null) {
+    @include -anim(fade-in, $duration, $easing)
+}
