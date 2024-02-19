@@ -4,26 +4,26 @@ title: Projects
 ---
 
 <table>
-    <thead>
-        <tr>
-            <th style="width: 20%">Name</th>
-            <th style="width: 33%">Description</th>
-            <th>Platforms</th>
-            <th>Languages</th>
-            <th>Frameworks</th>
-        </tr>
-    </thead>
-    <tbody>
-        {%- for proj in site.projects -%}
-        <tr>
-            <th><a href="{{ proj.url }}">{{ proj.name }}</a></th>
-            <td>{{ proj.description }}</td>
-            <td>{{ proj.platforms | join: ", " }}</td>
-            <td>{{ proj.languages | join: ", " }}</td>
-            <td>{{ proj.frameworks | join: ", " }}</td>
-        </tr>
-        {%- endfor -%}
-    </tbody>
+  <thead>
+    <tr>
+      <th style="width: 20%">Name</th>
+      <th style="width: 33%">Description</th>
+      <th>Platforms</th>
+      <th>Languages</th>
+      <th>Frameworks</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%- for proj in site.projects -%}
+    <tr>
+      <th><a href="{{ proj.url }}">{{ proj.name }}</a></th>
+      <td>{{ proj.description }}</td>
+      <td>{{ proj.platforms | join: ", " }}</td>
+      <td>{{ proj.languages | join: ", " }}</td>
+      <td>{{ proj.frameworks | join: ", " }}</td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
 </table>
 
 {% for proj in site.projects %}
