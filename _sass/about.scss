@@ -4,6 +4,7 @@
 @use "common/util";
 
 // Common
+$-vmax-width: 450px;
 $-medium-padding: 16px;
 $-large-padding: 32px;
 $-main-bg: c.$surface;
@@ -52,15 +53,60 @@ main.main-about {
 
 .self-description {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    align-content: center;
+    gap: 16px;
     min-height: 100vh;
     min-width: 100vw;
-    background-color: c.$secondary;
-    color: c.$on-secondary;
+    padding: 16px;
+    background-color: c.$primary-container;
+    color: c.$on-primary-container;
+
+    .about-me-header {
+        @include font.font-headline-large();
+        font-weight: 700;
+        $-underlin-size: 0.125em;
+        text-decoration: underline solid c.$primary $-underlin-size;
+        margin-block-end: $-underlin-size;
+        @include util.text-shadow-prominent();
+    }
 }
 
-.description-content {
-    margin: auto;
-    width: fit-content;
+.about-me-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: top;
+    gap: 16px;
+
+    .description-content {
+        @include font.font-body-medium();
+
+        max-width: 40em;
+        min-width: 20em;
+        flex: 3 1 60%;
+        
+        p:first-child {
+            margin-top: 0;
+            padding-top: 0;
+        }
+    }
+    
+    img {
+        flex: 1 2 30%;
+        max-width: min(400px, 75%);
+        min-width: 200px;
+        max-height: 75vh;
+        object-fit: contain;
+        object-position: 0 0;
+        border-radius: 16px;
+        
+        @media (max-width: $-vmax-width) {
+            max-width: 100%;
+        }
+    }
 }
