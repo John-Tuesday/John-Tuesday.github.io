@@ -30,14 +30,43 @@ $-medium-padding: 16px;
 $-large-padding: 32px;
 $-main-bg: c.$surface;
 
+@keyframes vertical-bob {
+    0% { 
+        translate: 0 0; 
+        scale: 1;
+    }
+    100% { 
+        translate: 0 16px;
+        scale: 1.25;
+    }
+}
+
 main.main-about {
+    position: relative;
     background-color: $-main-bg;
     height: 100vh;
+    top: 0;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     
     & > section {
-        scroll-snap-align: start;
+        scroll-snap-align: end;
+        position: relative;
+        height: 100%;
+        &::after {
+            content: "expand_more";
+            position: absolute;
+            bottom: 32px;
+            $-size: 40px;
+            font: {
+                size: $-size;
+                family: "Material Symbols Rounded";
+                variation-settings: 'opsz' $-size;
+                weight: 700;
+            }
+            
+            animation: vertical-bob map.get(m.$durations, "extra-long", 3) map.get(m.$easings, "standard", "accel") infinite alternate;
+        }
     }
 }
 
@@ -55,7 +84,6 @@ main.main-about {
         left: $-medium-padding;
         right: $-medium-padding;
     }
-    min-height: 100vh;
     
     h1 {
         display: inline-block;
