@@ -4,10 +4,12 @@
 @use "theme/m3-color" as c;
 @use "common/util";
 $-max-width: 450px !default;
+$-back-to-top-z: util.$topbar-z !default;
 
 /** Back to top **/
 a.back-to-top {
     position: fixed;
+    z-index: $-back-to-top-z;
     display: flex;
     justify-content: center;
     align-items: center;
