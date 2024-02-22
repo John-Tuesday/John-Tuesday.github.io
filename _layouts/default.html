@@ -1,6 +1,12 @@
 ---
 layout: base
+back-to-top-id: ""
 ---
-<section id="main-content">
+
+{%- include nav-bar.html back-to-top-id=layout.back-to-top-id -%}
+
+<main id="main-content">
   {{ content }}
-</section>
+</main>
+
+{%- include footer.html -%}
