@@ -58,44 +58,6 @@ table {
     box-sizing: border-box;
 }
 /* Styles */
-header.page-header {
-    display: inline-block;
-    max-width: 100%;
-    width: 100%;
-    padding: {
-        block-start: 4px;
-        block-end: 4px;
-        inline-start: 16px;
-        inline-end: 16px;
-    }
-    background-color: c.$primary-container;
-
-    h1 {
-        font: {
-            size: 4.5rem;
-            weight: bolder;
-            style: normal;
-        }
-        line-height: 4.5rem;
-        text-transform: uppercase;
-        color: c.$on-primary-container;
-        @include util.text-shadow-prominent();
-    }
-    
-    h2 {
-        font: {
-            size: 1.125rem;
-            weight: 500;
-            style: italic;
-            family: t.typography("headline", "medium", "family");
-        }
-        line-height: 1.5;
-        text-align: center;
-        color: c.$on-primary-container;
-        padding-bottom: 14px;
-        margin-top: -3px;
-    }
-}
 
 header {
     border-radius: 8px;

@@ -1,0 +1,26 @@
+@use "theme";
+@use "common/util";
+
+header.page-header {
+    padding: {
+        block-start: 4px;
+        block-end: 4px;
+        inline-start: 16px;
+        inline-end: 16px;
+    }
+}
+
+.page-title {
+    @include theme.font-display-medium();
+    padding: 0;
+    text-transform: uppercase;
+    @include util.text-shadow-prominent();
+}
+
+.page-subtitle {
+    @include theme.font-title-medium();
+    line-height: 1;
+    font-weight: 400;
+    font-style: italic;
+    padding-bottom: 14px;
+}
