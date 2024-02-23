@@ -1,4 +1,7 @@
 ---
+layout: page
+title: Website
+subtitle: this very website
 name: This website
 repo_url: "https://github.com/John-Tuesday/John-Tuesday.github.io"
 description: Website used to summarize and centralize details of my career, qualifications, projects, and accomplishments.
@@ -17,6 +20,8 @@ frameworks:
     - GitHub Pages
 ---
 
+## Prologue
+
 This project was meant to be simple. A simple website hosting a brief summary of myself and of my other projects. 
 *Just a few markdown files,* a naive young man thought. *It'll be easy, pretty, and modern in no time!*
 
@@ -25,6 +30,8 @@ More importantly, I would be denying myself the perfect opportunity to learn, un
 
 With my chest held high, I read the technologies involved in just the basic template, *Jekyll, Liquid, HTML, CSS, Sass ...,* and began to lower my head.
 I had never used any of these tools or languages before, save the odd use of the simplest tags in HTML like `<p>` and `<a>`. Nonetheless, I began, like all fearless warriors do, with the Jekyll quick start guide. ... Only until, I realized I need to go even more basic: an introductory guide to HTML.
+
+## Background
 
 As of writing this, I have made lot of progress understanding how Jekyll, Liquid, HTML, CSS, Sass, etc. fit together, but I want to make a few goals explicit.
 Firstly, I am deliberately avoiding JavaScript (including CoffeeScript, TypeScript and all other langauges like them).
