@@ -65,4 +65,13 @@ Because while manually repeating someone else's work but worse seems useless, it
 
 </section>
 
+{::options parse_block_html="false" /}
+
+<figure class="project-no-pad-faded">
+    <img src="/assets/img/hackerrank-works-flex-source-screenshot.png" alt="website screenshot" class="screenshot">
+    <figcaption>Early source file</figcaption>
+</figure>
+
+{::options parse_block_html="true" /}
+
 *[HTML]: Hyper Text Markup Language
