@@ -11,6 +11,16 @@ families:
       tuples:
         - "0,400..900"
         - "1,400..900"
+  - family: Source Sans 3
+    groups:
+      - name: body
+      - name: label
+    platform: google
+    spec:
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,200..900"
+        - "1,200..900"
   - family: Literata
     groups:
       - name: headline
@@ -34,16 +44,6 @@ families:
       tuples:
         - "0,200..800"
         - "1,200..800"
-  - family: Source Sans 3
-    groups:
-      - name: body
-      - name: label
-    platform: google
-    spec:
-      axes: ["ital", "wght"]
-      tuples:
-        - "0,200..900"
-        - "1,200..900"
   - family: Source Code Pro
     groups:
       - name: code
