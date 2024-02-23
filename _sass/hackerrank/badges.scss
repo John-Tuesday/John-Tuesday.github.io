@@ -1,5 +1,6 @@
 @use "theme/m3-color" as c;
-@use "theme/font";
+// @use "theme/font";
+@use "theme/m3-typography" as font;
 $-completed-container-bg: c.$surface-container;
 $-completed-container-fg: c.$on-surface;
 

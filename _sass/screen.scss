@@ -1,4 +1,4 @@
-@use "theme/font";
+@use "theme/m3-typography" as t;
 @use "theme/m3-color" as c;
 @use "common/util";
 @use "sass:color";
@@ -87,7 +87,7 @@ header.page-header {
             size: 1.125rem;
             weight: 500;
             style: italic;
-            family: font.$sub-hx-family;
+            family: t.typography("headline", "medium", "family");
         }
         line-height: 1.5;
         text-align: center;
@@ -101,7 +101,7 @@ header {
     border-radius: 8px;
 
     h1 {
-        @include font.font-headline-large();
+        @include t.font-headline-large();
         font-weight: 600;
         text-align: center;
 
@@ -118,7 +118,7 @@ header {
     }
 
     h2 {
-        @include font.font-headline-small();
+        @include t.font-headline-small();
         font-weight: 500;
         text-align: center;
     }
@@ -131,11 +131,12 @@ footer {
 }
 
 body {
-    font: {
-        family: font.$default-family;
-        size: font.$default-size;
-        line-height: font.$default-line-height;
-    }
+    @include t.font-body-large();
+    // font: {
+        // family: font.$default-family;
+        // size: font.$default-size;
+        // line-height: font.$default-line-height;
+    // }
     
     color: c.$on-background;
     background-color: c.$background;
@@ -154,7 +155,7 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
     font: {
-        family: font.$hx-family;
+        family: t.typography("headline", "large", "family");
         weight: bold;
     }
 }
@@ -245,8 +246,9 @@ th {
         right-width: 1px;
     }
     color: c.$secondary;
+    @include t.font-title-medium();
     font: {
-        family: font.$hx-family-sans;
+        size: inherit;
         weight: bold;
     }
 

@@ -1,5 +1,5 @@
 @use "theme/m3-color" as c;
-@use "theme/font";
+@use "theme/m3-typography" as font;
 
 footer#page-footer {
     flex-direction: column;

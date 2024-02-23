@@ -1,6 +1,6 @@
 @use "sass:map";
 @use "sass:color";
-@use "theme/font";
+@use "theme/m3-typography" as font;
 @use "theme/m3-color" as c;
 @use "common/util";
 $-max-width: 450px !default;
@@ -179,7 +179,7 @@ a.current-nav {
     }
     
     .nav-label {
-        font-weight: map.get(font.$m3-typography, "label", "large", "weight-prominent");
+        font-weight: font.typography("label", "large", "weight-prominent");
     }
     
     @media (max-width: $-max-width) {
@@ -235,7 +235,7 @@ a.current-nav {
     }
     
     .nav-label {
-        @include font.font-label-large;
+        @include font.font-label-large();
         padding-top: 4px;
         color: c.$on-surface;
     }

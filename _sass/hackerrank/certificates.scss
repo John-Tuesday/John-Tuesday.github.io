@@ -1,5 +1,5 @@
 @use "theme/m3-color" as c;
-@use "theme/font";
+@use "theme/m3-typography" as font;
 @use "common/ribbon";
 $-max-vwidth: 450px;
 $-container-bg:    c.$surface-container-low;
