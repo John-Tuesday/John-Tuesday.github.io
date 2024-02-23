@@ -41,6 +41,11 @@ header.page-header {
     background-color: theme.$surface;
     color: theme.$on-surface;
 
+    p code {
+        padding-block-start: 0;
+        padding-block-end: 0;
+    }
+
     p:first-child {
         margin-top: 0;
         line-height: normal;
