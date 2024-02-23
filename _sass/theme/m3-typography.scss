@@ -1,0 +1,217 @@
+@use "sass:list";
+@use "sass:map";
+$-sans-serifs: "sans-serif" !default;
+$-init-typography: null !default;
+$-typography: (
+    "display": (
+        "large": (
+            "size": 57,
+            "weight": 600,
+        ),
+        "medium": (
+            "size": 45,
+        ),
+        "small": (
+            "size": 36,
+        ),
+    ),
+    "headline": (
+        "large": (
+            "size": 32,
+            "weight": 500,
+        ),
+        "medium": (
+            "size": 28,
+        ),
+        "small": (
+            "size": 24,
+        ),
+    ),
+    "title": (
+        "large": (
+            "size": 22,
+            "weight": 500, //400,
+        ),
+        "medium": (
+            "size": 16,
+            "weight": 500,
+        ),
+        "small": (
+            "size": 14,
+            "weight": 500,
+        ),
+    ),
+    "body": (
+        "large": (
+            "size": 16,
+        ),
+        "medium": (
+            "size": 14,
+        ),
+        "small": (
+            "size": 12,
+        ),
+    ),
+    "label": (
+        "large": (
+            "size": 14,
+            "weight": 500,
+            "weight-prominent": 700,
+        ),
+        "medium": (
+            "size": 12,
+            "weight": 500,
+            "weight-prominent": 700,
+        ),
+        "small": (
+            "size": 11,
+            "weight": 500,
+        ),
+    ),
+) !default;
+
+$-default-line-height: normal;
+$-default-weight: 400;
+$-default-style: normal;
+
+
+@mixin set-typography($group) {
+    $-typography: map.deep-merge($-typography, $group) !global;
+}
+
+@if $-init-typography {
+    @include set-typography($-init-typography);
+}
+
+/**
+ * Convert raw number [size] to font-size according to m3 spec
+ *
+ * This enables scaling font size with the root font size
+ */
+@function sp($size) {
+    $conversion: 0.0625rem;
+    @return $conversion * $size;
+}
+
+@function -default($attr) {
+    @if $attr == "line-height" {
+        @return $-default-line-height;
+    } @else if $attr == "weight" {
+        @return $-default-weight;
+    } @else if $attr == "style" {
+        @return $-default-style;
+    }
+
+    @return null;
+}
+
+/**
+ * Get the value in [-typography] using fall backs:
+ * 1. Value in another size (checking ascending)
+ * 2. Using a default
+ * 3. Otherwise return null
+ */
+@function typography-or-null($name, $size, $attr, $index: 0) {
+    $value: map.get($-typography, $name, $size, $attr);
+    @if $value {
+        @return $value;
+    }
+    @if $attr == "weight-prominent" {
+        @return typography-or-null($name, $size, "weight-prominent", $index);
+    }
+
+    @if $index >= 2 {
+        @return -default($attr);
+    }
+
+    @if $size == "small" {
+        @return typography-or-null($name, "medium", $attr, 1 + $index);
+    }
+    @if $size == "medium" {
+        @return typography-or-null($name, "large", $attr, 1 + $index);
+    }
+    @if $size == "large" {
+        @return typography-or-null($name, "small", $attr, 1 + $index);
+    }
+    @error "invalid size '#{$size}' must be 'small' 'medium' or 'large'";
+}
+@function typography($name, $size, $attr) {
+    $value: typography-or-null($name, $size, $attr);
+    @if $value {
+        @return $value;
+    }
+    @error "Attribute '#{$attr}' does not exist and there is no default";
+}
+
+@mixin -set-font($size: null, $weight: null, $line-height: null, $style: null, $family: null) {
+    @if $size {
+        font-size: sp($size);
+    }
+    @if $weight {
+        font-weight: $weight;
+    }
+    @if $line-height {
+        line-height: $line-height;
+    }
+    @if $style {
+        font-style: $style;
+    }
+    @if $family {
+        font-family: $family;
+    }
+}
+@mixin -configure-font($name, $size, $prominent: false) {
+    @include -set-font(
+        $size: typography($name, $size, "size"),
+        $weight: typography($name, $size, "weight"),
+        $line-height: typography($name, $size, "line-height"),
+        $style: typography($name, $size, "style"),
+        $family: typography($name, $size, "family"),
+    );
+}
+
+@mixin font-display-large {
+    @include -configure-font("display", "large");
+}
+@mixin font-display-medium {
+    @include -configure-font("display", "medium");
+}
+@mixin font-display-small {
+    @include -configure-font("display", "small");
+}
+@mixin font-headline-large {
+    @include -configure-font("headline", "large");
+}
+@mixin font-headline-medium {
+    @include -configure-font("headline", "medium");
+}
+@mixin font-headline-small {
+    @include -configure-font("headline", "small");
+}
+@mixin font-title-large {
+    @include -configure-font("title", "large");
+}
+@mixin font-title-medium {
+    @include -configure-font("title", "medium");
+}
+@mixin font-title-small {
+    @include -configure-font("title", "small");
+}
+@mixin font-body-large {
+    @include -configure-font("body", "large");
+}
+@mixin font-body-medium {
+    @include -configure-font("body", "medium");
+}
+@mixin font-body-small {
+    @include -configure-font("body", "small");
+}
+@mixin font-label-medium {
+    @include -configure-font("label", "medium");
+}
+@mixin font-label-large {
+    @include -configure-font("label", "large");
+}
+@mixin font-label-small {
+    @include -configure-font("label", "small");
+}
