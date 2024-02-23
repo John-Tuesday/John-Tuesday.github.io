@@ -1,9 +1,5 @@
-<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans|Spectral|Rubik"> -->
-
-{%- assign gfonts = site.data.fonts.sans-serif | concat: site.data.fonts.serif | where: "platform", "google" | map: "family" | join: "&family=" | replace: " ", "+" -%}
-
 {%- capture gfonts2 -%}
-{%- assign fonts = site.data.fonts.sans-serif | concat: site.data.fonts.serif | where: "platform", "google" -%}
+{%- assign fonts = site.data.fonts.families | where: "platform", "google" -%}
 {%- for font in fonts -%}
   {%- unless forloop.first -%}&family={%- endunless -%}
   {{- font.family | replace: " ", "+" -}}
@@ -14,4 +10,6 @@
 {%- endfor -%}
 {%- endcapture %}
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ gfonts2 }}&display=swap">
