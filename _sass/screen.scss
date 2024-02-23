@@ -1,5 +1,6 @@
 @use "theme/m3-typography" as t;
 @use "theme/m3-color" as c;
+@use "theme";
 @use "common/util";
 @use "sass:color";
 
@@ -139,6 +140,16 @@ h3 {
 p {
     margin: .7em 0;
     max-width: 40em;
+}
+
+code {
+    @include theme.font-code-small();
+    font-size: inherit;
+    $-pad: 4px;
+    padding: $-pad;
+    border-radius: $-pad;
+    background-color: theme.$secondary-container;
+    color: theme.$on-secondary-container;
 }
 
 strong {

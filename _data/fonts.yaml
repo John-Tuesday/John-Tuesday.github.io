@@ -1,4 +1,4 @@
-typography-groups: ["display", "headline", "title", "body", "label"]
+typography-groups: ["display", "headline", "title", "body", "label", "code"]
 
 families:
   - family: Playfair Display
@@ -38,6 +38,15 @@ families:
     groups:
       - name: body
       - name: label
+    platform: google
+    spec:
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,200..900"
+        - "1,200..900"
+  - family: Source Code Pro
+    groups:
+      - name: code
     platform: google
     spec:
       axes: ["ital", "wght"]

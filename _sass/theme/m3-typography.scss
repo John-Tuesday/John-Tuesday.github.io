@@ -67,6 +67,17 @@ $-typography: (
             "weight": 500,
         ),
     ),
+    "code": (
+        "large": (
+            "size": 16,
+        ),
+        "medium": (
+            "size": 14,
+        ),
+        "small": (
+            "size": 12,
+        ),
+    ),
 ) !default;
 
 $-default-line-height: normal;
@@ -213,4 +224,13 @@ $-default-style: normal;
 }
 @mixin font-label-small {
     @include -configure-font("label", "small");
+}
+@mixin font-code-medium {
+    @include -configure-font("code", "medium");
+}
+@mixin font-code-large {
+    @include -configure-font("code", "large");
+}
+@mixin font-code-small {
+    @include -configure-font("code", "small");
 }
