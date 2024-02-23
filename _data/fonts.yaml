@@ -1,3 +1,68 @@
+typography-groups: ["display", "headline", "title", "body", "label"]
+
+families:
+  - family: Playfair Display
+    groups:
+      - name: display
+      - name: headline
+    platform: google
+    spec: 
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,400..900"
+        - "1,400..900"
+  - family: Literata
+    groups:
+      - name: headline
+      - name: title
+      - name: label
+    platform: google
+    spec: 
+      axes: ["ital", "opsz", "wght"]
+      tuples:
+        - "0,7..72,400..800"
+        - "1,7..72,400..800"
+  - family: Bitter
+    groups:
+      - name: display
+      - name: headline
+      - name: title
+      - name: label
+    platform: google
+    spec: 
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,200..800"
+        - "1,200..800"
+  - family: Source Sans 3
+    groups:
+      - name: body
+      - name: label
+    platform: google
+    spec:
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,200..900"
+        - "1,200..900"
+  - family: Schibsted Grotesk
+    groups:
+      - name: body
+      - name: label
+    platform: google
+    spec:
+      axes: ["ital", "wght"]
+      tuples:
+        - "0,400..800"
+        - "1,400..800"
+  - family: serif
+    groups:
+      - name: display
+      - name: headline
+      - name: title
+  - family: sans-serif
+    groups:
+      - name: all
+
 serif:
   - family: Playfair Display
     platform: google
