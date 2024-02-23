@@ -38,9 +38,9 @@ section#page-footer-logo-container {
         font-weight: 700;
     }
     p {
+        @include font.font-body-large();
         margin: unset;
         font-style: italic;
-        @include font.font-body-large();
     }
 }
 
