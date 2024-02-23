@@ -6,23 +6,23 @@ name: This website
 repo_url: "https://github.com/John-Tuesday/John-Tuesday.github.io"
 description: Website used to summarize and centralize details of my career, qualifications, projects, and accomplishments.
 platforms:
-    - Web
+  - Web
 languages:
-    - Sass
-    - Liquid
-    - HTML
-    - CSS
-    - Markdown
-    - YAML
+  - Sass
+  - Liquid
+  - HTML
+  - CSS
+  - Markdown
+  - YAML
 frameworks:
-    - Jekyll
-    - GitHub Actions
-    - GitHub Pages
+  - Jekyll
+  - GitHub Actions
+  - GitHub Pages
 ---
 
 <figure class="project-no-pad-faded">
-    <img src="/assets/img/jtp-hackerrank-summary-screenshot-1.png" alt="website screenshot" class="screenshot">
-    <figcaption>Early desktop screenshot of HackerRank summary</figcaption>
+  <img src="/assets/img/jtp-hackerrank-summary-screenshot-1.png" alt="website screenshot" class="screenshot">
+  <figcaption>Early desktop screenshot of HackerRank summary</figcaption>
 </figure>
 
 {::options parse_block_html="true" /}
@@ -68,8 +68,8 @@ Because while manually repeating someone else's work but worse seems useless, it
 {::options parse_block_html="false" /}
 
 <figure class="project-no-pad-faded">
-    <img src="/assets/img/hackerrank-works-flex-source-screenshot.png" alt="website screenshot" class="screenshot">
-    <figcaption>Early source file</figcaption>
+  <img src="/assets/img/hackerrank-works-flex-source-screenshot.png" alt="website screenshot" class="screenshot">
+  <figcaption>Early source file</figcaption>
 </figure>
 
 {::options parse_block_html="true" /}
