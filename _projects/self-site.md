@@ -20,11 +20,15 @@ frameworks:
   - GitHub Pages
 ---
 
+{::options parse_block_html="true" /}
+
+<div class="project-section">
+
+{::options parse_block_html="false" /}
 <figure class="project-no-pad-faded">
   <img src="/assets/img/jtp-hackerrank-summary-screenshot-1.png" alt="website screenshot" class="screenshot">
   <figcaption>Early desktop screenshot of HackerRank summary</figcaption>
 </figure>
-
 {::options parse_block_html="true" /}
 
 <section>
@@ -41,6 +45,17 @@ With my chest held high, I read the technologies involved in just the basic temp
 I had never used any of these tools or languages before, save the odd use of the simplest tags in HTML like `<p>` and `<a>`. Nonetheless, I began, like all fearless warriors do, with the Jekyll quick start guide. ... Only until, I realized I need to go even more basic: an introductory guide to HTML.
 
 </section>
+
+</div>
+
+<div class="project-section">
+
+{::options parse_block_html="false" /}
+<figure class="project-no-pad-faded">
+  <img src="/assets/img/hackerrank-works-flex-source-screenshot.png" alt="website screenshot" class="screenshot">
+  <figcaption>Early source file</figcaption>
+</figure>
+{::options parse_block_html="true" /}
 
 <section>
 
@@ -65,13 +80,6 @@ Because while manually repeating someone else's work but worse seems useless, it
 
 </section>
 
-{::options parse_block_html="false" /}
-
-<figure class="project-no-pad-faded">
-  <img src="/assets/img/hackerrank-works-flex-source-screenshot.png" alt="website screenshot" class="screenshot">
-  <figcaption>Early source file</figcaption>
-</figure>
-
-{::options parse_block_html="true" /}
+</div>
 
 *[HTML]: Hyper Text Markup Language
