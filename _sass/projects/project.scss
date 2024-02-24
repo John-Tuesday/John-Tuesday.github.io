@@ -104,15 +104,20 @@ figure[class|="project"] {
         object-fit: cover;
         object-position: center top;
 
-        height: 400px;
+        max-width: 650px;
         width: 100%;
+
+        height: auto;
+        min-height: min(300px, 50vh);
+
 
         $-gradient: linear-gradient(0deg, transparent 0 $-cap-height, transparent 5%, black 33% 100%);
         -webkit-mask-image: $-gradient;
         mask-image: $-gradient;
         
         @media (max-width: $-vmax-width) {
-            height: clamp(40px, 33vh, 100%);
+            max-height: clamp(40px, 25vh, 100%);
+            max-width: 100%;
         }
     }
 }
