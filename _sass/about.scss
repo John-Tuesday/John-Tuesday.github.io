@@ -68,6 +68,10 @@ main.main-about {
             animation: vertical-bob map.get(m.$durations, "extra-long", 3) map.get(m.$easings, "standard", "accel") infinite alternate;
         }
     }
+    
+    & > footer {
+        scroll-snap-align: end;
+    }
 }
 
 .welcome {
