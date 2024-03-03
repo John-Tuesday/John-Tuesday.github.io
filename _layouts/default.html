@@ -3,7 +3,8 @@ layout: base
 back-to-top-id: ""
 ---
 
-{%- include nav-bar.html back-to-top-id=layout.back-to-top-id -%}
+{%- include nav-bar.html -%}
+{%- include back-to-top.html back-to-top-id=layout.back-to-top-id -%}
 
 <main id="main-content">
   {{ content }}
