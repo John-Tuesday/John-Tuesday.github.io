@@ -42,8 +42,7 @@ plugins:
   - jekyll-feed
 
 # Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
+# Default exclude list. Use if using Jekyll 3.
 # exclude:
 #   - Gemfile
 #   - Gemfile.lock
@@ -52,3 +51,5 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+exclude:
+  - "test/"
