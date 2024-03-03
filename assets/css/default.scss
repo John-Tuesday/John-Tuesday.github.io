@@ -30,20 +30,6 @@
         {% endfor %}
     )
 );
-/*
-@use "theme/font" with(
-    $-serifs: (
-    {%- for font in site.data.fonts.serif -%}
-    "{{ font.family}}",
-    {%- endfor -%}
-),
-    $-sans-serifs: (
-    {%- for font in site.data.fonts.sans-serif -%}
-    "{{ font.family}}",
-    {%- endfor -%}
-    )
-);
-*/
 @use "sass:math";
 @use "screen";
 @use "theme/m3-icon";
