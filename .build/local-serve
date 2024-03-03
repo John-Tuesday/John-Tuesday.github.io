@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+
+PROJECT_DIR=''
+VERBOSE=0
+DRY="false"
+declare -A ERROR_CODE
+ERROR_CODE['unrecognized option']=404
+ERROR_CODE['project-dir empty']=405
+ERROR_CODE['mode empty']=406
+
+JEKYLL_CMD='jekyll serve'
+JEKYLL_ENV=''
+JEKYLL_EXPORT_CMD=''
+declare -A JEKYLL_OPTS
+
+indent_echo () {
+    local LEVEL="$1"
+    local TEXT="$2"
+    local TABWIDTH=4
+    
+    local WIDTH=$(( LEVEL * TABWIDTH ))
+    printf "%${WIDTH}s%s\n" " " "$TEXT"
+}
+
+log () {
+    if (( VERBOSE > 0 )); then
+        echo "$@"
+    fi
+}
+
+is_dry () {
+    if [[ "$DRY" == "true" ]]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+set_mode () {
+    case "$1" in
+    '')
+        echo "Mode cannot be empty"
+        exit ${ERROR_CODE['mode empty']}
+        ;;
+    esac
+    JEKYLL_ENV="$1"
+    JEKYLL_OPTS['--config']="_config.yml,$JEKYLL_ENV/_config.yaml"
+}
+
+for opt in "$@"; do
+    case "$1" in
+        --project-dir=*)
+            PROJECT_DIR="${opt#*=}"
+            if [[ "$PROJECT_DIR" == "" ]]; then
+                echo "Project dir cannot be empty"
+                exit ${ERROR_CODE['project-dir empty']}
+            fi
+            ;;
+        --mode=*)
+            set_mode "${opt#*=}"
+            ;;
+        --test)
+            set_mode 'test'
+            ;;
+        --release)
+            set_mode 'release'
+            ;;
+        --dry)
+            DRY="true"
+            ;;
+        --no-dry)
+            DRY="false"
+            ;;
+        '-v'|'--verbose')
+            VERBOSE=1
+            ;;
+        *)
+            echo "Unrecognized option"
+            echo "'$1'"
+            exit ${ERROR_CODE['unrecognized option']}
+            ;;
+    esac
+    shift
+done
+
+if [[ -z "$JEKYLL_ENV" ]]; then
+    JEKYLL_EXPORT_CMD="JEKYLL_ENV=${JEKYLL_ENV}"
+fi
+
+# Flatten Jekyll CLI flags
+for key in ${!JEKYLL_OPTS[@]}; do
+    JEKYLL_CMD="$JEKYLL_CMD $key ${JEKYLL_OPTS[${key}]}"
+done
+
+# Change directory
+if ! [[ -z "$PROJECT_DIR" ]]; then
+    log "'cd $PROJECT_DIR'"
+    if ! $(is_dry); then
+        cd "$PROJECT_DIR"
+    fi
+fi
+
+# Print or execute command
+(
+    if ! [[ -z "${JEKYLL_EXPORT_CMD}" ]]; then
+        if $(is_dry); then
+            indent_echo 1 "export ${JEKYLL_EXPORT_CMD}"
+        else
+            export ${JEKYLL_EXPORT_CMD}
+        fi
+    fi
+    if $(is_dry); then
+        indent_echo 1 "bundle exec ${JEKYLL_CMD}"
+    else
+        bundle exec ${JEKYLL_CMD}
+    fi
+)
+
