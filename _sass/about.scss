@@ -40,10 +40,10 @@ $-main-bg: c.$surface;
 }
 
 .about-page-grid {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     width: 100%;
-    grid-template-columns: 1fr;
     
     div#top-menu-bar {
         position: relative;
@@ -133,7 +133,6 @@ main.main-about {
     align-items: center;
     align-content: center;
     gap: 16px;
-    min-height: 100vh;
     min-width: 100vw;
     padding: 16px;
     background-color: c.$primary-container;
