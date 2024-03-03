@@ -41,16 +41,27 @@ $-main-bg: c.$surface;
     }
 }
 
+.about-page-grid {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    grid-template-columns: 1fr;
+    
+    div#top-menu-bar {
+        position: relative;
+    }
+}
+
 main.main-about {
     position: relative;
     background-color: $-main-bg;
-    height: 100vh;
+    height: 100%;
     top: 0;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     overflow-y: scroll;
     
     & > section {
-        scroll-snap-align: end;
+        scroll-snap-align: start;
         position: relative;
         height: 100%;
         &::after {
@@ -70,7 +81,7 @@ main.main-about {
     }
     
     & > footer {
-        scroll-snap-align: end;
+        scroll-snap-align: start;
     }
 }
 

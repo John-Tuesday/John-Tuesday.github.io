@@ -2,6 +2,8 @@
 layout: base
 back-to-top-id: about-me
 ---
+<div class="about-page-grid">
+{%- include nav-bar.html -%}
 <main id="main-about" class="main-about">
   <section class="welcome" id="about-me">
     <h1>{{ site.data.owner.as-heading }}</h1>
@@ -16,3 +18,5 @@ back-to-top-id: about-me
 
   {%- include footer.html -%}
 </main>
+
+</div>
