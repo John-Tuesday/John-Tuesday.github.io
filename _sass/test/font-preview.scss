@@ -1,0 +1,58 @@
+@use "theme";
+
+ul.font-demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: baseline;
+}
+
+.demo-display-large {
+    @include theme.font-display-large();
+}
+.demo-display-medium {
+    @include theme.font-display-medium();
+}
+.demo-display-small {
+    @include theme.font-display-small();
+}
+
+.demo-headline-large {
+    @include theme.font-headline-large();
+}
+.demo-headline-medium {
+    @include theme.font-headline-medium();
+}
+.demo-headline-small {
+    @include theme.font-headline-small();
+}
+
+.demo-title-large {
+    @include theme.font-title-large();
+}
+.demo-title-medium {
+    @include theme.font-title-medium();
+}
+.demo-title-small {
+    @include theme.font-title-small();
+}
+
+.demo-body-large {
+    @include theme.font-body-large();
+}
+.demo-body-medium {
+    @include theme.font-body-medium();
+}
+.demo-body-small {
+    @include theme.font-body-small();
+}
+
+.demo-label-large {
+    @include theme.font-label-large();
+}
+.demo-label-medium {
+    @include theme.font-label-medium();
+}
+.demo-label-small {
+    @include theme.font-label-small();
+}
+

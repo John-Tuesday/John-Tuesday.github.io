@@ -57,6 +57,7 @@
 @use "hackerrank/certificates";
 @use "hackerrank/badges";
 @use "projects";
+@use "test/font-preview";
 
 #main_content {
     max-width: min(100%, 800px);
