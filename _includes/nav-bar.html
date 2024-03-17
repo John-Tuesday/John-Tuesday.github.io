@@ -8,7 +8,7 @@
   </label>
   <nav class="nav-menu-bar">
     {% for p in site.data.nav -%}
-    <div class="nav-item"><a href="{{ p.link }}" class="{% if page.url contains p.link %}current-nav{% else %}other-nav{% endif %}">
+    <div class="nav-item"><a href="{{ p.link }}" class="{% if page.url contains p.link and p.link != "/" or page.url == p.link %}current-nav{% else %}other-nav{% endif %}">
       <span class="nav-item-content">
         <div class="nav-icon">
           <span class="material-symbols-rounded">{{ p.m3-icon }}</span>
