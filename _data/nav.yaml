@@ -2,9 +2,9 @@
   link: "/"
   m3-icon: home
 
-- name: Posts
-  link: "/home"
-  m3-icon: browse
+# - name: Posts
+#   link: "/home"
+#   m3-icon: browse
 
 - name: Projects
   link: "/projects/summary"
