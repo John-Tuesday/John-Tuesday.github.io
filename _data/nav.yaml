@@ -1,5 +1,5 @@
 - name: Home
-  link: "/home"
+  link: "/"
   m3-icon: home
 
 - name: Posts
@@ -21,8 +21,8 @@
   # m3-icon: bar_chart
   m3-icon: leaderboard
     
-- name: About Me
-  link: "/about"
-  # m3-icon: info_i
-  # m3-icon: user_attributes
-  m3-icon: attribution
+# - name: About Me
+#   link: "/about"
+#   # m3-icon: info_i
+#   # m3-icon: user_attributes
+#   m3-icon: attribution
