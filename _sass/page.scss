@@ -5,8 +5,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: theme.$surface-container-low;
+    background-color: theme.$surface;
     color: theme.$on-surface;
+    padding-block-end: 16px;
 }
 
 header.page-header {
