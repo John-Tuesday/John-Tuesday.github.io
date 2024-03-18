@@ -32,3 +32,34 @@ title: About
     </div>
   </div>
 </section>
+
+<section class="about-projects">
+  <hgroup>
+    <h1>Projects</h1>
+    <h2>Learning by Doing</h2>
+  </hgroup>
+  <article class="project-summary-card-container">
+  {%- for proj in site.projects -%}
+  <a href="{{ proj.url }}" class="project-summary-card">
+    <img src="{{ proj.thumbnail }}" alt="project thumbnail" class="project-thumbnail">
+    <h2>{{ proj.name }}</h2>
+    <p>{{ proj.description }}</p>
+    <dl>
+      <div>
+        <dt>Platforms</dt>
+        <dd>{{ proj.platforms | join: ", " }}</dd>
+      </div>
+      <div>
+        <dt>Languages</dt>
+        <dd>{{ proj.languages | join: ", " }}</dd>
+      </div>
+      <div>
+        <dt>Frameworks</dt>
+        <dd>{{ proj.frameworks | join: ", " }}</dd>
+      </div>
+    </dl>
+  </a>
+  {%- endfor -%}
+  </article>
+</section>
+

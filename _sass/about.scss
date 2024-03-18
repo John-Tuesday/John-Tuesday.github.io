@@ -1,27 +1,28 @@
 @use "sass:color";
 @use "sass:map";
+@use "theme";
 @use "theme/m3-color" as c;
 @use "theme/m3-typography" as font;
 @use "theme/m3-motion" as m;
 @use "common/util";
 
 @keyframes slide-in-start {
-    0% { left: -100%; }
-    100% { left: 0; }
+  0% { left: -100%; }
+  100% { left: 0; }
 }
 @keyframes slide-in-end {
-    0% { right: -100%; }
-    100% { right: 0; }
+  0% { right: -100%; }
+  100% { right: 0; }
 }
 
 @mixin anim-slide-in($start-to-end: true) {
-    $anim-name: slide-in-start;
-    @if not $start-to-end {
-        $anim-name: slide-in-end;
-    }
-    position: relative;
-    animation: $anim-name map.get(m.$durations, "medium", 1) map.get(m.$easings, "standard", "decel");
-    animation-play-state: paused;
+  $anim-name: slide-in-start;
+  @if not $start-to-end {
+    $anim-name: slide-in-end;
+  }
+  position: relative;
+  animation: $anim-name map.get(m.$durations, "medium", 1) map.get(m.$easings, "standard", "decel");
+  animation-play-state: paused;
 }
 
 // Common
@@ -31,169 +32,201 @@ $-large-padding: 32px;
 $-main-bg: c.$surface;
 
 @keyframes vertical-bob {
-    0% { 
-        translate: 0 0; 
-    }
-    100% { 
-        translate: 0 8px;
-    }
+  0% { 
+    translate: 0 0; 
+  }
+  100% { 
+    translate: 0 8px;
+  }
 }
 
 .about-page-grid {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100%;
-    
-    div#top-menu-bar {
-        position: relative;
-    }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  
+  div#top-menu-bar {
+    position: relative;
+  }
 }
 
 main.main-about {
+  position: relative;
+  background-color: $-main-bg;
+  height: 100%;
+  top: 0;
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  
+  & > section {
+    scroll-snap-align: start;
     position: relative;
-    background-color: $-main-bg;
-    height: 100%;
-    top: 0;
-    scroll-snap-type: y proximity;
-    overflow-y: scroll;
-    
-    & > section {
-        scroll-snap-align: start;
-        position: relative;
-        height: 100%;
-        &::after {
-            content: "expand_more";
-            position: absolute;
-            bottom: 8px;
-            $-size: 40px;
-            font: {
-                size: $-size;
-                family: "Material Symbols Rounded";
-                variation-settings: 'opsz' $-size;
-                weight: 700;
-            }
-            line-height: 1;
-            
-            animation: vertical-bob map.get(m.$durations, "extra-long", 3) map.get(m.$easings, "standard", "accel") infinite alternate;
-        }
-    }
-    
-    & > footer {
-        scroll-snap-align: start;
-    }
+    min-height: 100%;
+    padding: 16px;
+  }
+  
+  & > footer {
+    scroll-snap-align: start;
+  }
 }
 
 .welcome {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    align-content: center;
-    justify-content: center;
-    background-color: c.$primary;
-    color: c.$on-primary;
-    text-align: left;
-    padding: {
-        left: $-medium-padding;
-        right: $-medium-padding;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: center;
+  justify-content: center;
+  background-color: c.$primary;
+  color: c.$on-primary;
+  text-align: left;
+  padding: {
+    left: $-medium-padding;
+    right: $-medium-padding;
+  }
+
+  &::after {
+    content: "expand_more";
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 8px;
+    $-size: 40px;
+    font: {
+      size: $-size;
+      family: "Material Symbols Rounded";
+      variation-settings: 'opsz' $-size;
+      weight: 700;
     }
+    line-height: 1;
     
-    h1 {
-        display: inline-block;
-        @include font.font-headline-large();
-        $-line-size: 0.125em;
-        text-decoration: underline c.$inverse-primary $-line-size;
-        margin-right: 0.25em;
-        margin-block-end: $-line-size;
-        font-weight: 700;
-        @include util.text-shadow-prominent();
-        
-        position: relative;
-        @include m.anim-fade-in();
-    }
+    animation: vertical-bob map.get(m.$durations, "extra-long", 3) map.get(m.$easings, "standard", "accel") infinite alternate;
+  }
+  
+  h1 {
+    display: inline-block;
+    @include font.font-headline-large();
+    $-line-size: 0.125em;
+    text-decoration: underline c.$inverse-primary $-line-size;
+    margin-right: 0.25em;
+    margin-block-end: $-line-size;
+    font-weight: 700;
+    @include util.text-shadow-prominent();
+    
+    position: relative;
+    @include m.anim-fade-in();
+  }
 }
 
 .about-me-tagline {
-    display: inline-block;
-    margin: unset;
-    padding: unset;
-    @include font.font-body-medium();
-    font-weight: 500;
-    @include m.anim-fade-in();
+  display: inline-block;
+  margin: unset;
+  padding: unset;
+  @include font.font-body-medium();
+  font-weight: 500;
+  @include m.anim-fade-in();
 }
 
 // Self description
 
 .self-description {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    gap: 16px;
-    min-width: 100vw;
-    padding: 16px;
-    background-color: c.$primary-container;
-    color: c.$on-primary-container;
-    
-    &:hover .description-content {
-        animation-play-state: running;
-    }
-    &:hover img.about-me-portrait {
-        animation-play-state: running;
-    }
-    &:not(&:hover) img.about-me-portrait {
-        animation-play-state: paused;
-    }
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 16px;
+  min-width: 100vw;
+  padding: 16px;
+  background-color: c.$primary-container;
+  color: c.$on-primary-container;
+  
+  &:hover .description-content {
+    animation-play-state: running;
+  }
+  &:hover img.about-me-portrait {
+    animation-play-state: running;
+  }
+  &:not(&:hover) img.about-me-portrait {
+    animation-play-state: paused;
+  }
 
-    .about-me-header {
-        @include font.font-headline-large();
-        font-weight: 700;
-        $-underlin-size: 0.125em;
-        text-decoration: underline solid c.$primary $-underlin-size;
-        margin-block-end: $-underlin-size;
-        @include util.text-shadow-prominent();
-    }
+  .about-me-header {
+    @include font.font-headline-large();
+    font-weight: 700;
+    $-underlin-size: 0.125em;
+    text-decoration: underline solid c.$primary $-underlin-size;
+    margin-block-end: $-underlin-size;
+    @include util.text-shadow-prominent();
+  }
 }
 
 .about-me-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: top;
-    gap: 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: top;
+  gap: 16px;
 
-    .description-content {
-        @include font.font-body-large();
+  .description-content {
+    @include font.font-body-large();
 
-        max-width: 40em;
-        min-width: 20em;
-        flex: 3 1 max(60%, 20em);
+    max-width: 40em;
+    min-width: 20em;
+    flex: 3 1 max(60%, 20em);
 
-        @include anim-slide-in($start-to-end: false);
-        
-        p:first-child {
-            margin-top: 0;
-            padding-top: 0;
-        }
-    }
+    @include anim-slide-in($start-to-end: false);
     
-    img.about-me-portrait {
-        flex: 1 2 30%;
-        max-width: min(400px, 75%);
-        min-width: 200px;
-        max-height: 75vh;
-        object-fit: contain;
-        object-position: 0 0;
-        border-radius: 16px;
-        
-        @include anim-slide-in();
-        
-        @media (max-width: $-vmax-width) {
-            max-width: 100%;
-        }
+    p:first-child {
+      margin-top: 0;
+      padding-top: 0;
     }
+  }
+  
+  img.about-me-portrait {
+    flex: 1 2 30%;
+    max-width: min(400px, 75%);
+    min-width: 200px;
+    max-height: 75vh;
+    object-fit: contain;
+    object-position: 0 0;
+    border-radius: 16px;
+    
+    @include anim-slide-in();
+    
+    @media (max-width: $-vmax-width) {
+      max-width: 100%;
+    }
+  }
 }
+
+/** # Projects page **/
+.about-projects {
+  background-color: theme.$surface-container-low;
+  color: theme.$on-surface;
+
+  & > hgroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block-end: 8px;
+
+    h1 {
+      @include theme.font-headline-large();
+      font-weight: 600;
+      $-underline-size: 0.125em;
+      text-decoration: underline solid theme.$primary $-underline-size;
+      margin-block-end: calc($-underline-size);
+    }
+    h2 {
+      @include theme.font-headline-small();
+      font-style: italic;
+      font-weight: 400;
+    }
+  }
+}
+
