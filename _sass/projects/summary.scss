@@ -3,18 +3,24 @@
 .project-summary-card-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
   border-radius: 16px;
   padding: 16px;
   background-color: theme.$surface-container-lowest;
 }
 
-.project-summary-card {
+a.project-summary-card {
   flex: 1 0 0;
   max-width: 40em;
   $-radius: 16px;
   border-radius: $-radius;
-  background-color: theme.$surface-container;
+  background-color: theme.$surface-container-low;
+  color: theme.$on-surface;
+
+  &:hover {
+    text-decoration: none;
+    background-color: theme.$surface-container-high;
+  }
 
   & > :not(:first-child) {
     padding-inline: 16px;

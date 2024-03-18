@@ -5,7 +5,7 @@ title: Projects
 
 <article class="project-summary-card-container">
   {%- for proj in site.projects -%}
-  <section class="project-summary-card">
+  <a href="{{ proj.url }}" class="project-summary-card">
     <img src="{{ proj.thumbnail }}" alt="project thumbnail" class="project-thumbnail">
     <h2>{{ proj.name }}</h2>
     <p>{{ proj.description }}</p>
@@ -23,7 +23,7 @@ title: Projects
         <dd>{{ proj.frameworks | join: ", " }}</dd>
       </div>
     </dl>
-  </section>
+  </a>
   {%- endfor -%}
 </article>
 
