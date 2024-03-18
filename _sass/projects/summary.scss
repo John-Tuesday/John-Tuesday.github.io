@@ -1,0 +1,66 @@
+@use "theme";
+
+.project-summary-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-radius: 16px;
+  padding: 16px;
+  background-color: theme.$surface-container-lowest;
+}
+
+.project-summary-card {
+  flex: 1 0 0;
+  max-width: 40em;
+  $-radius: 16px;
+  border-radius: $-radius;
+  background-color: theme.$surface-container;
+
+  & > :not(:first-child) {
+    padding-inline: 16px;
+  }
+
+  & > :nth-child(2) {
+    padding-block-start: 8px;
+  }
+  
+  & > :last-child {
+    padding-block-end: 16px;
+  }
+
+  & > img:first-child {
+    width: 100%;
+    min-height: 40px;
+    max-height: 250px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: $-radius;
+  }
+
+  dl {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: baseline;
+
+
+    dt {
+      flex: 0 0 auto;
+      display: inline;
+      @include theme.font-label-large();
+      font-weight: 700;
+    }
+
+    dd {
+      flex: auto;
+      display: inline-block;
+      @include theme.font-label-medium();
+
+      &::after {
+        content: '';
+        display: block;
+      }
+    }
+  }
+}
+
