@@ -3,6 +3,7 @@
 .project-summary-card-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 12px;
   border-radius: 16px;
   padding: 16px;
