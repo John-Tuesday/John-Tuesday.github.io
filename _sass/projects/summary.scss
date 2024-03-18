@@ -17,6 +17,8 @@ a.project-summary-card {
   background-color: theme.$surface-container-low;
   color: theme.$on-surface;
 
+  @include theme.font-body-medium();
+
   &:hover {
     text-decoration: none;
     background-color: theme.$surface-container-high;
@@ -26,8 +28,9 @@ a.project-summary-card {
     padding-inline: 16px;
   }
 
-  & > :nth-child(2) {
+  & > h2:nth-child(2) {
     padding-block-start: 8px;
+    @include theme.font-title-large();
   }
   
   & > :last-child {
@@ -48,19 +51,19 @@ a.project-summary-card {
     flex-wrap: wrap;
     gap: 4px;
     align-items: baseline;
-
+    @include theme.font-label-large();
 
     dt {
       flex: 0 0 auto;
       display: inline;
-      @include theme.font-label-large();
       font-weight: 700;
     }
 
     dd {
       flex: auto;
       display: inline-block;
-      @include theme.font-label-medium();
+      font-weight: 400;
+      font-style: italic;
 
       &::after {
         content: '';
