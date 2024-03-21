@@ -1,0 +1,16 @@
+- name: Kotlin
+  icon: "assets/svg/logo/monochrome/kotlin.svg"
+- name: Git
+  icon: "assets/svg/logo/monochrome/git.svg"
+- name: Bash
+  icon: "assets/svg/logo/monochrome/bash.svg"
+- name: SQL
+  icon: "assets/svg/logo/monochrome/sql.svg"
+- name: Android
+  icon: "assets/svg/logo/monochrome/android.svg"
+- name: Compose
+  icon: "assets/svg/logo/monochrome/compose.svg"
+- name: Linux
+  icon: "assets/svg/logo/monochrome/linux.svg"
+- name: Sass
+  icon: "assets/svg/logo/monochrome/sass.svg"

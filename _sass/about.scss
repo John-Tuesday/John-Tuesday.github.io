@@ -203,6 +203,59 @@ main.main-about {
   }
 }
 
+/** # Skills section **/
+.about-skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  $-on-color:    theme.$on-secondary;
+  background-color: theme.$secondary;
+  color: $-on-color;
+
+  & h1 {
+    @include theme.font-headline-large();
+    text-align: center;
+    margin-block-end: 16px;
+  }
+
+  & > ul {
+    @include theme.font-body-large();
+    $-icon-size: 48px;
+    $-cell-width: max($-icon-size, 4em);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    padding: 16px;
+
+    & > li {
+      display: contents;
+    }
+    figure.skill-item {
+      flex: 0 0 $-cell-width;
+      width: $-cell-width;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      & svg.logo {
+        width: $-icon-size;
+        height: $-icon-size;
+
+        fill: $-on-color;
+        stroke: $-on-color;
+      }
+    }
+  }
+}
+
 /** # Projects page **/
 .about-projects {
   background-color: theme.$surface-container-low;

@@ -33,6 +33,22 @@ title: About
   </div>
 </section>
 
+<section class="about-skills">
+  <h1>Skills</h1>
+  <ul>
+    {%- for skill in site.data.skills -%}
+    <li>
+      <figure class="skill-item">
+        <svg class="logo" aria-hidden="true" viewBox="0 0 10 10" >
+          <use href="{{ skill.icon }}#svg" height="10" width="10" />
+        </svg>
+        <figcaption>{{ skill.name }}</figcaption>
+      </figure>
+    </li>
+    {%- endfor -%}
+  </ul>
+</section>
+
 <section class="about-projects">
   <hgroup>
     <h1>Projects</h1>
