@@ -145,9 +145,10 @@ $-vmax-width: 450px;
 #about-me-slide {
   background-color: theme.$tertiary;
   color:         theme.$on-tertiary;
-  
-  h2 {
-    text-decoration-color: theme.$primary;
+
+  .description-content.card {
+    background-color: theme.$tertiary-container;
+    color: theme.$on-tertiary-container;
   }
 }
 
@@ -165,11 +166,6 @@ $-vmax-width: 450px;
     max-width: 40em;
     min-width: 20em;
     flex: 3 1 max(60%, 20em);
-    
-    p:first-child {
-      margin-top: 0;
-      padding-top: 0;
-    }
   }
   
   img.about-me-portrait {
