@@ -274,6 +274,7 @@ $-vmax-width: 450px;
   .interact-section {
     display: flex;
     justify-content: flex-end;
+    gap: 8px;
     margin-block-start: auto;
   }
   .filled-button {

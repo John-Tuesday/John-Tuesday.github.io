@@ -10,6 +10,7 @@
   color: theme.$on-primary;
   border-radius: 20px;
   height: 40px;
+  min-width: 48px;
   padding-inline: 24px;
 
   overflow: clip;
@@ -26,6 +27,13 @@
       background-color: theme.apply-tint(transparent);
     }
   }
+}
+
+.text-button {
+  @extend .filled-button;
+  background-color: transparent;
+  color: theme.$primary;
+  padding-inline: 12px;
 }
 
 .card {
