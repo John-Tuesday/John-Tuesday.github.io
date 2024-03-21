@@ -50,20 +50,48 @@ $-large-padding: 32px;
   }
 }
 
-.welcome {
+.slideshow-slide {
+  scroll-snap-align: start;
+  position: relative;
+  min-height: 100%;
+  padding: 16px;
+
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  h1 {
+    @include font.font-display-large();
+    $-line-size: 0.125em;
+    text-decoration: underline $-line-size;
+    margin-block-end: $-line-size;
+    font-weight: 700;
+  }
+
+  h2 {
+    @include font.font-headline-large();
+    $-underlin-size: 0.125em;
+    text-decoration: underline solid $-underlin-size;
+    margin-block-end: $-underlin-size;
+    font-weight: 700;
+  }
+}
+
+#welcome {
+  //display: flex;
+  //flex-direction: row;
+  //flex-wrap: wrap;
+  //align-items: flex-start;
+  //align-content: center;
+  //justify-content: center;
   background-color: c.$primary;
   color: c.$on-primary;
-  text-align: left;
-  padding: {
-    left: $-medium-padding;
-    right: $-medium-padding;
-  }
+  //text-align: left;
+  //padding: {
+  //  left: $-medium-padding;
+  //  right: $-medium-padding;
+  //}
 
   &::after {
     content: "expand_more";
@@ -84,27 +112,31 @@ $-large-padding: 32px;
   }
   
   h1 {
-    display: inline-block;
-    @include font.font-headline-large();
-    $-line-size: 0.125em;
-    text-decoration: underline c.$inverse-primary $-line-size;
-    margin-right: 0.25em;
-    margin-block-end: $-line-size;
-    font-weight: 700;
-    @include util.text-shadow-prominent();
+    text-decoration-color: theme.$inverse-primary;
+
+    //display: inline-block;
+    //@include font.font-headline-large();
+    //$-line-size: 0.125em;
+    //text-decoration: underline c.$inverse-primary $-line-size;
+    //margin-right: 0.25em;
+    //margin-block-end: $-line-size;
+    //font-weight: 700;
+    //@include util.text-shadow-prominent();
     
+    //position: relative;
+    //@include m.anim-fade-in();
+  }
+  & > * {
     position: relative;
     @include m.anim-fade-in();
   }
 }
 
-.about-me-tagline {
-  display: inline-block;
+#about-me-tagline {
   margin: unset;
   padding: unset;
-  @include font.font-body-medium();
+  @include font.font-headline-medium();
   font-weight: 500;
-  @include m.anim-fade-in();
 }
 
 // Self description
@@ -128,7 +160,6 @@ $-large-padding: 32px;
     $-underlin-size: 0.125em;
     text-decoration: underline solid c.$primary $-underlin-size;
     margin-block-end: $-underlin-size;
-    @include util.text-shadow-prominent();
   }
 }
 
