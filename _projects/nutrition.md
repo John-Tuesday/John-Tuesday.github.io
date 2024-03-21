@@ -1,6 +1,6 @@
 ---
 name: Nutrition Kotlin Multiplatform Library
-repo_url: https://github.com/John-Tuesday/nutrition
+repo-url: https://github.com/John-Tuesday/nutrition
 description: Model of Nutrition and Meals in Kotlin.
 thumbnail: "/assets/img/nutrition-project-thumbnail.png"
 platforms:

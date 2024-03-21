@@ -3,7 +3,7 @@ layout: projects/project
 title: Website
 subtitle: this very website
 name: This website
-repo_url: "https://github.com/John-Tuesday/John-Tuesday.github.io"
+repo-url: "https://github.com/John-Tuesday/John-Tuesday.github.io"
 description: Website used to summarize and centralize details of my career, qualifications, projects, and accomplishments.
 thumbnail: "/assets/img/hackerrank-works-flex-source-screenshot.png"
 platforms:
