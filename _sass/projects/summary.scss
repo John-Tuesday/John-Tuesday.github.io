@@ -50,20 +50,3 @@
   }
 }
 
-.project-summary-card {
-
-  & > h2 {
-    @include theme.font-title-large();
-    padding-block-start: 8px;
-  }
-
-  & > img:first-child {
-    min-height: 40px;
-    max-height: 250px;
-    height: 250px;
-    object-fit: cover;
-    object-position: top;
-  }
-
-}
-

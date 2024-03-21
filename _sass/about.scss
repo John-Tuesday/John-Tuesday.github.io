@@ -271,9 +271,23 @@ $-vmax-width: 450px;
   min-width: 20em;
   padding-block-end: 16px;
 
+  & > img:first-child {
+    min-height: 40px;
+    max-height: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  & > h2 {
+    @include theme.font-title-large();
+    padding-block-start: 8px;
+  }
+
   > p:first-of-type {
     margin-block-start: unset;
   }
+
   .interact-section {
     display: flex;
     justify-content: flex-end;
