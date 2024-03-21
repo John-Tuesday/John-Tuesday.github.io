@@ -82,13 +82,19 @@ $-vmax-width: 450px;
   }
 
   h2 {
-    //@include font.font-headline-large();
-    @include font.font-display-medium();
+    //@include theme.font-headline-large();
+    @include theme.font-display-medium();
     $-underlin-size: 0.08333em;
     //text-decoration: underline solid $-underlin-size;
     //margin-block-end: $-underlin-size;
     font-weight: 600;
     letter-spacing: 0.0625em;
+  }
+
+  h3 {
+    @include theme.font-title-large();
+    font-weight: 400;
+    font-style: italic;
   }
 
   & > :first-child {
@@ -224,29 +230,13 @@ $-vmax-width: 450px;
 }
 
 /** # Projects page **/
-.about-projects {
+#about-projects {
   background-color: theme.$surface-container-low;
   color: theme.$on-surface;
 
-  & > hgroup {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-block-end: 8px;
-
-    h1 {
-      @include theme.font-headline-large();
-      font-weight: 600;
-      $-underline-size: 0.125em;
-      text-decoration: underline solid theme.$primary $-underline-size;
-      margin-block-end: calc($-underline-size);
-    }
-    h2 {
-      @include theme.font-headline-small();
-      font-style: italic;
-      font-weight: 400;
-    }
+  h3 {
+    text-align: justify;
+    text-align-last: justify;
   }
 }
 
