@@ -1,52 +1,60 @@
 @use "theme";
 
-.project-summary-card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 12px;
-  border-radius: 16px;
-  padding: 16px;
-  background-color: theme.$surface-container-lowest;
-}
+.filled-button {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  @include theme.font-label-large();
+  background-color: theme.$primary;
+  color: theme.$on-primary;
+  border-radius: 20px;
+  height: 40px;
+  padding-inline: 24px;
 
-a.project-summary-card {
-  flex: 1 0 0;
-  max-width: 40em;
-  min-width: 20em;
-  $-radius: 16px;
-  border-radius: $-radius;
-  background-color: theme.$surface-container-low;
-  color: theme.$on-surface;
-
-  @include theme.font-body-medium();
+  overflow: clip;
 
   &:hover {
     text-decoration: none;
-    background-color: theme.$surface-container-high;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background-color: theme.apply-tint(transparent);
+    }
+  }
+}
+
+.card {
+  border-radius: 12px;
+
+  & > img:first-child {
+    border-radius: inherit;
+    width: 100%;
   }
 
   & > :not(:first-child) {
-    padding-inline: 16px;
+    margin-inline-start: 16px;
+    margin-inline-end: 16px;
   }
+}
 
-  & > h2:nth-child(2) {
-    padding-block-start: 8px;
+.project-summary-card {
+
+  & > h2 {
     @include theme.font-title-large();
-  }
-  
-  & > :last-child {
-    padding-block-end: 16px;
+    padding-block-start: 8px;
   }
 
   & > img:first-child {
-    width: 100%;
     min-height: 40px;
     max-height: 250px;
     height: 250px;
     object-fit: cover;
     object-position: top;
-    border-radius: $-radius;
   }
 
   dl {

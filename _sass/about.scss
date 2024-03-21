@@ -231,12 +231,52 @@ $-vmax-width: 450px;
 
 /** # Projects page **/
 #about-projects {
-  background-color: theme.$surface-container-low;
-  color: theme.$on-surface;
+  background-color: theme.$tertiary;
+  color:         theme.$on-tertiary;
 
   h3 {
     text-align: justify;
     text-align-last: justify;
   }
+  
+  .project-summary-card-container {
+    //background-color: theme.$;
+    background-color: transparent;
+  }
+
+  .project-summary-card {
+    background-color: theme.$tertiary-container;
+    color:         theme.$on-tertiary-container;
+  }
 }
 
+.project-summary-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 12px;
+  border-radius: 16px;
+  padding: 16px;
+
+  > .project-summary-card {
+    flex: 1 0 0;
+  }
+}
+
+.project-summary-card {
+  display: flex;
+  flex-direction: column;
+  @include theme.font-body-medium();
+  max-width: 40em;
+  min-width: 20em;
+  padding-block-end: 16px;
+
+  .interact-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-block-start: auto;
+  }
+  .filled-button {
+    align-self: end;
+  }
+}

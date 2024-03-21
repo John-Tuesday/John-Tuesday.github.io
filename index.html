@@ -56,7 +56,7 @@ title: About
   </hgroup>
   <article class="project-summary-card-container">
   {%- for proj in site.projects -%}
-  <a href="{{ proj.url }}" class="project-summary-card">
+  <div class="project-summary-card card">
     <img src="{{ proj.thumbnail }}" alt="project thumbnail" class="project-thumbnail">
     <h2>{{ proj.name }}</h2>
     <p>{{ proj.description }}</p>
@@ -74,7 +74,10 @@ title: About
         <dd>{{ proj.frameworks | join: ", " }}</dd>
       </div>
     </dl>
-  </a>
+    <div class="interact-section">
+      <a href="{{ proj.url }}" class="filled-button">Details</a>
+    </div>
+  </div>
   {%- endfor -%}
   </article>
 </section>
