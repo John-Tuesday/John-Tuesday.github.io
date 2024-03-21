@@ -280,8 +280,7 @@ $-vmax-width: 450px;
   }
 
   & > h2 {
-    @include theme.font-headline-small();
-    font-weight: 600;
+    @include theme.font-title-large();
     padding-block-start: 8px;
   }
 
