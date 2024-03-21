@@ -5,9 +5,23 @@
 @use "theme/m3-typography" as font;
 @use "theme/m3-motion" as m;
 @use "common/util";
+$-vmax-width: 450px;
+
+/** POSSIBLY MOVE TO SHARED FILE **/
+.article-img {
+  max-width: min(400px, 75%);
+  min-width: 200px;
+  max-height: 75vh;
+  object-fit: contain;
+  object-position: 0 0;
+  border-radius: 16px;
+  
+  @media (max-width: $-vmax-width) {
+    max-width: 100%;
+  }
+}
 
 // Common
-$-vmax-width: 450px;
 
 @keyframes vertical-bob {
   0% { 
@@ -64,15 +78,17 @@ $-vmax-width: 450px;
     $-line-size: 0.125em;
     text-decoration: underline $-line-size;
     margin-block-end: $-line-size;
-    font-weight: 700;
+    font-weight: 800;
   }
 
   h2 {
-    @include font.font-headline-large();
-    $-underlin-size: 0.125em;
-    text-decoration: underline solid $-underlin-size;
-    margin-block-end: $-underlin-size;
-    font-weight: 700;
+    //@include font.font-headline-large();
+    @include font.font-display-medium();
+    $-underlin-size: 0.08333em;
+    //text-decoration: underline solid $-underlin-size;
+    //margin-block-end: $-underlin-size;
+    font-weight: 600;
+    letter-spacing: 0.0625em;
   }
 
   & > :first-child {
@@ -166,55 +182,44 @@ $-vmax-width: 450px;
 }
 
 /** # Skills section **/
-.about-skills {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+#about-skills {
   $-on-color:    theme.$on-secondary;
   background-color: theme.$secondary;
   color: $-on-color;
 
-  & h1 {
-    @include theme.font-headline-large();
-    text-align: center;
-    margin-block-end: 16px;
+  & svg {
+    fill: $-on-color;
+    stroke: $-on-color;
   }
+}
+.skills-showcase {
+  @include theme.font-title-medium();
+  font-weight: 400;
+  $-icon-size: 64px;
+  $-cell-width: max($-icon-size, 4em);
 
-  & > ul {
-    @include theme.font-body-large();
-    $-icon-size: 48px;
-    $-cell-width: max($-icon-size, 4em);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  padding: 16px;
+  row-gap: 32px;
 
+  & > li {
+    display: contents;
+  }
+  figure.skill-item {
+    flex-basis: 25%;
     display: flex;
-    flex-wrap: wrap;
-    gap: 48px;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    max-width: 600px;
-    padding: 16px;
-
-    & > li {
-      display: contents;
-    }
-    figure.skill-item {
-      flex: 0 0 $-cell-width;
-      width: $-cell-width;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-
-      & svg.logo {
-        width: $-icon-size;
-        height: $-icon-size;
-
-        fill: $-on-color;
-        stroke: $-on-color;
-      }
-    }
+    justify-content: center;
+  }
+  svg.logo {
+    width: $-icon-size;
+    height: $-icon-size;
   }
 }
 
