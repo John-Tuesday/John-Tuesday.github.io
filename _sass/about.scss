@@ -73,7 +73,7 @@ $-vmax-width: 450px;
   justify-content: center;
   align-items: center;
 
-  h1 {
+  & > h1, & > hgroup > h1 {
     @include font.font-display-large();
     $-line-size: 0.125em;
     text-decoration: underline $-line-size;
@@ -81,7 +81,7 @@ $-vmax-width: 450px;
     font-weight: 800;
   }
 
-  h2 {
+  & > h2, & > hgroup > h2 {
     //@include theme.font-headline-large();
     @include theme.font-display-medium();
     $-underlin-size: 0.08333em;
@@ -91,7 +91,7 @@ $-vmax-width: 450px;
     letter-spacing: 0.0625em;
   }
 
-  h3 {
+  & > h3, & > hgroup > h3 {
     @include theme.font-title-large();
     font-weight: 400;
     font-style: italic;
@@ -280,7 +280,8 @@ $-vmax-width: 450px;
   }
 
   & > h2 {
-    @include theme.font-title-large();
+    @include theme.font-headline-small();
+    font-weight: 600;
     padding-block-start: 8px;
   }
 
