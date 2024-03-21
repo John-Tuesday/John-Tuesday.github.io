@@ -65,30 +65,5 @@
     object-position: top;
   }
 
-  dl {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    align-items: baseline;
-    @include theme.font-label-large();
-
-    dt {
-      flex: 0 0 auto;
-      display: inline;
-      font-weight: 700;
-    }
-
-    dd {
-      flex: auto;
-      display: inline-block;
-      font-weight: 400;
-      font-style: italic;
-
-      &::after {
-        content: '';
-        display: block;
-      }
-    }
-  }
 }
 

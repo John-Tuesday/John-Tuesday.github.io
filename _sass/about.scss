@@ -271,6 +271,9 @@ $-vmax-width: 450px;
   min-width: 20em;
   padding-block-end: 16px;
 
+  > p:first-of-type {
+    margin-block-start: unset;
+  }
   .interact-section {
     display: flex;
     justify-content: flex-end;
