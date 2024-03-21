@@ -143,8 +143,8 @@ $-vmax-width: 450px;
 // Self description
 
 #about-me-slide {
-  background-color: c.$primary-container;
-  color: c.$on-primary-container;
+  background-color: theme.$tertiary;
+  color:         theme.$on-tertiary;
   
   h2 {
     text-decoration-color: theme.$primary;
@@ -160,7 +160,7 @@ $-vmax-width: 450px;
   gap: 16px;
 
   .description-content {
-    @include font.font-body-large();
+    @include theme.font-body-large();
 
     max-width: 40em;
     min-width: 20em;

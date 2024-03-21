@@ -38,13 +38,15 @@
 
 .card {
   border-radius: 12px;
+  background-color: theme.$surface-container-highest;
+  color: theme.$on-surface;
 
   & > img:first-child {
     border-radius: inherit;
     width: 100%;
   }
 
-  & > :not(:first-child) {
+  & > :not(img:first-child) {
     margin-inline-start: 16px;
     margin-inline-end: 16px;
   }
