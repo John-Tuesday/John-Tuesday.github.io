@@ -8,8 +8,6 @@
 
 // Common
 $-vmax-width: 450px;
-$-medium-padding: 16px;
-$-large-padding: 32px;
 
 @keyframes vertical-bob {
   0% { 
@@ -76,22 +74,15 @@ $-large-padding: 32px;
     margin-block-end: $-underlin-size;
     font-weight: 700;
   }
+
+  & > :first-child {
+    padding-block-end: 16px;
+  }
 }
 
 #welcome {
-  //display: flex;
-  //flex-direction: row;
-  //flex-wrap: wrap;
-  //align-items: flex-start;
-  //align-content: center;
-  //justify-content: center;
   background-color: c.$primary;
   color: c.$on-primary;
-  //text-align: left;
-  //padding: {
-  //  left: $-medium-padding;
-  //  right: $-medium-padding;
-  //}
 
   &::after {
     content: "expand_more";
@@ -113,18 +104,6 @@ $-large-padding: 32px;
   
   h1 {
     text-decoration-color: theme.$inverse-primary;
-
-    //display: inline-block;
-    //@include font.font-headline-large();
-    //$-line-size: 0.125em;
-    //text-decoration: underline c.$inverse-primary $-line-size;
-    //margin-right: 0.25em;
-    //margin-block-end: $-line-size;
-    //font-weight: 700;
-    //@include util.text-shadow-prominent();
-    
-    //position: relative;
-    //@include m.anim-fade-in();
   }
   & > * {
     position: relative;
@@ -141,25 +120,12 @@ $-large-padding: 32px;
 
 // Self description
 
-.self-description {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  gap: 16px;
-  min-width: 100vw;
-  padding: 16px;
+#about-me-slide {
   background-color: c.$primary-container;
   color: c.$on-primary-container;
   
-  .about-me-header {
-    @include font.font-headline-large();
-    font-weight: 700;
-    $-underlin-size: 0.125em;
-    text-decoration: underline solid c.$primary $-underlin-size;
-    margin-block-end: $-underlin-size;
+  h2 {
+    text-decoration-color: theme.$primary;
   }
 }
 
