@@ -3,21 +3,8 @@ layout: page
 title: Progress
 subtitle: "A collection of certificates and achievements in HackerRank"
 ---
-<!-- 
-<div class="skill-ribbon">
-  <svg 
-      class="skill-rib"
-      viewBox="0 0 1 1" 
-      preserveAspectRatio="none"
-      >
-    <polygon points="0,0 1,0 1,1 0,1 1,0.5 0,0" id="ribbon-edge" />
-  </svg><span class="skill-label">SKILL</span>
-</div>
- -->
 <article class="certificates-container">
-  <header>
-    <h1>Certificates</h1>
-  </header>
+  <h1>Certificates</h1>
   <div class="certificates-content">
 
     {%- assign certificates = site.certs | sort_natural: "date" | reverse -%}

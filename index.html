@@ -69,3 +69,30 @@ title: About
   </article>
 </section>
 
+<section class="slideshow-slide" id="about-hackerrank">
+  <hgroup>
+    <h2>HackerRank</h2>
+    <h3>Certificates & Coding Challenges</h3>
+  </hgroup>
+  <div class="card">
+    <p>
+      Small purpose-driven projects are good for teaching a lot of things, like connecting different tools to accomplish a larger task.
+      Unfortunately, these sorts of tasks tend to side step more fundemental aspects of computer science, namely important data 
+      structures and algorithms. 
+    </p>
+    <p>
+      HackerRank, with its many topic-based challenges, directly exposes the purposes and efficiencies of different algorithms and data
+      structures on large data sets. Whenever I stuggle with a challenge problem, I know there is a larger lesson to be learned, which
+      in turn, guides me to specific topics to study that I otherwise would have been unaware of.
+    </p>
+    <p>
+      In the more tangible realm, HackerRank offers certification uppon passing a timed assessment. Additionally, a public leaderboard is kept
+      per topic, and badges are awarded for progress and rank. My accolades and stats can be viewed in summary here, or verified on the website.
+    </p>
+  </div>
+  <article>
+    {{ site.pages | where: "name", "certificates.html" | map: "content" }}
+    {{ site.pages | where: "name", "badges.html" | map: "content" }}
+  </article>
+</section>
+
