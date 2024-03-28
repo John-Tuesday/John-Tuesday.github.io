@@ -1,4 +1,6 @@
 @use "theme";
+$min-interact-width: 48px !default;
+$min-interact-height: 48px !default;
 
 .filled-button {
   display: inline-flex;

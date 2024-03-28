@@ -2,6 +2,7 @@
 @use "sass:color";
 @use "theme/m3-typography" as font;
 @use "theme/m3-color" as c;
+@use "theme/components";
 @use "common/util";
 $-max-width: 450px !default;
 $-back-to-top-z: util.$topbar-z !default;
@@ -88,8 +89,8 @@ label[class|="nav-menu-label"] {
     justify-content: center;
     align-items: center;
     font-size: 24px;
-    min-inline-size: util.$min-interact-width;
-    min-block-size: util.$min-interact-height;
+    min-inline-size: components.$min-interact-width;
+    min-block-size: components.$min-interact-height;
     
     &:hover {
         cursor: pointer;
@@ -199,8 +200,8 @@ a.current-nav {
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    min-width: util.$min-interact-width;
-    min-height: util.$min-interact-height;
+    min-width:  components.$min-interact-width;
+    min-height: components.$min-interact-height;
     padding: {
         top: 12px;
         bottom: 16px;
