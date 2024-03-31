@@ -7,7 +7,7 @@ subtitle: "A collection of certificates and achievements in HackerRank"
   <h1>Certificates</h1>
   <div class="certificates-content">
 
-    {%- assign certificates = site.certs | sort_natural: "date" | reverse -%}
+    {%- assign certificates = site.data.hackerrank.certificates | sort_natural: "date" | reverse -%}
     {%- for cert in certificates -%}
 
     <a class="certificate-item" target="_blank" href="{{ cert.proof-url }}">

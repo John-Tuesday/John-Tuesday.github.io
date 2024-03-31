@@ -26,12 +26,8 @@ owner:
   tagline: Software Enthusiast
 
 collections:
-  certs:
-    output: false
   projects:
     output: true
-  topics:
-    output: false
 
 # Build settings
 markdown: kramdown

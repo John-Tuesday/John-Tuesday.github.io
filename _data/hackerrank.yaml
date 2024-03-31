@@ -1,0 +1,52 @@
+certificates:
+  - name: Java (Basic)
+    title: Java
+    difficulty: Basic
+    proof-url: "https://www.hackerrank.com/certificates/7532aa7d36a0"
+    image-path: "/assets/img/java_basic_certificate.png"
+    date: 2023-12-18
+    level: 1
+  - name: Problem Solving (Basic)
+    title: Problem Solving
+    difficulty: Basic
+    proof-url: "https://www.hackerrank.com/certificates/be89033a6dfa"
+    image-path: "/assets/img/problem_solving_basic_certificate.png"
+    date: 2020-09-15
+    level: 1
+  - name: Python (Basic)
+    title: Python
+    difficulty: Basic
+    proof-url: "https://www.hackerrank.com/certificates/0031dc415f6a"
+    image-path: "/assets/img/python_basic_certificate.png"
+    date: 2020-09-09
+    level: 1
+  - name: SQL (Basic)
+    title: SQL
+    difficulty: Basic
+    proof-url: "https://www.hackerrank.com/certificates/d1feb2503193"
+    image-path: "/assets/img/sql_basic_certificate.png"
+    date: 2023-12-18
+    level: 1
+  - name: SQL (Intermediate)
+    title: SQL
+    difficulty: Intermediate
+    proof-url: "https://www.hackerrank.com/certificates/a508f53aa3cf"
+    image-path: "/assets/img/sql_intermediate_certificate.png"
+    date: 2023-12-30
+    level: 2
+
+topics:
+  - name: Linux Shell
+    leaderboard-url: "https://www.hackerrank.com/leaderboard?filter=JohnTuesday&filter_on=hacker&page=1&track=shell&type=practice"
+    primary-lang: Bash
+    completed: true
+  - name: SQL
+    leaderboard-url: "https://www.hackerrank.com/leaderboard?filter=JohnTuesday&filter_on=hacker&page=1&track=sql&type=practice"
+    primary-lang: MySQL
+    completed: true
+  - name: Functional Programming
+    leaderboard-url: "https://www.hackerrank.com/leaderboard?filter=JohnTuesday&filter_on=hacker&page=1&track=fp&type=practice"
+    primary-lang: Haskell
+    completed: false
+
+
