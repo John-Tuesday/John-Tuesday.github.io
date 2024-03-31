@@ -292,6 +292,7 @@ $-vmax-width: 450px;
 }
 
 /** Hacker Rank **/
+
 #about-hackerrank {
   background-color: theme.$primary;
   color: theme.$on-primary;
@@ -299,8 +300,8 @@ $-vmax-width: 450px;
   #hackerrank-description {
     // background-color: theme.$primary;
     // color:         theme.$on-primary;
-    background-color: theme.$surface-container;
-    color:         theme.$on-surface;
+    // background-color: theme.$surface-container;
+    // color:         theme.$on-surface;
   }
 }
 

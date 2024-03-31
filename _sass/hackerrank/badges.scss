@@ -1,17 +1,4 @@
 @use "theme";
-@use "theme/m3-color" as c;
-// @use "theme/font";
-@use "theme/m3-typography" as font;
-$-completed-container-bg: c.$surface-container;
-$-completed-container-fg: c.$on-surface;
-
-$-badge-completed-bg:  c.$primary-container;
-$-badge-completed-fg: c.$on-primary-container;
-$-badge-completed-outline: c.$primary;
-$-badge-ongoing-bg:  c.$surface;
-$-badge-ongoing-fg: c.$on-surface;
-$-badge-ongoing-outline: c.$outline;
-
 $-badge-bg-z: -1;
 $-badge-fg-z: 0;
 
@@ -48,22 +35,14 @@ $-badge-fg-z: 0;
   }
 
   &.completed {
-    color: $-badge-completed-fg;
-    #badge-svg-1 {
-      fill: $-badge-completed-bg;
-    }
-    #badge-svg-2 {
-      fill: $-badge-completed-outline;
-    }
+    --badge-content: #{theme.$on-primary-container};
+    --badge-fill: #{theme.$primary-container};
+    --badge-outline: #{theme.$primary};
   }
   &.ongoing {
-    color: $-badge-ongoing-fg;
-    #badge-svg-1 {
-      fill: $-badge-ongoing-bg;
-    }
-    #badge-svg-2 {
-      fill: $-badge-ongoing-outline;
-    }
+    --badge-content: #{theme.$on-surface};
+    --badge-fill: #{theme.$surface};
+    --badge-outline: #{theme.$outline};
   }
 }
 
@@ -90,6 +69,7 @@ $-badge-fg-z: 0;
 .badge-item-icon {
   position: relative;
   z-index: $-badge-fg-z;
+  color: var(--badge-content);
 
   .material-symbols-rounded {
     $-icon-size: 24px;
@@ -118,13 +98,20 @@ $-badge-fg-z: 0;
     // z-index: 5;
     z-index: $-badge-bg-z;
   }
+
+  #badge-svg-1 {
+    fill: var(--badge-fill, red);
+  }
+  #badge-svg-2 {
+    fill: var(--badge-outline, black);
+  }
 }
 
 .badge-item-name {
-  @include font.font-title-medium();
+  @include theme.font-title-medium();
   font-weight: 700;
 }
 
 .badge-item-detail {
-  @include font.font-label-medium();
+  @include theme.font-label-medium();
 }
