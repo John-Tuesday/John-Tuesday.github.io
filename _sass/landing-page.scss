@@ -145,11 +145,6 @@ $-vmax-width: 450px;
 #about-me-slide {
   background-color: theme.$tertiary;
   color:         theme.$on-tertiary;
-
-  .description-content.card {
-    background-color: theme.$tertiary-container;
-    color: theme.$on-tertiary-container;
-  }
 }
 
 .about-me-container {
@@ -162,8 +157,9 @@ $-vmax-width: 450px;
 
   .description-content {
     @include theme.font-body-large();
+    font-size: theme.sp(theme.typography("title", "large", "size"));
 
-    max-width: 40em;
+    max-width: 30em;
     min-width: 20em;
     flex: 3 1 max(60%, 20em);
   }
@@ -314,7 +310,6 @@ $-vmax-width: 450px;
   justify-content: center;
   gap: 8px;
 
-  // width: 40em;
   width: 100%;
   padding: 8px;
 
