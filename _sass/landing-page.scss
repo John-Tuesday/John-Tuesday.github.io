@@ -297,6 +297,20 @@ $-vmax-width: 450px;
   background-color: theme.$secondary;
   color: theme.$on-secondary;
 
+  hgroup {
+    text-align: center;
+
+    & > p {
+      @include theme.font-label-large();
+      font-weight: 400;
+      text-align: end;
+
+      a {
+        font-weight: 500;
+      }
+    }
+  }
+
   #hackerrank-description {
     // background-color: theme.$primary;
     // color:         theme.$on-primary;
