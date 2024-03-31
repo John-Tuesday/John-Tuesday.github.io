@@ -3,7 +3,9 @@ layout: page
 title: On HackerRank
 ---
 
-<a href="{{ site.data.hackerrank.profile-link }}" target="_blank">*profile*</a>
+HackerRank
+* <a href="{{ site.data.hackerrank.profile-link }}" target="_blank">{{ site.data.hackerrank.username }}</a>
+* <a href="{{ site.data.hackerrank.solutions-repo.repo-url }}" target="_blank">Solution source</a>
 
 
 As a project-oriented and self-taught programmer, it is all too easy to cobble together a *mostly* working project and never fully develop the necessary foundation that is needed to build varried, large-scale projects. 
