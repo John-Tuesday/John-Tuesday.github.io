@@ -3,7 +3,7 @@ layout: page
 title: On HackerRank
 ---
 
-<a href="{{ site.data.accounts.hackerrank.profile_link }}" target="_blank">*profile*</a>
+<a href="{{ site.data.hackerrank.profile-link }}" target="_blank">*profile*</a>
 
 
 As a project-oriented and self-taught programmer, it is all too easy to cobble together a *mostly* working project and never fully develop the necessary foundation that is needed to build varried, large-scale projects. 

@@ -1,3 +1,10 @@
+site-title: HackerRank
+site-url: "https://www.hackerrank.com"
+username: JohnTuesday
+profile-link: "https://www.hackerrank.com/profile/JohnTuesday"
+solutions-repo: 
+  repo-url: "https://github.com/John-Tuesday/hackerrank-problems"
+
 certificates:
   - name: Java (Basic)
     title: Java
