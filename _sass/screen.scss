@@ -153,6 +153,12 @@ p {
   max-width: 40em;
 }
 
+hgroup {
+  & > p:only-of-type {
+    margin: 0 0;
+  }
+}
+
 code {
   @include theme.font-code-small();
   font-size: inherit;
