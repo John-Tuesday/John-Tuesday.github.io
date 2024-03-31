@@ -35,9 +35,9 @@ $-badge-fg-z: 0;
   }
 
   &.completed {
-    --badge-content: #{theme.$on-primary-container};
-    --badge-fill: #{theme.$primary-container};
-    --badge-outline: #{theme.$primary};
+    --badge-content: #{theme.$on-tertiary-container};
+    --badge-fill: #{theme.$tertiary-container};
+    --badge-outline: #{theme.$tertiary};
   }
   &.ongoing {
     --badge-content: #{theme.$on-surface};
@@ -115,3 +115,4 @@ $-badge-fg-z: 0;
 .badge-item-detail {
   @include theme.font-label-medium();
 }
+
