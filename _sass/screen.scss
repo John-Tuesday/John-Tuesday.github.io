@@ -108,16 +108,18 @@ body {
 }
 
 a {
-  $weight: 600;
   color: inherit;
   text-decoration: none;
-  font-weight: $weight;
+  font-weight: 600;
 
-  &[target="_blank"]::after {
-    content: "open_in_new";
-    @include theme.material-symbols-rounded($weight: $weight);
-    vertical-align: text-top;
-    padding-inline-start: 0.125ch;
+  &:not([class]), &.link {
+    &[target="_blank"]::after {
+      content: "open_in_new";
+      @include theme.material-symbols-rounded();
+      font-size: 1.28571em;
+      vertical-align: middle;
+      padding-inline-start: 0.09722ch;
+    }
   }
 }
 
