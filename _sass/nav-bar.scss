@@ -79,12 +79,9 @@ label.nav-menu-label {
   }
 }
 
-.nav-item {
+a.nav-item {
   flex-grow: 1;
-
-  a {
-    text-decoration: none;
-  }
+  text-decoration: none;
 
   @media (min-width: $-max-width) {
     &:not(:last-child) {
@@ -94,7 +91,7 @@ label.nav-menu-label {
       // background-color: theme.apply-tint(transparent);
       // background-color: theme.$surface-tint;
     }
-    &:hover a.current-nav .nav-icon {
+    &.current-nav:hover .nav-icon {
       // background-color: theme.apply-tint(theme.$secondary-container);
     }
   }
@@ -102,7 +99,7 @@ label.nav-menu-label {
     &:hover .nav-item-content {
       // background-color: theme.apply-tint(transparent);
     }
-    &:hover a.current-nav .nav-item-content {
+    &.current-nav:hover .nav-item-content {
       // background-color: theme.apply-tint(theme.$secondary-container);
     }
   }
