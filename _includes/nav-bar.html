@@ -1,11 +1,10 @@
 <div id="top-menu-bar" class="top-menu-bar">
   <input type="checkbox" name="nav-menu-box" id="nav-menu-box" class="menu-toggle">
-  <label for="nav-menu-box" class="nav-menu-label-unchecked">
-    <span class="material-symbols-rounded">menu</span>
+
+  <label for="nav-menu-box" class="nav-menu-label">
+    <span class="material-symbols-rounded"></span>
   </label>
-  <label for="nav-menu-box" class="nav-menu-label-checked">
-    <span class="material-symbols-rounded">close</span>
-  </label>
+
   <nav class="nav-menu-bar">
     {% for p in site.data.nav -%}
     <div class="nav-item"><a href="{{ p.link }}" class="{% if page.url contains p.link and p.link != "/" or page.url == p.link %}current-nav{% else %}other-nav{% endif %}">

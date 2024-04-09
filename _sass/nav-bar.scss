@@ -29,54 +29,28 @@ a.back-to-top {
 }
 
 /** Hamburger Menu **/
-input[type="checkbox"][class|="menu-toggle"] {
-    display: none;
-    
-    &:checked ~ {
-        label.nav-menu-label-checked {
-            display: none;
-            @media (max-width: $-max-width) {
-                display: flex;
-            }
-        }
-        label.nav-menu-label-unchecked {
-            display: none;
-            // display: flex;
-            @media (max-width: $-max-width) {
-                display: none;
-            }
-        }
-        nav.nav-menu-bar {
-            display: none;
-            @media (max-width: $-max-width) {
-                display: flex;
-            }
-        }
+input.menu-toggle[type="checkbox"] {
+  display: none;
+  
+  &:checked ~ {
+    label.nav-menu-label > span:only-child::after {
+      content: 'close';
     }
-    &:not(&:checked) ~ {
-        label.nav-menu-label-checked {
-            display: none;
-            // display: flex;
-            @media (max-width: $-max-width) {
-                display: none;
-            }
-        }
-        label.nav-menu-label-unchecked {
-            display: none;
-            @media (max-width: $-max-width) {
-                display: flex;
-            }
-        }
-        nav.nav-menu-bar {
-            display: flex;
-            @media (max-width: $-max-width) {
-                display: none;
-            }
-        }
+  }
+  &:not(&:checked) ~ {
+    label.nav-menu-label > span:only-child::after {
+      content: 'menu';
     }
+
+    @media (max-width: $-max-width) {
+      nav.nav-menu-bar {
+        display: none;
+      }
+    }
+  }
 }
 
-label[class|="nav-menu-label"] {
+label.nav-menu-label {
     align-self: flex-start;
     display: flex;
     justify-content: center;
@@ -87,6 +61,9 @@ label[class|="nav-menu-label"] {
     
     &:hover {
         cursor: pointer;
+    }
+    @media (width > $-max-width) {
+        display: none;
     }
 }
 
