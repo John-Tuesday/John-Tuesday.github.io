@@ -1,0 +1,15 @@
+@use "screen";
+@use "theme";
+@use "page";
+@use "footer";
+@use "nav-bar";
+
+#main_content {
+    max-width: min(100%, 800px);
+    margin: auto;
+    padding: {
+        top: 16px;
+        bottom: 16px;
+    }
+}
+
