@@ -1,5 +1,4 @@
-@use "theme/m3-color" as c;
-@use "theme/m3-typography" as font;
+@use "theme";
 
 footer#page-footer {
     flex-direction: column;
@@ -11,20 +10,20 @@ footer#page-footer {
     padding-inline-end: 16px;
     border: {
         style: solid;
-        color: c.$outline-variant;
+        color: theme.$outline-variant;
         top-width: 1px;
     }
     
-    background-color: c.$surface-container-lowest;
-    @include font.font-body-small();
+    background-color: theme.$surface-container-lowest;
+    @include theme.font-body-small();
 
     h2 {
-        @include font.font-title-medium();
+        @include theme.font-title-medium();
         font-variation-settings: 'wght' 600;
     }
     
     a {
-        color: c.$secondary;
+        color: theme.$secondary;
     }
 }
 
@@ -33,12 +32,12 @@ section#page-footer-logo-container {
     align-self: flex-start;
 
     h2 {
-        text-decoration: underline c.$primary solid .125em;
-        @include font.font-headline-small();
+        text-decoration: underline theme.$primary solid .125em;
+        @include theme.font-headline-small();
         font-weight: 700;
     }
     p {
-        @include font.font-body-large();
+        @include theme.font-body-large();
         margin: unset;
         font-style: italic;
     }
@@ -52,9 +51,9 @@ svg#page-footer-logo {
     margin-inline-end: 0.25em;
 
     #page-footer-logo-svg {
-        --color-primary: #{c.$primary};
-        --color-secondary: #{c.$primary-container};
-        --color-circle-outer-1: #{c.$outline};
+        --color-primary: #{theme.$primary};
+        --color-secondary: #{theme.$primary-container};
+        --color-circle-outer-1: #{theme.$outline};
     }
 }
 
@@ -69,7 +68,7 @@ svg#page-footer-logo {
 }
 
 #footer-link-groups {
-    @include font.font-body-medium();
+    @include theme.font-body-medium();
 
     ul {
         margin: unset;
