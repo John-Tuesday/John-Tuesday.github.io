@@ -1,8 +1,8 @@
+---
+---
 @use "sass:color";
 @use "sass:map";
 @use "theme";
-@use "theme/m3-color" as c;
-@use "theme/m3-typography" as font;
 @use "theme/m3-motion" as m;
 @use "common/util";
 $-vmax-width: 450px;
@@ -74,7 +74,7 @@ $-vmax-width: 450px;
   align-items: center;
 
   & > h1, & > hgroup > h1 {
-    @include font.font-display-large();
+    @include theme.font-display-large();
     $-line-size: 0.125em;
     text-decoration: underline $-line-size;
     margin-block-end: $-line-size;
@@ -103,8 +103,10 @@ $-vmax-width: 450px;
 }
 
 #welcome {
-  background-color: c.$primary;
-  color: c.$on-primary;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  // background-color: c.$primary;
+  // color: c.$on-primary;
 
   &::after {
     content: "expand_more";
@@ -125,7 +127,8 @@ $-vmax-width: 450px;
   }
   
   h1 {
-    text-decoration-color: theme.$inverse-primary;
+    text-decoration-color: var(--md-sys-color-inverse-primary);
+    // text-decoration-color: theme.$inverse-primary;
   }
   & > * {
     position: relative;
@@ -136,15 +139,17 @@ $-vmax-width: 450px;
 #about-me-tagline {
   margin: unset;
   padding: unset;
-  @include font.font-headline-medium();
+  @include theme.font-headline-medium();
   font-weight: 500;
 }
 
 // Self description
 
 #about-me-slide {
-  background-color: theme.$tertiary;
-  color:         theme.$on-tertiary;
+  background-color: var(--md-sys-color-tertiary);
+  color:         var(--md-sys-color-on-tertiary);
+  // background-color: theme.$tertiary;
+  // color:         theme.$on-tertiary;
 }
 
 .about-me-container {
@@ -181,9 +186,12 @@ $-vmax-width: 450px;
 
 /** # Skills section **/
 #about-skills {
-  $-on-color:    theme.$on-secondary;
-  background-color: theme.$secondary;
+  $-on-color:    var(--md-sys-color-on-secondary);
+  background-color: var(--md-sys-color-secondary);
   color: $-on-color;
+  // $-on-color:    theme.$on-secondary;
+  // background-color: theme.$secondary;
+  // color: $-on-color;
 
   & svg {
     fill: $-on-color;
@@ -223,8 +231,10 @@ $-vmax-width: 450px;
 
 /** # Projects page **/
 #about-projects {
-  background-color: theme.$tertiary;
-  color:         theme.$on-tertiary;
+  background-color: var(--md-sys-color-tertiary);
+  color:         var(--md-sys-color-on-tertiary);
+  // background-color: theme.$tertiary;
+  // color:         theme.$on-tertiary;
 
   h3 {
     text-align: justify;
@@ -237,8 +247,10 @@ $-vmax-width: 450px;
   }
 
   .project-summary-card {
-    background-color: theme.$tertiary-container;
-    color:         theme.$on-tertiary-container;
+    background-color: var(--md-sys-color-tertiary-container);
+    color:         var(--md-sys-color-on-tertiary-container);
+    // background-color: theme.$tertiary-container;
+    // color:         theme.$on-tertiary-container;
   }
 }
 
@@ -294,8 +306,10 @@ $-vmax-width: 450px;
 /** Hacker Rank **/
 
 #about-hackerrank {
-  background-color: theme.$secondary;
-  color: theme.$on-secondary;
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-secondary);
+  // background-color: theme.$secondary;
+  // color: theme.$on-secondary;
 
   hgroup {
     text-align: center;
