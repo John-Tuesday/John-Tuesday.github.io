@@ -25,6 +25,16 @@ owner:
   initials: JTP
   tagline: Software Enthusiast
 
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      head:
+        stylesheets:
+          - "style.css"
+
 collections:
   projects:
     output: true
