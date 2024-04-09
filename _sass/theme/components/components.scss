@@ -26,7 +26,9 @@ $min-interact-height: 48px !default;
       top: 0;
       height: 100%;
       width: 100%;
-      background-color: theme.apply-tint(transparent);
+      // background-color: theme.apply-tint(transparent);
+      background-color: theme.$surface-tint;
+      opacity: 8%;
     }
   }
 }
