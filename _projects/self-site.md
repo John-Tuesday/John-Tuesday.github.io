@@ -1,5 +1,4 @@
 ---
-layout: projects/project
 title: Website
 subtitle: this very website
 name: This website

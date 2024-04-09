@@ -1,0 +1,132 @@
+---
+---
+@use "theme";
+$-page-radius: 16px;
+$-vmax-width: 900px;
+
+.project-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-block-end: 32px;
+    
+    background-color: theme.$surface-container-low;
+    color: theme.$on-surface;
+}
+
+.project-page-content {
+    // width: fit-content;
+    border-radius: $-page-radius;
+    background-color: theme.$surface;
+    color: theme.$on-surface;
+    
+    > :not(:last-child) {
+        padding-block-end: 16px;
+    }
+
+    p > code {
+        padding-block-start: 0;
+        padding-block-end: 0;
+    }
+}
+
+.project-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+
+    &:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    
+    @media (max-width: $-vmax-width) {
+        flex-direction: column;
+        &:nth-child(even) {
+            flex-direction: column;
+        }
+    }
+
+    > :not([class|="project-no-pad"]) {
+        $-pad: 16px;
+        padding-inline-start: $-pad;
+        padding-inline-end: $-pad;
+    }
+    
+    > section {
+        flex: 0 1 fit-content;
+        display: inline-block;
+    }
+    > figure {
+        flex: 0 1 fit-content;
+    }
+
+    h2 {
+        display: inline-block;
+    }
+}
+
+figure[class|="project"] {
+    $-cap-pad-top: 12px;
+    $-cap-pad-bottom: 4px;
+    $-cap-pad-inline: $-page-radius;
+    $-cap-line-height: 1.25;
+    $-cap-height: calc($-cap-pad-bottom + $-cap-pad-top + 1em*$-cap-line-height);
+
+    position: relative;
+    border-radius: $-page-radius;
+    overflow: clip;
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+
+    @include theme.font-label-large();
+    font-style: italic;
+    line-height: $-cap-line-height;
+
+    background-color: theme.$secondary-container;
+    color: theme.$on-secondary-container;
+    @media (max-width: $-vmax-width) {
+        max-height: 50vh;
+        width: 100%;
+    }
+
+    figcaption {
+        position: absolute;
+        display: inline-block;
+        bottom: 0;
+        right: 0;
+        padding-block-start: $-cap-pad-top;
+        padding-block-end: $-cap-pad-bottom;
+        padding-inline-start: $-cap-pad-inline;
+        padding-inline-end: $-cap-pad-inline;
+        color: theme.$secondary;
+    }
+
+    img.screenshot {
+        display: inline-block;
+        object-fit: cover;
+        object-position: center top;
+
+        max-width: 650px;
+        width: 100%;
+
+        height: auto;
+        min-height: min(300px, 50vh);
+
+
+        $-gradient: linear-gradient(0deg, transparent 0 $-cap-height, transparent 5%, black 33% 100%);
+        -webkit-mask-image: $-gradient;
+        mask-image: $-gradient;
+        
+        @media (max-width: $-vmax-width) {
+            min-height: unset;
+            max-width: 100%;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
