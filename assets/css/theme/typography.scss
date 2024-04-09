@@ -1,7 +1,7 @@
 ---
 ---
 @use "sass:map";
-@use "theme/m3-typography-v2" as theme;
+@use "theme";
 
 $-typography-families: (
   {%- assign sizes="small,medium,large" | split: "," -%}
