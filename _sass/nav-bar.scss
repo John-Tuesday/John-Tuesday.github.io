@@ -22,7 +22,6 @@ a.back-to-top {
     background-color: theme.$secondary-container;
     color: theme.$on-secondary-container;
     border-radius: 16px;
-    @include util.box-shadow-small();
     @media not screen and (max-width: $-max-width) {
         // display: none;
         opacity: 75%;
@@ -111,16 +110,6 @@ label[class|="nav-menu-label"] {
         align-items: center;
         // background-color: transparent;
     }
-}
-
-.favlogo {
-    display: inline-block;
-    $-s: 48px;
-    max-height: min(100%, $-s);
-    max-width: min(100%, $-s);
-    padding: 8px;
-    object-fit: contain;
-    @include util.filter-shadow-small();
 }
 
 .nav-menu-bar {

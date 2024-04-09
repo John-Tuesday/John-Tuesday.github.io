@@ -24,7 +24,6 @@ header.page-header {
     @include theme.font-display-medium();
     font-weight: 700;
     text-transform: uppercase;
-    @include util.text-shadow-prominent();
 }
 
 .page-subtitle {

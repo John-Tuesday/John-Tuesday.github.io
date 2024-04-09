@@ -1,44 +1,4 @@
-@use "theme/m3-color" as c;
-
-// Sizes
-// $min-interact-height: 48px;
-// $min-interact-width: 48px;
-// $outline-width: 1px;
-
-// Shadow
-$shadow-h-offset: 2px;
-$shadow-v-offset: 2px;
-$shadow-blur: 1px;
-
-@mixin -shadow($type, $h-offset, $v-offset, $blur, $color: c.$shadow-25) {
-    @if $type == "text" {
-        text-shadow: $h-offset $v-offset $blur $color;
-    } @else if $type == "filter" {
-        filter: drop-shadow($h-offset $v-offset $blur $color)
-    } @else if $type == "box" {
-        box-shadow: $h-offset $v-offset $blur $color;
-    }
-}
-
-@mixin text-shadow-small {
-    @include -shadow("text", $shadow-h-offset, $shadow-v-offset, $shadow-blur);
-}
-@mixin filter-shadow-small {
-    @include -shadow("filter", $shadow-h-offset, $shadow-v-offset, $shadow-blur);
-}
-@mixin box-shadow-small {
-    @include -shadow("box", $shadow-h-offset, $shadow-v-offset, $shadow-blur);
-}
-
-@mixin -shadow-prominent($name) {
-    @include -shadow($name, 2px, 1px, 1px, c.apply-tint(transparent, 50%));
-}
-@mixin text-shadow-prominent {
-    @include -shadow-prominent("text");
-}
-@mixin filter-shadow-prominent {
-    @include -shadow-prominent("filter");
-}
+@use "theme";
 
 // Z-index
 $topbar-z: 10;
