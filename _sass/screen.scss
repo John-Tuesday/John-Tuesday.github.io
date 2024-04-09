@@ -1,15 +1,4 @@
-@use "theme/m3-typography" as t;
-@use "theme/m3-color" as c;
 @use "theme";
-@use "theme/components";
-@use "common/util";
-@use "sass:color";
-
-@mixin clear-spacing {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -65,24 +54,17 @@ header {
   border-radius: 8px;
 
   h1 {
-    @include t.font-headline-large();
-    font-weight: 600;
+    @include theme.font-headline-large();
+    font-weight: 700;
     text-align: center;
 
-    $-thick: 0.125em;
-    text-decoration: {
-      line: underline;
-      style: solid;
-      color: c.$primary;
-      thickness: $-thick;
-    };
     $-pad: 16px;
-    padding-block-end: calc($-pad + $-thick);
+    padding-block-end: $-pad;
     padding-block-start: $-pad;
   }
 
   h2 {
-    @include t.font-headline-small();
+    @include theme.font-headline-small();
     font-weight: 500;
     text-align: center;
   }
@@ -95,15 +77,10 @@ footer {
 }
 
 body {
-  @include t.font-body-large();
-  // font: {
-    // family: font.$default-family;
-    // size: font.$default-size;
-    // line-height: font.$default-line-height;
-  // }
+  @include theme.font-body-large();
   
-  color: c.$on-background;
-  background-color: c.$background;
+  color: theme.$on-background;
+  background-color: theme.$background;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -129,8 +106,8 @@ a:hover {
 
 h1, h2, h3, h4, h5, h6 {
   font: {
-    family: t.typography("headline", "large", "family");
-    weight: bold;
+    family: theme.typography("headline", "large", "family");
+    weight: 700;
   }
 }
 
@@ -170,7 +147,7 @@ code {
 }
 
 strong {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 em {
@@ -187,86 +164,11 @@ ol {
   list-style-type: decimal;
 }
 
-table {
-  display: table;
-  background: c.$surface-container;
-  max-width: 100%;
-  border: {
-    collapse: separate;
-    bottom: 2px solid c.$outline;
-  }
-  margin: {
-    top: 10px;
-    bottom: 10px;
-  }
-}
-
-tr {
-  display: table-row;
-  
-  &:last-child td {
-    border-bottom: none;
-  }
-  
-  &:nth-child(even) {
-    background-color: c.$surface-container-high;
-  }
-  
-  &:hover, &:hover td, &:hover th {
-    background-color: color.adjust(c.$tertiary, $alpha: .01, $lightness: 30%);
-    border-color: color.adjust(c.$tertiary, $alpha: .01, $lightness: 30%);
-  }
-}
-
-thead {
-  display: table-header-group;
-  background-color: c.$surface-container-high;
-}
-
-th {
-  display: table-cell;
-  padding: 2px 10px;
-  vertical-align: middle;
-  border: {
-    style: solid;
-    color: c.$surface;
-    top-width: 0;
-    bottom-width: 0;
-    left-width: 1px;
-    right-width: 1px;
-  }
-  color: c.$secondary;
-  @include t.font-title-medium();
-  font: {
-    size: inherit;
-    weight: bold;
-  }
-
-  &:last-child {
-    border-right: none;
-  }
-}
-
-td {
-  display: table-cell;
-  padding: 0 .7em;
-  border: {
-    style: solid;
-    color: c.$surface;
-    top-width: 0;
-    bottom-width: 0;
-    left-width: 1px;
-    right-width: 1px;
-  }
-  
-  &:last-child {
-    border-right: none;
-  }
-}
-
 label {
+  padding: 0;
+  margin: 0;
+  border: 0;
   background: inherit;
-  @include clear-spacing();
 }
 
 section#main-content {
