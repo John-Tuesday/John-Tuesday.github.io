@@ -1,0 +1,132 @@
+// --md-sys-typescale-<scale>-<size>-<property>
+
+/**
+ * Convert raw number [size] to font-size according to m3 spec
+ *
+ * This enables scaling font size with the root font size
+ */
+@function sp($size) {
+  $conversion: 0.0625rem;
+  @return calc($conversion * $size);
+}
+
+
+/**
+ * input should be map in the form
+ *    (scale: (size: (property: value)))
+ */
+@mixin set-typescale($-typography) {
+  & {
+    @each $scale, $sizes in $-typography {
+      @each $size, $properties in $sizes {
+        @each $property, $value in $properties {
+          --md-sys-typescale-#{$scale}-#{$size}-#{$property}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Tries to get custom css property
+ *    --md-sys-typescale-<scale>-<size>-<property>
+ * uses [fallback] as backup
+ */
+@function -typography-property($scale, $size, $property, $fallback: null) {
+  @if not $fallback {
+    @if $property == "line-height" {
+      $fallback: normal;
+    } @else {
+      $fallback: revert;
+    }
+  }
+  @return var(--md-sys-typescale-#{$scale}-#{$size}-#{$property}, $fallback);
+}
+
+/**
+ * Get typography property
+ *    if not set, check sizes 'small', 'medium', then 'large'
+ *    if still not set, use default
+ */
+@function typography($scale, $size, $property) {
+  @return -typography-property($scale, $size, $property,
+      -typography-property($scale, "small", $property, 
+          -typography-property($scale, "medium", $property,
+              -typography-property($scale, "large", $property)
+            )
+        )
+    );
+}
+
+/**
+ * Set font all properties using default fallback
+ */
+@mixin -set-font($scale, $size) {
+  & {
+    font-size: sp(typography($scale, $size, "size"));
+    font-weight: typography($scale, $size, "weight");
+    line-height: typography($scale, $size, "line-height");
+    font-family: typography($scale, $size, "family");
+  }
+}
+
+/**
+ * Safe -set-font
+ *    - this will allow easy to detect spelling errors
+ */
+
+@mixin font-display-large {
+    @include -set-font("display", "large");
+}
+@mixin font-display-medium {
+    @include -set-font("display", "medium");
+}
+@mixin font-display-small {
+    @include -set-font("display", "small");
+}
+@mixin font-headline-large {
+    @include -set-font("headline", "large");
+}
+@mixin font-headline-medium {
+    @include -set-font("headline", "medium");
+}
+@mixin font-headline-small {
+    @include -set-font("headline", "small");
+}
+@mixin font-title-large {
+    @include -set-font("title", "large");
+}
+@mixin font-title-medium {
+    @include -set-font("title", "medium");
+}
+@mixin font-title-small {
+    @include -set-font("title", "small");
+}
+@mixin font-body-large {
+    @include -set-font("body", "large");
+}
+@mixin font-body-medium {
+    @include -set-font("body", "medium");
+}
+@mixin font-body-small {
+    @include -set-font("body", "small");
+}
+@mixin font-label-medium {
+    @include -set-font("label", "medium");
+}
+@mixin font-label-large {
+    @include -set-font("label", "large");
+}
+@mixin font-label-small {
+    @include -set-font("label", "small");
+}
+@mixin font-code-medium {
+    @include -set-font("code", "medium");
+}
+@mixin font-code-large {
+    @include -set-font("code", "large");
+}
+@mixin font-code-small {
+    @include -set-font("code", "small");
+}
+
