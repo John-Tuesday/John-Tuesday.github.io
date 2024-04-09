@@ -1,7 +1,6 @@
 @use "sass:map";
 @use "sass:color";
-@use "theme/m3-typography" as font;
-@use "theme/m3-color" as c;
+@use "theme";
 @use "theme/components";
 @use "common/util";
 $-max-width: 450px !default;
@@ -20,18 +19,13 @@ a.back-to-top {
     min-block-size: 56px;
     font-size: 24px;
     text-decoration: none;
-    background-color: c.$secondary-container;
-    color: c.$on-secondary-container;
+    background-color: theme.$secondary-container;
+    color: theme.$on-secondary-container;
     border-radius: 16px;
     @include util.box-shadow-small();
     @media not screen and (max-width: $-max-width) {
         // display: none;
         opacity: 75%;
-    }
-    
-    &:hover {
-        background-color: c.apply-tint(c.$secondary-container);
-        opacity: 100%;
     }
 }
 
@@ -108,8 +102,8 @@ label[class|="nav-menu-label"] {
     max-width: 100%;
     width: 100%;
 
-    background-color: c.$surface;
-    color: c.$on-surface;
+    background-color: theme.$surface;
+    color: theme.$on-surface;
 
     @media (max-width: $-max-width) {
         position: relative;
@@ -153,26 +147,27 @@ label[class|="nav-menu-label"] {
             margin-inline-end: 8px;
         }
         &:hover .nav-icon {
-            background-color: c.apply-tint(transparent);
+            // background-color: theme.apply-tint(transparent);
+            // background-color: theme.$surface-tint;
         }
         &:hover a.current-nav .nav-icon {
-            background-color: c.apply-tint(c.$secondary-container);
+            // background-color: theme.apply-tint(theme.$secondary-container);
         }
     }
     @media (max-width: $-max-width) {
         &:hover .nav-item-content {
-            background-color: c.apply-tint(transparent);
+            // background-color: theme.apply-tint(transparent);
         }
         &:hover a.current-nav .nav-item-content {
-            background-color: c.apply-tint(c.$secondary-container);
+            // background-color: theme.apply-tint(theme.$secondary-container);
         }
     }
 }
 
 a.current-nav {
     .nav-icon {
-        background-color: c.$secondary-container;
-        color: c.$on-secondary-container;
+        background-color: theme.$secondary-container;
+        color: theme.$on-secondary-container;
 
         .material-symbols-rounded {
             font-variation-settings: 'FILL' 1;
@@ -180,13 +175,13 @@ a.current-nav {
     }
     
     .nav-label {
-        font-weight: font.typography("label", "large", "weight-prominent");
+        font-weight: theme.typography("label", "large", "weight-prominent");
     }
     
     @media (max-width: $-max-width) {
         .nav-item-content {
-            background-color: c.$secondary-container;
-            color: c.$on-secondary-container;
+            background-color: theme.$secondary-container;
+            color: theme.$on-secondary-container;
         }
         .nav-icon {
             background-color: transparent;
@@ -236,8 +231,8 @@ a.current-nav {
     }
     
     .nav-label {
-        @include font.font-label-large();
+        @include theme.font-label-large();
         padding-top: 4px;
-        color: c.$on-surface;
+        color: theme.$on-surface;
     }
 }
