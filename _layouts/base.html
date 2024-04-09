@@ -12,6 +12,13 @@
 
     <title>John Tuesday Picot | {{ page.title }}</title>
 
+    {%- for stylesheet in page.head.stylesheets -%}
+      <link rel="stylesheet" href="{{ stylesheet }}">
+    {%- endfor -%}
+    {%- for script in page.head.scripts -%}
+      <script src="{{ script.src }}" defer></script>
+    {%- endfor -%}
+
   </head>
 
   <body>
