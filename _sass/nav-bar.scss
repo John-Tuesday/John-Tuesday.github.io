@@ -71,6 +71,7 @@ label.nav-menu-label {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  column-gap: 8px;
   width: 100%;
   max-width: 100%;
   
@@ -83,24 +84,104 @@ a.nav-item {
   flex-grow: 1;
   text-decoration: none;
 
-  @media (min-width: $-max-width) {
-    &:not(:last-child) {
-      margin-inline-end: 8px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  min-width:  components.$min-interact-width;
+  min-height: components.$min-interact-height;
+  padding-block-start: 12px;
+  padding-block-end: 16px;
+
+  isolation: isolate;
+
+  row-gap: 4px;
+  column-gap: 8px;
+
+  $-active-bg: theme.$secondary-container;
+  $-active-fg: theme.$on-secondary-container;
+
+  @media (width <= $-max-width) {
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 12px;
+    border-color: transparent;
+    border-style: solid;
+    border-inline-width: 12px;
+    padding-inline: 16px;
+    padding-block: 16px;
+
+    &.current-nav::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $-active-bg;
+      color: $-active-fg;
+      border-radius: 100vmax;
+      z-index: -1;
+      mix-blend-mode: hard-light;
     }
-    &:hover .nav-icon {
-      // background-color: theme.apply-tint(transparent);
-      // background-color: theme.$surface-tint;
-    }
-    &.current-nav:hover .nav-icon {
-      // background-color: theme.apply-tint(theme.$secondary-container);
+
+    &:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $-active-fg;
+      mix-blend-mode: hard-light;
+      opacity: 0.08;
+      border-radius: 100vmax;
     }
   }
-  @media (max-width: $-max-width) {
-    &:hover .nav-item-content {
-      // background-color: theme.apply-tint(transparent);
+  @media (width > $-max-width) {
+    .nav-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100vmax;
+      min-width: 64px;
+      min-height: 32px;
     }
-    &.current-nav:hover .nav-item-content {
-      // background-color: theme.apply-tint(theme.$secondary-container);
+    &.current-nav .nav-icon {
+      background-color: $-active-bg;
+      color: $-active-fg;
+    }
+    &:hover .nav-icon::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $-active-fg;
+      mix-blend-mode: hard-light;
+      opacity: 0.08;
+      border-radius: 100vmax;
+    }
+  }
+  
+  .nav-icon {
+    position: relative;
+    text-align: center;
+    $-icon-size: 24px;
+    font-size: $-icon-size;
+    line-height: 1;
+    width: $-icon-size;
+    height: $-icon-size;
+  }
+  
+  .nav-label {
+    @include theme.font-label-medium();
+    color: theme.$on-surface;
+    @media (max-width: $-max-width) {
+      @include theme.font-label-large();
     }
   }
 }
@@ -130,50 +211,3 @@ a.current-nav {
   }
 }
   
-.nav-item-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  min-width:  components.$min-interact-width;
-  min-height: components.$min-interact-height;
-  padding: {
-    top: 12px;
-    bottom: 16px;
-  }
-  
-  @media (max-width: $-max-width) {
-    flex-direction: row;
-    justify-content: flex-start;
-    border-radius: 32px;
-    margin-inline-start: 12px;
-    margin-inline-end: 12px;
-  }
-  
-  .nav-icon {
-    border-radius: 16px;
-    text-align: center;
-    @media (min-width: $-max-width) {
-      height: 32px;
-      width: 64px;
-    }
-    @media (max-width: $-max-width) {
-      padding-inline-start: 16px;
-      padding-inline-end: 12px;
-    }
-  }
-  
-  .material-symbols-rounded {
-    width: 24px;
-    height: 24px;
-    font-size: 24px;
-    line-height: normal;
-  }
-  
-  .nav-label {
-    @include theme.font-label-large();
-    padding-top: 4px;
-    color: theme.$on-surface;
-  }
-}

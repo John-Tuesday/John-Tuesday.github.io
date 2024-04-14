@@ -15,14 +15,12 @@
     {%- endif -%}
     {%- endcapture -%}
     <a href="{{ p.link }}" class="nav-item {{ cls }}">
-      <span class="nav-item-content">
         <div class="nav-icon">
           <span class="material-symbols-rounded">{{ p.m3-icon }}</span>
         </div>
         <div class="nav-label">
           {{- p.name -}}
         </div>
-      </span>
     </a>
     {%- endfor %}
   </nav>
