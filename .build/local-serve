@@ -44,7 +44,7 @@ set_mode () {
         ;;
     esac
     JEKYLL_ENV="$1"
-    JEKYLL_OPTS['--config']="_config.yml,$JEKYLL_ENV/_config.yaml"
+    JEKYLL_OPTS['--config']="_config.yml,_$JEKYLL_ENV/_config.yaml"
 }
 
 for opt in "$@"; do

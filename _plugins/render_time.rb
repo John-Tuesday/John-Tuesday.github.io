@@ -24,7 +24,6 @@ module Jekyll
       arr.each do |item|
         table[item[key]] = item
       end
-
       return table
     end
   end

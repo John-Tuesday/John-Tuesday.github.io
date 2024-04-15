@@ -1,5 +1,5 @@
 include:
-  - "test/"
+  - "_test/"
 
 disable-disk-cache: true
 livereload: true
