@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title:  "SQL Intermediate Certified"
 date:   2024-01-09 23:33:21 -0600
 categories: SQL
