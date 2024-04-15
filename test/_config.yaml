@@ -1,2 +1,11 @@
 include:
   - "test/"
+
+disable-disk-cache: true
+livereload: true
+strict_front_matter: true
+
+liquid:
+  error_mode: warn
+  strict_filters: true
+  strict_variables: false

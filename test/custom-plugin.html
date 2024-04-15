@@ -1,0 +1,23 @@
+---
+layout: base
+title: Custom Plugin
+head:
+  stylesheets: []
+---
+
+<p>TAG</p>
+<pre>
+{% assign col_projects = "value" %}
+{% collection projects %}
+</pre>
+<pre>
+OUTPUT
+{{ col_projects["self-site.md"].path }}
+</pre>
+
+<h3>FILTER</h3>
+<pre>
+"lol"
+{{ site.projects | associate_by: "name" }}
+end
+</pre>
