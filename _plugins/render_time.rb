@@ -27,8 +27,24 @@ module Jekyll
       return table
     end
   end
+
+  class AddStylesheetTag < Liquid::Tag
+    def initialize(tag_name, path, tokens)
+      super
+      @path = path.to_s.strip!
+    end
+
+    def render(context)
+      super
+      sheets = context["head.stylesheets"] || []
+      sheets << @path
+      context["head.stylesheets"] = sheets
+    end
+  end
 end
 
 Liquid::Template.register_tag('collection', Jekyll::CollectionTag)
 Liquid::Template.register_filter(Jekyll::ArrayToHashFilter)
+
+Liquid::Template.register_tag('add_stylesheet', Jekyll::AddStylesheetTag)
 

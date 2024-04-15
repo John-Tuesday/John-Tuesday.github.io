@@ -1,8 +1,6 @@
 ---
 layout: base
 title: Custom Plugin
-head:
-  stylesheets: []
 ---
 
 <p>TAG</p>
@@ -20,4 +18,12 @@ OUTPUT
 "lol"
 {{ site.projects | associate_by: "name" }}
 end
+</pre>
+
+<h3>Add Stylesheet</h3>
+<pre>
+{
+  {% add_stylesheet "/style.css" %}
+  {{ head.stylesheets }}
+}
 </pre>
