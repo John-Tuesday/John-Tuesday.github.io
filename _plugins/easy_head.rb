@@ -1,12 +1,4 @@
 module EasyHead
-  def if_file_exists(site, path)
-    site.static_files.each do |file|
-      return file if file.url == path
-    end
-
-    return false
-  end
-
   class AddStylesheetTag < Liquid::Tag
     def initialize(tag_name, path, tokens)
       super
