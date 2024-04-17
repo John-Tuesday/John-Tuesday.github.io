@@ -2,7 +2,7 @@ module EasyHead
   class AddStylesheetTag < Liquid::Tag
     def initialize(tag_name, path, tokens)
       super
-      @path = path.to_s.strip!
+      @path = path.to_s.strip!.undump
       @head_key = 'head'
       @key = 'stylesheets'
     end
@@ -12,7 +12,8 @@ module EasyHead
       page = @context.registers[:page]
       page[@head_key] ||= {}
       page[@head_key][@key] ||= []
-      page[@head_key][@key] << @path
+      styles = page[@head_key][@key]
+      styles << @path unless styles.include?(@path)
     end
   end
 
