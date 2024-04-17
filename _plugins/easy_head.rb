@@ -1,5 +1,7 @@
 module EasyHead
   class AddStylesheetTag < Liquid::Tag
+    LiquidName = 'add_stylesheet'
+
     def initialize(tag_name, path, tokens)
       super
       @path = path.to_s.strip!.undump
@@ -14,6 +16,7 @@ module EasyHead
       page[@head_key][@key] ||= []
       styles = page[@head_key][@key]
       styles << @path unless styles.include?(@path)
+      nil
     end
   end
 
@@ -56,9 +59,10 @@ module EasyHead
       head['stylesheets'] ||= [@@default_style_name]
     end
   end
+
+  Liquid::Template.register_tag(AddStylesheetTag::LiquidName, EasyHead::AddStylesheetTag)
 end
 
-Liquid::Template.register_tag('add_stylesheet', EasyHead::AddStylesheetTag)
 
 include EasyHead
 Jekyll::Hooks.register :pages, :pre_render do |page, payload|
