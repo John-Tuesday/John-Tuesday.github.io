@@ -42,30 +42,28 @@ module EasyHead
     end
   end
 
-  class DefaultHeadPlugin
-    @@default_style_name = 'style.css'
+  module DefaultHeadPlugin
+    module_function
 
-    def self.default_head(page, payload)
+    def default_head(page, payload)
+      default_style_name = 'style.css'
       head = payload['page']['head'] ||= {}
       # is pre defined
       return if head.has_key?('stylesheets')
 
       # find file
       files = payload['site'].static_files
-      default_style_url = Jekyll::PathManager.join(page.dir, @@default_style_name)
+      default_style_url = Jekyll::PathManager.join(page.dir, default_style_name)
       return unless files.any? {|elem| elem.url == default_style_url }
 
-      head['stylesheets'] ||= [@@default_style_name]
+      head['stylesheets'] ||= [default_style_name]
     end
   end
 
   Liquid::Template.register_tag(AddStylesheetTag::LiquidName, EasyHead::AddStylesheetTag)
-end
-
-
-include EasyHead
-Jekyll::Hooks.register :pages, :pre_render do |page, payload|
-  EasyHead::DefaultHeadPlugin.default_head(page, payload)
-  payload[EasyHead::HeadDrop::LiquidName] = EasyHead::HeadDrop.new(payload)
+  Jekyll::Hooks.register :pages, :pre_render do |page, payload|
+    EasyHead::DefaultHeadPlugin::default_head(page, payload)
+    payload[EasyHead::HeadDrop::LiquidName] = EasyHead::HeadDrop.new(payload)
+  end
 end
 
