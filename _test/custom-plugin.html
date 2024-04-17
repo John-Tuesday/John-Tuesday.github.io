@@ -3,16 +3,6 @@ layout: base
 title: Custom Plugin
 ---
 
-<p>TAG</p>
-<pre>
-{% assign col_projects = "value" %}
-{% collection projects %}
-</pre>
-<pre>
-OUTPUT
-{{ col_projects["self-site.md"].path }}
-</pre>
-
 <h3>FILTER</h3>
 <pre>
 "lol"
@@ -37,7 +27,6 @@ end
 <h3>Default Stylesheet</h3>
 <pre>
 {
-  {{ page.heady }}
   {{ page.head.stylesheets }}
   {{ page.head.stylesheets | inspect }}
   {{ site.head.stylesheets }}
@@ -45,8 +34,6 @@ end
   {{ page.test | inspect }}
   {{ site.test | inspect }}
   {{ site.data.test | inspect }}
-  {{ page.test_0 | inspect }}
-  {{ site.test_0 | inspect }}
 }
 </pre>
 
