@@ -1,0 +1,36 @@
+---
+layout: base
+title: Predefined Head
+head:
+  stylesheets:
+    - "test.css"
+---
+<h1>Pre-defined</h1>
+<article>
+  <dl>
+    <dt>test info</dt>
+    <dd><pre>
+{{ page.test | inspect }}
+    </pre></dd>
+    <dt>stylesheets</dt>
+    <dd><pre>
+{{ page.head.stylesheets | inspect }}
+    </pre></dd>
+    <dt>Add stylesheet</dt>
+    <dd><pre>
+{% add_stylesheet "/style.css" %}
+    </pre></dd>
+    <dt>stylesheets</dt>
+    <dd><pre>
+{{ page.head.stylesheets | inspect }}
+    </pre></dd>
+  </dl>
+  <section>
+    <h3>Test Info</h3>
+    <pre>
+{{ test }}
+{{ page.head | inspect }}
+    </pre>
+  </section>
+</article>
+

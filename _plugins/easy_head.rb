@@ -24,37 +24,28 @@ module EasyHead
     end
   end
 
-  class DefaultStylesheetGen < Jekyll::Generator
-    include EasyHead
+  class DefaultHeadPlugin
+    @@default_style_name = 'style.css'
 
-    @@default_path = 'style.css'
+    def self.default_head(page, payload)
+      head = payload['page']['head'] ||= {}
+      # is pre defined
+      return if head.has_key?('stylesheets')
 
-    def initialize(config)
-      super
-      @head_key ||= 'head'
-      @stylesheets_key ||= 'stylesheets'
-    end
+      # find file
+      files = payload['site'].static_files
+      default_style_url = Jekyll::PathManager.join(page.dir, @@default_style_name)
+      return unless files.any? {|elem| elem.url == default_style_url }
 
-    # if stylesheet is not specified and default exists, use default
-    #   default is `style.css` relative to each page
-    def generate(site)
-      site.pages.each do |pg|
-        # check if already defined
-        if pg.data[@head_key] && !pg.data[@head_key][@stylesheets_key]&.empty?
-          return
-        end
-        # check default
-        default_style = Jekyll::PathManager.join(pg.dir, @@default_path)
-        exists = !!if_file_exists(site, default_style)
-        if exists
-          # add_default
-          pg.data[@head_key] ||= {}
-          pg.data[@head_key][@stylesheets_key] = [default_style]
-        end
-      end
+      head['stylesheets'] ||= [@@default_style_name]
     end
   end
 end
 
 Liquid::Template.register_tag('add_stylesheet', EasyHead::AddStylesheetTag)
+
+include EasyHead
+Jekyll::Hooks.register :pages, :pre_render do |page, payload|
+  EasyHead::DefaultHeadPlugin.default_head(page, payload)
+end
 

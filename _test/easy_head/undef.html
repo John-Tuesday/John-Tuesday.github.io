@@ -1,0 +1,34 @@
+---
+layout: base
+title: Undefined Head
+---
+<h1>Undefined</h1>
+<article>
+  <dl>
+    <dt>test info</dt>
+    <dd><pre>
+{{ page.head | inspect }}
+    </pre></dd>
+    <dt>stylesheets</dt>
+    <dd><pre>
+{{ page.head.stylesheets | inspect }}
+    </pre></dd>
+    <dt>Add stylesheet</dt>
+    <dd><pre>
+{% add_stylesheet "/style.css" %}
+    </pre></dd>
+    <dt>stylesheets</dt>
+    <dd><pre>
+{{ page.head.stylesheets | inspect }}
+    </pre></dd>
+  </dl>
+  <section>
+    <h3>Test Info</h3>
+    <pre>
+{{ test }}
+{{ page.head | inspect }}
+    </pre>
+  </section>
+</article>
+
+

@@ -44,7 +44,15 @@ end
   {{ page.test }}
   {{ page.test | inspect }}
   {{ site.test | inspect }}
+  {{ site.data.test | inspect }}
   {{ page.test_0 | inspect }}
   {{ site.test_0 | inspect }}
 }
+</pre>
+
+<h3>Hook: Pre render</h3>
+<pre>
+{
+  {{ test | inspect }}
+  {{ page.head | inspect }}
 </pre>
