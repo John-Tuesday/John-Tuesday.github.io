@@ -24,6 +24,27 @@ end
 <pre>
 {
   {% add_stylesheet "/style.css" %}
-  {{ head.stylesheets }}
+  {% add_stylesheet "/style.css" %}
+  {{ page.head | inspect | escape }}
+  {{ page.head.stylesheets | escape }}
+  {{ page['head.stylesheets'] | escape }}
+  {{ page.stylesheets | escape }}
+  {{ page['stylesheets'] | escape }}
+  {{ page.heady | escape }}
+}
+</pre>
+
+<h3>Default Stylesheet</h3>
+<pre>
+{
+  {{ page.heady }}
+  {{ page.head.stylesheets }}
+  {{ page.head.stylesheets | inspect }}
+  {{ site.head.stylesheets }}
+  {{ page.test }}
+  {{ page.test | inspect }}
+  {{ site.test | inspect }}
+  {{ page.test_0 | inspect }}
+  {{ site.test_0 | inspect }}
 }
 </pre>
