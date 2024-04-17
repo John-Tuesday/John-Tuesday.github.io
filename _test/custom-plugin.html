@@ -56,3 +56,12 @@ end
   {{ test | inspect }}
   {{ page.head | inspect }}
 </pre>
+
+<h3>HeadDrop</h3>
+<pre>
+{
+  easy_head: {{ easy_head | inspect }}
+  easy_head.head: {{ easy_head.head | inspect }}
+  easy_head.stylesheets: {{ easy_head.stylesheets | inspect }}
+}
+</pre>

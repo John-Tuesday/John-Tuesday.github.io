@@ -16,6 +16,29 @@ module EasyHead
     end
   end
 
+  class HeadDrop < Liquid::Drop
+    include Jekyll::Utils
+
+    LiquidName = 'easy_head'
+
+    def initialize(payload)
+      @payload = payload
+    end
+
+    def head
+      @head ||= ['page', 'layout', 'site']
+        .map! { |x| @payload[x]['head'] }
+        .compact!
+        .inject({}) do |acc, x | 
+          deep_merge_hashes(acc, x)
+        end
+    end
+
+    def stylesheets
+      @stylesheets ||= head['stylesheets']
+    end
+  end
+
   class DefaultHeadPlugin
     @@default_style_name = 'style.css'
 
@@ -39,5 +62,6 @@ Liquid::Template.register_tag('add_stylesheet', EasyHead::AddStylesheetTag)
 include EasyHead
 Jekyll::Hooks.register :pages, :pre_render do |page, payload|
   EasyHead::DefaultHeadPlugin.default_head(page, payload)
+  payload[EasyHead::HeadDrop::LiquidName] = EasyHead::HeadDrop.new(payload)
 end
 
