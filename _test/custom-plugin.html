@@ -15,25 +15,7 @@ end
 {
   {% add_stylesheet "/style.css" %}
   {% add_stylesheet "/style.css" %}
-  {{ page.head | inspect | escape }}
-  {{ page.head.stylesheets | escape }}
-  {{ page['head.stylesheets'] | escape }}
-  {{ page.stylesheets | escape }}
-  {{ page['stylesheets'] | escape }}
-  {{ page.heady | escape }}
-}
-</pre>
-
-<h3>Default Stylesheet</h3>
-<pre>
-{
-  {{ page.head.stylesheets }}
   {{ page.head.stylesheets | inspect }}
-  {{ site.head.stylesheets }}
-  {{ page.test }}
-  {{ page.test | inspect }}
-  {{ site.test | inspect }}
-  {{ site.data.test | inspect }}
 }
 </pre>
 

@@ -12,17 +12,15 @@
 
     <title>John Tuesday Picot | {{ page.title }}</title>
 
-    {%- for stylesheet in layout.head.stylesheets -%}
-      <link rel="stylesheet" href="{{ stylesheet }}">
-    {%- endfor -%}
     {%- for script in layout.head.scripts -%}
       <script src="{{ script.src }}" defer></script>
     {%- endfor -%}
-    {%- for stylesheet in page.head.stylesheets -%}
-      <link rel="stylesheet" href="{{ stylesheet }}">
-    {%- endfor -%}
     {%- for script in page.head.scripts -%}
       <script src="{{ script.src }}" defer></script>
+    {%- endfor -%}
+
+    {%- for stylesheet in easy_head.stylesheets -%}
+      <link rel="stylesheet" href="{{ stylesheet }}">
     {%- endfor -%}
 
   </head>
