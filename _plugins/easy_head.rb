@@ -13,8 +13,7 @@ module EasyHead
       @context = context
       page = @context.registers[:page]
       page[@head_key] ||= {}
-      page[@head_key][@key] ||= []
-      styles = page[@head_key][@key]
+      styles = page[@head_key][@key] ||= []
       styles << @path unless styles.include?(@path)
       nil
     end
