@@ -53,6 +53,7 @@ markdown: kramdown
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from processing.
 # Default exclude list. Use if using Jekyll 3.

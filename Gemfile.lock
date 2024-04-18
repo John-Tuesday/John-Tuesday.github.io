@@ -85,6 +85,7 @@ DEPENDENCIES
   jekyll (~> 4.2)
   jekyll-feed (~> 0.15.1)
   jekyll-remote-theme
+  jekyll-seo-tag
   kramdown-parser-gfm
   minima (~> 2.0)
   tzinfo (>= 1, < 3)
